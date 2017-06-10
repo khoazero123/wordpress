@@ -21,7 +21,8 @@
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 // ** MySQL settings - You can get this info from your web host ** //
-$url = parse_url(getenv('HEROKU_POSTGRESQL_GRAY_URL') ? getenv('DATABASE_URL') : getenv('CLEARDB_DATABASE_URL'));
+$url = parse_url(getenv('DATABASE_URL') ? getenv('DATABASE_URL') : getenv('CLEARDB_DATABASE_URL'));
+$url = 'postgres://gvsjbdqfkpgdor:7ebb68bd29049a1baf40d453e8b49fc11dd7a8306df380363e8d37980a5feddc@ec2-50-19-219-69.compute-1.amazonaws.com:5432/df48elag4icec6';
 
 /** The name of the database for WordPress */
 define('DB_NAME', trim($url['path'], '/'));
