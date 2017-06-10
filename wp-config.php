@@ -20,22 +20,33 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-// ** MySQL settings - You can get this info from your web host ** //
-$url = parse_url(getenv('DATABASE_URL') ? getenv('DATABASE_URL') : getenv('CLEARDB_DATABASE_URL'));
-$url = parse_url('postgres://gvsjbdqfkpgdor:7ebb68bd29049a1baf40d453e8b49fc11dd7a8306df380363e8d37980a5feddc@ec2-50-19-219-69.compute-1.amazonaws.com:5432/df48elag4icec6');
+if($_SERVER["SERVER_NAME"]==="localhost") {
+	define('DB_NAME', 'wordpress_origin');
 
-/** The name of the database for WordPress */
-define('DB_NAME', trim($url['path'], '/'));
+	/** MySQL database username */
+	define('DB_USER', 'root');
 
-/** MySQL database username */
-define('DB_USER', $url['user']);
+	/** MySQL database password */
+	define('DB_PASSWORD', '');
 
-/** MySQL database password */
-define('DB_PASSWORD', $url['pass']);
+	/** MySQL hostname */
+	define('DB_HOST', 'localhost');
+} else {
+	$url = parse_url(getenv('DATABASE_URL') ? getenv('DATABASE_URL') : getenv('CLEARDB_DATABASE_URL'));
+	$url = parse_url('postgres://nxuqrnffdmrlhf:bac61678c83f6737b5bcc36b6edb5a3b8c11b29d1efe09664a8a5b8c27111b04@ec2-50-19-218-160.compute-1.amazonaws.com:5432/d8v202ntiov39f');
 
-/** MySQL hostname */
-define('DB_HOST', $url['host']);
+	/** The name of the database for WordPress */
+	define('DB_NAME', trim($url['path'], '/'));
 
+	/** MySQL database username */
+	define('DB_USER', $url['user']);
+
+	/** MySQL database password */
+	define('DB_PASSWORD', $url['pass']);
+
+	/** MySQL hostname */
+	define('DB_HOST', $url['host']);
+}
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8mb4');
 
