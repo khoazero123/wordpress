@@ -12,7 +12,7 @@ if ( ! function_exists( 'clean_education_custom_css' ) ) :
 	/**
 	 * Enqueue Custon CSS
 	 *
-	 * @uses  set_transient, wp_head, wp_enqueue_style
+	 * @uses set_transient , wp_head , wp_enqueue_style
 	 *
 	 * @action wp_enqueue_scripts
 	 *

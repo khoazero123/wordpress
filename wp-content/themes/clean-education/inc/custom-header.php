@@ -63,7 +63,7 @@ if ( ! function_exists( 'clean_education_site_branding' ) ) :
 	/**
 	 * Get the logo and display
 	 *
-	 * @uses clean_education_get_theme_options, get_header_textcolor, get_bloginfo, display_header_text
+	 * @uses clean_education_get_theme_options , get_header_textcolor, get_bloginfo, display_header_text
 	 * @get logo from options
 	 *
 	 * @display logo

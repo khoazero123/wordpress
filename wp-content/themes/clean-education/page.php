@@ -35,6 +35,23 @@ get_header();
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
-
-<?php get_sidebar(); ?>
+<?php 
+if (!is_front_page()) {
+	get_sidebar();
+} else {
+	?>
+	<style>
+		@media screen and (min-width: 1024px) {
+			.content-area {
+				width: 100% !important;
+			}
+		}
+		@media screen and (min-width: 900px) {
+			.content-area {
+				width: 100% !important;
+			}
+		}
+	</style>
+	<?php
+} ?>
 <?php get_footer(); ?>
