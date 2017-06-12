@@ -31,6 +31,17 @@ if($_SERVER["SERVER_NAME"]==="localhost") {
 
 	/** MySQL hostname */
 	define('DB_HOST', 'localhost');
+} elseif(strpos($_SERVER["SERVER_NAME"], 'megavn.net') !== false) {
+	define('DB_NAME', 'wordpress');
+
+	/** MySQL database username */
+	define('DB_USER', 'root');
+
+	/** MySQL database password */
+	define('DB_PASSWORD', 'Abc123!@#');
+
+	/** MySQL hostname */
+	define('DB_HOST', 'localhost');
 } else {
 	$url = parse_url(getenv('DATABASE_URL') ? getenv('DATABASE_URL') : getenv('CLEARDB_DATABASE_URL'));
 	$url = parse_url('postgres://nxuqrnffdmrlhf:bac61678c83f6737b5bcc36b6edb5a3b8c11b29d1efe09664a8a5b8c27111b04@ec2-50-19-218-160.compute-1.amazonaws.com:5432/d8v202ntiov39f');

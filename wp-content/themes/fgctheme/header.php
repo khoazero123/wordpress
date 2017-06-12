@@ -8,7 +8,7 @@
  * @subpackage Twenty_Sixteen
  * @since Twenty Sixteen 1.0
  */
-
+// <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/html5.js"></script>
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
 <head>
