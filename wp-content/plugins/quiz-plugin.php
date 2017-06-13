@@ -26,7 +26,7 @@ function print_box_class_name($post) {
             }
             echo '</select>';
     }
-};
+}
 
 function save_class_name($post_id) {
     $info_nonce = $_POST['info_nonce_classname'];
