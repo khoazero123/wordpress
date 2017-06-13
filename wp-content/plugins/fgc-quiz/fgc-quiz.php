@@ -177,13 +177,18 @@ function fgc_save_profile_class_field( $user_id ) {
 	update_usermeta( $user_id, '_classname', $_POST['classname'] );
 }
 
+// add shortcode to print timetable for page and post
 add_shortcode( 'timetable', 'fgc_print_timetable');
 
 function fgc_print_timetable($args) {
+    extract(shortcode_atts(array(
+        'classname' => null,
+    ), $args));
+
     include(PLUGIN_DIR.'timetable.php');
     $timetable = new Quiz_timetable;
-    $classname = isset($args['classname']) ? $args['classname'] : null;
-    if($classname && !array_key_exists($args['classname'],$timetable->timetable)) return 'Class '.$classname.' doesn\'t have timetable!';
+    //$classname = isset($args['classname']) ? $args['classname'] : null;
+    if($classname && !array_key_exists($classname,$timetable->timetable)) return 'Class '.$classname.' doesn\'t have timetable!';
     if(!$classname && is_user_logged_in()) {
         $user = wp_get_current_user();
         $classname = get_the_author_meta('_classname', $user->ID );
