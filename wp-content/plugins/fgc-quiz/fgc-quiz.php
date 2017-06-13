@@ -181,6 +181,7 @@ function fgc_save_profile_class_field( $user_id ) {
 add_shortcode( 'timetable', 'fgc_print_timetable');
 
 function fgc_print_timetable($args) {
+    global $current_user;
     extract(shortcode_atts(array(
         'classname' => null,
     ), $args));
@@ -196,7 +197,20 @@ function fgc_print_timetable($args) {
     } elseif(!is_user_logged_in()) {
         return 'Please login to view your timetable!';
     }
-    return $timetable->view_timetable($classname,true);
+    // if is admin -> print all timetable of all class
+    if (current_user_can('administrator')) {
+        $list_class = get_option('quiz_options_course', []);
+        if(!empty($list_class)) {
+            $html = '';
+            foreach ($list_class as $classname => $class) {
+                //$html .= '<h2>Timetable of class '.$classname.'</h2>';
+                $html .= $timetable->view_timetable($classname,true);
+            }
+            return $html;
+        }
+    } else {
+        return $timetable->view_timetable($classname,true);
+    }
 }
 
 

@@ -14,7 +14,7 @@ class Quiz_timetable {
     function __construct() {
         $this->list_class = get_option('quiz_options_course', []);
         $this->timetable = get_option('quiz_options_timetable', []);
-        $timetable0 = [
+        $timetable_demo = [
             'B' => [
                 'members' => [
                     1 => 'Khoa',
@@ -80,6 +80,7 @@ class Quiz_timetable {
         if(!isset($this->list_class[$classname])) return printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr('notice notice-error'), esc_html('Class '.$classname.' doesn\'t exist!')); 
 
         if(isset($_POST['submit']) && !empty($_POST['time'])) {
+            unset($this->timetable[$classname]);
             foreach ($_POST['time'] as $day => $time) {
                 $this->timetable[$classname]['day'][$day] = $time;
             }
@@ -110,10 +111,12 @@ class Quiz_timetable {
                         'order'        => 'ASC',
                     );
                     $blogusers = (array) get_users( $args );
+                    if(empty($blogusers)) $blogusers = array(1);
+                    //var_dump($blogusers);
                     $i = 0;
                     //foreach ($this->timetable[$classname]['members'] as $user_id => $name) {
                     foreach ( $blogusers as $user ) {
-                        $name = $user->user_nicename;
+                        $name = isset($user->user_nicename) ? $user->user_nicename : 'No member';
                         echo '<tr>
                             <td>'.$name.'</td>';
                         //if($i==0) foreach($this->timetable[$classname]['day'] as $day => $time) {
@@ -147,8 +150,8 @@ class Quiz_timetable {
              $html .= '<div class="notice notice-error"><p>Class '.$classname.' doesn\'t exist!</p></div>';
             //return printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr('notice notice-error'), esc_html('Class '.$classname.' doesn\'t exist!')); 
         }elseif(!isset($this->timetable[$classname])) {
-            $html .= '<div class="notice notice-error"><p>Timetable of class '.$classname.' is empty!</p></div>';
-            $html .= '<a href="?'.$_SERVER['QUERY_STRING'].'&action=edit&classname='.$classname.'" class="page-title-action">Edit timetable this class</a>';
+            $html .= '<div class="notice notice-error"><p>Timetable of class '.$classname.' is empty! <a href="'.site_url().'/wp-admin/admin.php?page=fgc-quiz%2Ffgc-quiz.php-timetable&action=edit&classname='.$classname.'" class="page-title-action">Edit timetable this class</a></p></div>';
+
             //printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr('notice notice-error'), esc_html('Timetable of class '.$classname.' is empty!'));
             //echo '<a href="?'.$_SERVER['QUERY_STRING'].'&action=edit&classname='.$classname.'" class="page-title-action">Edit timetable this class</a>';
             //return;
@@ -163,7 +166,7 @@ class Quiz_timetable {
                         <th scope="col" id="title" class="manage-column column-author">Member</th>
                         <?php 
                         if(isset($this->timetable[$classname]))
-                        foreach($this->timetable[$classname]['day'] as $day => $time) {
+                        foreach($this->days as $day) {
                             echo '<th scope="col" id="count" class="manage-column column-author">'.ucfirst($day).'</th>';
                         } ?>
                     </tr>
@@ -178,11 +181,12 @@ class Quiz_timetable {
                         'order'        => 'ASC',
                     );
                     $blogusers = (array) get_users( $args );
+                    if(empty($blogusers)) $blogusers = array(1);
                     $i = 0;
                     if(isset($this->timetable[$classname]))
                     //foreach ($this->timetable[$classname]['members'] as $user_id => $name) {
                     foreach ( $blogusers as $user ) {
-                        $name = $user->user_nicename;
+                        $name = isset($user->user_nicename) ? $user->user_nicename : 'No member';
                         echo '<tr>
                             <td>'.$name.'</td>';
                         if($i==0) foreach($this->timetable[$classname]['day'] as $day) {
@@ -199,7 +203,7 @@ class Quiz_timetable {
         </form>';
         $html .= ob_get_clean();
         }
-       $html .= '</div>';
+       $html .= '</div><br />';
        if($return) return $html;
        else echo $html;
     }
