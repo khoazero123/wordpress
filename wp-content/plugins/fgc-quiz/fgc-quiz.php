@@ -18,17 +18,52 @@ function fgc_create_menu() {
     $menuSlug = __FILE__;
     add_menu_page('FGC Quiz Manager', 'FGC Quiz Manager', 'administrator', $menuSlug, 'fgc_print_manager_class',null,2);//fgc_settings_page
     add_submenu_page($menuSlug, "Class manager", "Class manager", 'manage_options', $menuSlug . '-list-class','fgc_print_manager_class');
+    add_submenu_page($menuSlug, "Timetable", "Timetable", 'manage_options', $menuSlug . '-timetable','fgc_print_manager_timetable');
 
     add_action( 'admin_init', 'register_mysettings' );
 }
 add_action('admin_menu', 'fgc_create_menu'); 
  
+function fgc_print_manager_timetable() {
+    include(PLUGIN_DIR.'timetable.php');
+    $timetable = new Quiz_timetable;
+    $action = isset($_GET['action']) ? $_GET['action'] : null;
+    switch ($action) {
+        case 'add':
+            $timetable->add_timetable();
+            break;
+        case 'edit':
+            $classname = isset($_GET['classname']) ? $_GET['classname'] : null;
+            $timetable->edit_timetable($classname);
+            break;
+        case 'view':
+            $classname = isset($_GET['classname']) ? $_GET['classname'] : null;
+            $timetable->view_timetable($classname);
+            break;
+        case 'delete':
+            $classname = isset($_GET['classname']) ? $_GET['classname'] : null;
+            $timetable->delete_timetable($classname);
+            break;
+        
+        case 'remove':
+            $user_id = isset($_GET['user_id']) ? $_GET['user_id'] : null;
+            $classname = isset($_GET['classname']) ? $_GET['classname'] : null;
+            $timetable->remove_from_timetable($user_id,$classname);
+            break;
+        
+        default:
+            $timetable->list_class();
+            break;
+    }
+    //$timetable->list_class();
+
+}
 function fgc_print_manager_class() {
     include(PLUGIN_DIR.'class.php');
     $class = new Quiz_class;
 
-    $type = isset($_GET['action']) ? $_GET['action'] : null;
-    switch ($type) {
+    $action = isset($_GET['action']) ? $_GET['action'] : null;
+    switch ($action) {
         case 'add':
             $class->add_class();
             break;
@@ -142,13 +177,22 @@ function fgc_save_profile_class_field( $user_id ) {
 	update_usermeta( $user_id, '_classname', $_POST['classname'] );
 }
 
+add_shortcode( 'timetable', 'fgc_print_timetable');
 
-
-
-
-
-
-
+function fgc_print_timetable($args) {
+    include(PLUGIN_DIR.'timetable.php');
+    $timetable = new Quiz_timetable;
+    $classname = isset($args['classname']) ? $args['classname'] : null;
+    if(!array_key_exists($args['classname'],$timetable->timetable)) return 'Class '.$classname.' doesn\'t have timetable!';
+    if(!$classname && is_user_logged_in()) {
+        $user = wp_get_current_user();
+        $classname = get_the_author_meta('_classname', $user->ID );
+        if(!array_key_exists($classname,$timetable->timetable)) return 'No timetable for '.$user->user_nicename;
+    } elseif(!is_user_logged_in()) {
+        return 'Please login to view your timetable!';
+    }
+    return $timetable->view_timetable($classname,true);
+}
 
 
 
