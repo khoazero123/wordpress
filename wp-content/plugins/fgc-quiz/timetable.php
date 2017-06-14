@@ -14,9 +14,11 @@ class Quiz_timetable {
         $this->table_class = $wpdb->prefix . "fgc_class";
         $this->table_timetable = $wpdb->prefix . "fgc_timetable";
         $this->table_game = $wpdb->prefix . "fgc_game";
-
-        $this->list_class = $wpdb->get_results( "SELECT * FROM $this->table_class ", ARRAY_A);
-        $this->list_timetable = $wpdb->get_results( "SELECT * FROM $this->table_timetable ", ARRAY_A);
+        
+        //$this->list_class = $wpdb->get_results( "SELECT * FROM $this->table_class ORDER BY name ASC", ARRAY_A);
+        //$this->list_timetable = $wpdb->get_results( "SELECT * FROM $this->table_timetable ", ARRAY_A);
+        $sql = "SELECT * FROM $this->table_timetable INNER JOIN $this->table_class ON $this->table_timetable .class_id = $this->table_class .id ORDER BY $this->table_class .name ASC";
+        $this->list_class = $this->list_timetable = $wpdb->get_results( $sql, ARRAY_A);
 
     }
 

@@ -11,7 +11,7 @@ class Quiz_class {
         $this->table_timetable = $wpdb->prefix . "fgc_timetable";
         $this->table_game = $wpdb->prefix . "fgc_game";
 
-        $this->list_class = $wpdb->get_results( "SELECT * FROM $this->table_class ", ARRAY_A);
+        $this->list_class = $wpdb->get_results( "SELECT * FROM $this->table_class ORDER BY name ASC", ARRAY_A);
     }
 
     public function list_class() {
@@ -188,6 +188,16 @@ class Quiz_class {
                 $wpdb->delete( $this->table_timetable, ['class_id'=>$class_id]);
                 $wpdb->delete( $this->table_class, ['id'=>$class_id]);
                 // Update batch user meta _class_id to null <-------------------------------
+                $args = array(
+                    'meta_key'     => '_class_id',
+                    'meta_value'   => $class_id,
+                    'orderby'      => 'nicename',
+                    'order'        => 'ASC',
+                ); 
+                $list_users = get_users( $args );
+                if(!empty($list_users)) foreach ( $list_users as $user ) {
+                    delete_user_meta( $user->ID, '_class_id');
+                }
                 printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr('notice notice-success'), esc_html('Delete class '.$class['name'].' success!'));
             }
         }

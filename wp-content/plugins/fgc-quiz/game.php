@@ -11,7 +11,7 @@ class Quiz_game {
         $this->table_timetable = $wpdb->prefix . "fgc_timetable";
         $this->table_game = $wpdb->prefix . "fgc_game";
 
-        $this->list_game = $wpdb->get_results( "SELECT * FROM $this->table_game ", ARRAY_A);
+        $this->list_game = $wpdb->get_results( "SELECT * FROM $this->table_game ORDER BY name ASC", ARRAY_A);
     }
 
     public function list_game() {

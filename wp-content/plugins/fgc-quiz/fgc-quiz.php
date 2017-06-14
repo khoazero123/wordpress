@@ -9,9 +9,8 @@
  * License: GPLv2
  */
  define( 'PLUGIN_DIR', plugin_dir_path( __FILE__ ));
- // define( 'PLUGIN_VERSION_INSTALLED', get_option( "fgc_quiz_version" ));
  define( 'PLUGIN_VERSION', '1.0');
- define( 'FORCE_INSTALL', true); // AND diff version -> drop and create table -> Lost old data
+ define( 'FORCE_INSTALL', true); // Lost old data
 
 class FGC_Quiz {
     private $table_class;
@@ -334,18 +333,21 @@ class FGC_Quiz {
         if ( $installed_ver != PLUGIN_VERSION) {
             // $wpdb->dbname;
             $charset_collate = $wpdb->get_charset_collate();
+            $table_class = $wpdb->prefix . "fgc_class";
+            $table_timetable = $wpdb->prefix . "fgc_timetable";
+            $table_game = $wpdb->prefix . "fgc_game";
             $insert_data_class = $insert_data_timetable = $insert_data_game = true;
             $sql = '';
             $message = [];
 
             if(FORCE_INSTALL==true) {
-                $wpdb->query( "DROP TABLE IF EXISTS $this->table_timetable" );
-                $wpdb->query( "DROP TABLE IF EXISTS $this->table_class" );
-                $wpdb->query( "DROP TABLE IF EXISTS $this->table_game" );
+                $wpdb->query( "DROP TABLE IF EXISTS $table_timetable" );
+                $wpdb->query( "DROP TABLE IF EXISTS $table_class" );
+                $wpdb->query( "DROP TABLE IF EXISTS $table_game" );
             }
             // id INT(5) NOT NULL AUTO_INCREMENT,
-            if ($wpdb->get_var("SHOW TABLES LIKE '$this->table_class'") != $this->table_class) {
-                $sql .= "CREATE TABLE ".$this->table_class ." (
+            if ($wpdb->get_var("SHOW TABLES LIKE '$table_class'") != $table_class) {
+                $sql .= "CREATE TABLE ".$table_class ." (
                     id INT(5) NOT NULL AUTO_INCREMENT,
                     name varchar(50) NOT NULL UNIQUE,
                     members INT(5) UNSIGNED DEFAULT 0,
@@ -355,11 +357,11 @@ class FGC_Quiz {
                 
             } else {
                 $insert_data_class = false;
-                $message[] = 'Table '.$this->table_class.' exist!';
+                $message[] = 'Table '.$table_class.' exist!';
             }
             
-            if ($wpdb->get_var("SHOW TABLES LIKE '$this->table_timetable'") != $this->table_timetable) {
-                $sql .= "CREATE TABLE ".$this->table_timetable ." (
+            if ($wpdb->get_var("SHOW TABLES LIKE '$table_timetable'") != $table_timetable) {
+                $sql .= "CREATE TABLE ".$table_timetable ." (
                     class_id INT(2) NOT NULL,
                     monday varchar(250),
                     tuesday varchar(250),
@@ -368,15 +370,15 @@ class FGC_Quiz {
                     friday varchar(250),
                     saturday varchar(250),
                     sunday varchar(250),
-                    FOREIGN KEY (class_id) REFERENCES $this->table_class(id)
+                    FOREIGN KEY (class_id) REFERENCES $table_class(id)
                 ) $charset_collate;";
             } else {
                 $insert_data_timetable = false;
-                $message[] = 'Table '.$this->table_timetable.' exist!';
+                $message[] = 'Table '.$table_timetable.' exist!';
             }
 
-            if ($wpdb->get_var("SHOW TABLES LIKE '$this->table_game'") != $this->table_game) {
-                $sql .= "CREATE TABLE ".$this->table_game ." (
+            if ($wpdb->get_var("SHOW TABLES LIKE '$table_game'") != $table_game) {
+                $sql .= "CREATE TABLE ".$table_game ." (
                     id INT(5) NOT NULL AUTO_INCREMENT,
                     name varchar(50) NOT NULL,
                     url text NOT NULL,
@@ -385,7 +387,7 @@ class FGC_Quiz {
                 ) $charset_collate;";
             } else {
                 $insert_data_game = false;
-                $message[] = 'Table '.$this->table_game.' exist!';
+                $message[] = 'Table '.$table_game.' exist!';
             }
 
             if(!empty($sql)) {
@@ -394,24 +396,24 @@ class FGC_Quiz {
                 update_option( "fgc_quiz_version", PLUGIN_VERSION);
 
                 if($insert_data_class==true) {
-                    $wpdb->insert($this->table_class, array('name' => 'A1', 'members' => 0, 'public' => 1));
-                    $wpdb->insert($this->table_class, array('name' => 'A2', 'members' => 0, 'public' => 1));
-                    $wpdb->insert($this->table_class, array('name' => 'B', 'members' => 0, 'public' => 1));
-                    $wpdb->insert($this->table_class, array('name' => 'C', 'members' => 0, 'public' => 1));
+                    $wpdb->insert($table_class, array('name' => 'A1', 'members' => 0, 'public' => 1));
+                    $wpdb->insert($table_class, array('name' => 'A2', 'members' => 0, 'public' => 1));
+                    $wpdb->insert($table_class, array('name' => 'B', 'members' => 0, 'public' => 1));
+                    $wpdb->insert($table_class, array('name' => 'C', 'members' => 0, 'public' => 1));
 
                     $message[] = 'Insert data class success!';
                 }
                 if($insert_data_timetable==true) {
-                    $wpdb->insert($this->table_timetable, array('class_id' => 1));
-                    $wpdb->insert($this->table_timetable, array('class_id' => 2));
-                    $wpdb->insert($this->table_timetable, array('class_id' => 3));
-                    $wpdb->insert($this->table_timetable, array('class_id' => 4));
+                    $wpdb->insert($table_timetable, array('class_id' => 1));
+                    $wpdb->insert($table_timetable, array('class_id' => 2));
+                    $wpdb->insert($table_timetable, array('class_id' => 3));
+                    $wpdb->insert($table_timetable, array('class_id' => 4));
 
                     $message[] = 'Insert data timetable success!';
                 }
                 if($insert_data_game==true) {
-                    $wpdb->insert($this->table_game, array('name' => 'Game 1', 'url' => 'http://english.training.fgct.net/images/games/freedom_-spot-the-difference/Freedom.swf'));
-                    $wpdb->insert($this->table_game, array('name' => 'Game 2', 'url' => 'http://english.training.fgct.net/images/games/fashion-girls_v586067/gcm_mochi.swf'));
+                    $wpdb->insert($table_game, array('name' => 'Game 1', 'url' => 'http://english.training.fgct.net/images/games/freedom_-spot-the-difference/Freedom.swf'));
+                    $wpdb->insert($table_game, array('name' => 'Game 2', 'url' => 'http://english.training.fgct.net/images/games/fashion-girls_v586067/gcm_mochi.swf'));
 
                     $message[] = 'Insert data game success!';
                 }
