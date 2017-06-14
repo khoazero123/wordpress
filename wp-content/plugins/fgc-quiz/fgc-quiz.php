@@ -128,8 +128,8 @@ add_action('add_meta_boxes','fgc_register_helper_meta_box');
 // print html meta box enter class name
 function fgc_print_box_helper($post) {
 
-    echo '<p><code>[timetable classname="B"]</code> to print timetable of a class, leave empty classname to auto select by user login.</p>';
-    echo '<p><code>[video url="http://..." width="560" height="315"]</code> to insert video player. Support youtube.com and voatiengviet.com</p>';
+    echo '<p><code>[timetable classname="B"]</code> to print timetable of class B, leave empty classname to auto select by user login.</p>';
+    echo '<p><code>[video url="http://..." width="560px" height="315px"]</code> to insert video player. Support youtube.com and voatiengviet.com</p>';
 
 }
 
