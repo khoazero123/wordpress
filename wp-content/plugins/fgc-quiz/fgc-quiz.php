@@ -52,24 +52,24 @@ class FGC_Quiz {
         $class = new Quiz_class;
 
         $action = isset($_GET['action']) ? $_GET['action'] : null;
-        $class_id = isset($_GET['class_id']) ? $_GET['class_id'] : null;
+        $id = isset($_GET['id']) ? $_GET['id'] : null;
         switch ($action) {
             case 'add':
                 $class->add_class();
                 break;
             case 'edit':
-                $class->edit_class($class_id);
+                $class->edit_class($id);
                 break;
             case 'view':
-                $class->view_class($class_id);
+                $class->view_class($id);
                 break;
             case 'delete':
-                $class->delete_class($class_id);
+                $class->delete_class($id);
                 break;
             
             case 'remove':
                 $user_id = isset($_GET['user_id']) ? $_GET['user_id'] : null;
-                $class->remove_from_class($user_id,$class_id);
+                $class->remove_from_class($user_id,$id);
                 break;
             
             default:
@@ -82,29 +82,17 @@ class FGC_Quiz {
         include(PLUGIN_DIR.'timetable.php');
         $timetable = new Quiz_timetable;
         $action = isset($_GET['action']) ? $_GET['action'] : null;
+        $id = isset($_GET['id']) ? $_GET['id'] : null;
         switch ($action) {
             case 'add':
                 $timetable->add_timetable();
                 break;
             case 'edit':
-                $classname = isset($_GET['classname']) ? $_GET['classname'] : null;
-                $timetable->edit_timetable($classname);
+                $timetable->edit_timetable($id);
                 break;
             case 'view':
-                $classname = isset($_GET['classname']) ? $_GET['classname'] : null;
-                $timetable->view_timetable($classname);
+                $timetable->view_timetable($id);
                 break;
-            case 'delete':
-                $classname = isset($_GET['classname']) ? $_GET['classname'] : null;
-                $timetable->delete_timetable($classname);
-                break;
-            
-            case 'remove':
-                $user_id = isset($_GET['user_id']) ? $_GET['user_id'] : null;
-                $classname = isset($_GET['classname']) ? $_GET['classname'] : null;
-                $timetable->remove_from_timetable($user_id,$classname);
-                break;
-            
             default:
                 $timetable->list_class();
                 break;
@@ -218,59 +206,40 @@ class FGC_Quiz {
             'classname' => null,
         ), $args));
 
-        $timetable = null;
+        //$timetable = null;
         //$classname = 'A1';
+        include(PLUGIN_DIR.'timetable.php');
+        $timetable = new Quiz_timetable;
+
+        $html = '';
         if (!$classname && current_user_can('administrator')) {
-            $timetable = $wpdb->get_results( "SELECT * FROM $this->table_timetable ", ARRAY_A);
+            //$timetable = $wpdb->get_results( "SELECT * FROM $this->table_timetable ", ARRAY_A);
+            $list_class = $wpdb->get_results( "SELECT * FROM $this->table_class ", ARRAY_A);
+            foreach ($list_class as $class) {
+                //$html .= '<h2>Timetable of class '.$classname.'</h2>';
+                $html .= $timetable->view_timetable($class['id'],true);
+            }
         } else {
             if($classname) {
-                $sql = "SELECT * FROM $this->table_timetable INNER JOIN $this->table_class ON $this->table_timetable .class_id = $this->table_class .id WHERE $this->table_class .name = '$classname'";
-                $timetable = $wpdb->get_row($sql);
+                //$sql = "SELECT * FROM $this->table_timetable INNER JOIN $this->table_class ON $this->table_timetable .class_id = $this->table_class .id WHERE $this->table_class .name = '$classname'";
+                //$timetable = $wpdb->get_row($sql);
+                $html .= $timetable->view_timetable($classname,true);
             }
             if(!$timetable && is_user_logged_in()) {
                 $current_user = wp_get_current_user();
                 $class_id = get_the_author_meta('_class_id', $current_user->ID );
                 if($class_id) {
-                    $sql = "SELECT * FROM $this->table_timetable WHERE class_id = ".$class_id ;
-                    $timetable = $wpdb->get_row($sql);
+                    //$sql = "SELECT * FROM $this->table_timetable WHERE class_id = ".$class_id ;
+                    //$timetable = $wpdb->get_row($sql);
+                    $html .= $timetable->view_timetable($class_id,true);
                 }
             } else {
-                return 'Please login to view your timetable!';
+                $html .= 'Please login to view your timetable!';
             }
         }
-        if(!empty($timetable)) {
-            return "You not belong to any class!";
-        }
-        $html = '';
-        foreach ($timetable as $table) {
-            # code...
-        }
+        if(empty($html)) $html = 'No have data timetable';
+        return $html;
 
-        //include(PLUGIN_DIR.'timetable.php');
-        //$timetable = new Quiz_timetable;
-
-/*        if($classname && !array_key_exists($classname,$timetable->timetable)) return 'Class '.$classname.' doesn\'t have timetable!';
-        if(!$classname && is_user_logged_in()) {
-            $user = wp_get_current_user();
-            $classname = get_the_author_meta('_classname', $user->ID );
-            if(!array_key_exists($classname,$timetable->timetable)) return 'No timetable for '.$user->user_nicename;
-        } elseif(!is_user_logged_in()) {
-            return 'Please login to view your timetable!';
-        }
-        // if is admin -> print all timetable of all class
-        if (current_user_can('administrator')) {
-            $list_class = get_option('quiz_options_course', []);
-            if(!empty($list_class)) {
-                $html = '';
-                foreach ($list_class as $classname => $class) {
-                    //$html .= '<h2>Timetable of class '.$classname.'</h2>';
-                    $html .= $timetable->view_timetable($classname,true);
-                }
-                return $html;
-            }
-        } else {
-            return $timetable->view_timetable($classname,true);
-        }*/
     }
 
     // add shortcode to print timetable for page and post

@@ -39,7 +39,7 @@ class Quiz_class {
                 echo '<td>'.$class['name'].'</td>
                     <td> '.$class['members'].' </td>
                     <td> '.($class['public']==1 ? 'Public' : 'Private').' </td>
-                    <td> <a href="?'.$_SERVER['QUERY_STRING'].'&action=view&class_id='.$class['id'].'">View</a> | <a href="?'.$_SERVER['QUERY_STRING'].'&action=delete&class_id='.$class['id'].'">Delete</a> | <a href="?'.$_SERVER['QUERY_STRING'].'&action=edit&class_id='.$class['id'].'">Edit</a> </td>
+                    <td> <a href="?'.$_SERVER['QUERY_STRING'].'&action=view&id='.$class['id'].'">View</a> | <a href="?'.$_SERVER['QUERY_STRING'].'&action=delete&id='.$class['id'].'">Delete</a> | <a href="?'.$_SERVER['QUERY_STRING'].'&action=edit&id='.$class['id'].'">Edit</a> </td>
                 </tr>';
             }
             ?>
@@ -80,7 +80,7 @@ class Quiz_class {
                             echo '<tr>';
                             echo '<td>' . esc_html( $user->user_nicename ) . '</td>';
                             echo '<td>' . esc_html( $user->user_email ) . '</td>';
-                            echo '<td> <a href="?'.$_SERVER['QUERY_STRING'].'&action=remove&user_id='.$user->ID.'&class_id='.$class_id.'">Remove from class</a> </td>';
+                            echo '<td> <a href="?'.$_SERVER['QUERY_STRING'].'&action=remove&user_id='.$user->ID.'&id='.$class_id.'">Remove from class</a> </td>';
                             echo '</tr>';
                         }
                         ?>
@@ -125,7 +125,7 @@ class Quiz_class {
                     <p class="submit">
                         <input type="submit" name="submit" id="submit" class="button button-primary" value="Save">
                         <input type="button" name="submit" onclick="location.href='?page=<?php echo $_REQUEST['page']; ?>';" class="button button-cancel" value="Cancel">
-                        <input type="button" name="submit" onclick="location.href='?<?php echo $_SERVER['QUERY_STRING']; ?>&action=delete&class_id=<?php echo $class_id; ?>';" class="button button-cancel" value="Delete">
+                        <input type="button" name="submit" onclick="location.href='?<?php echo $_SERVER['QUERY_STRING']; ?>&action=delete&id=<?php echo $class_id; ?>';" class="button button-cancel" value="Delete">
                     </p>
                 </form>
                 <?php
@@ -148,6 +148,7 @@ class Quiz_class {
                 else {
                     $class_public = (isset($_POST['public']) && $_POST['public']==1) ? 1 : 0;
                     $wpdb->insert($this->table_class, array('name' => $class_name, 'members' => 0, 'public' => $class_public));
+                    $wpdb->insert($this->table_timetable, array('class_id' => $wpdb->insert_id));
                     printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr('notice notice-success'), esc_html('Add class '.$class_name.' success!'));
                 }
             }
