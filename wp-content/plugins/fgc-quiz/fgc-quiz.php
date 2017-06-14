@@ -94,10 +94,10 @@ function fgc_print_manager_class() {
 }
 
 // add meta box in page Add new post
-function fgc_add_class_meta_box() {
-    add_meta_box( 'class-name', 'Lớp', 'fgc_print_box_class_name','post');
+function fgc_register_class_meta_box() {
+    add_meta_box( 'class-name', 'Lớp', 'fgc_print_box_class_name');
 }
-add_action('add_meta_boxes','fgc_add_class_meta_box'); 
+add_action('add_meta_boxes','fgc_register_class_meta_box'); 
 
 // print html meta box enter class name
 function fgc_print_box_class_name($post) {
@@ -117,6 +117,20 @@ function fgc_print_box_class_name($post) {
             }
             echo '</select>';
     }
+}
+
+// add meta box helper in page Add new post
+function fgc_register_helper_meta_box() {
+    add_meta_box( 'fgc-quiz-helper', 'Hưỡng dẫn dùng shortcode', 'fgc_print_box_helper');
+}
+add_action('add_meta_boxes','fgc_register_helper_meta_box'); 
+
+// print html meta box enter class name
+function fgc_print_box_helper($post) {
+
+    echo '<p><code>[timetable classname="B"]</code> to print timetable of a class, leave empty classname to auto select by user login.</p>';
+    echo '<p><code>[video url="http://..." width="560" height="315"]</code> to insert video player. Support youtube.com and voatiengviet.com</p>';
+
 }
 
 function fgc_save_class_name($post_id) {
@@ -178,9 +192,9 @@ function fgc_save_profile_class_field( $user_id ) {
 }
 
 // add shortcode to print timetable for page and post
-add_shortcode( 'timetable', 'fgc_print_timetable');
+add_shortcode( 'timetable', 'fgc_shortcode_timetable');
 
-function fgc_print_timetable($args) {
+function fgc_shortcode_timetable($args,$content=null) {
     global $current_user;
     extract(shortcode_atts(array(
         'classname' => null,
@@ -213,7 +227,27 @@ function fgc_print_timetable($args) {
     }
 }
 
+// add shortcode to print timetable for page and post
+add_shortcode( 'video', 'fgc_shortcode_video');
 
+function fgc_shortcode_video($args,$content=null) {
+    global $current_user;
+    extract(shortcode_atts(array(
+        'url' => null,
+        'width' => 640,
+        'height' => 360,
+    ), $args));
+    if(preg_match("/(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be\/)[^&\n]+/", $url, $matches)) {
+        $videoid = $matches[0];
+        $url = 'https://www.youtube.com/embed/'.$videoid;
+    } else if(preg_match("/https?:\/\/(?:www.)?voatiengviet.com\/a\/(\d+)/", $url, $matches)) {
+        $videoid = $matches[1];
+        //'<iframe src="https://www.voatiengviet.com/embed/player/0/3893960.html?type=video" frameborder="0" scrolling="no" width="640" height="363" allowfullscreen></iframe>'
+        $url = 'https://www.voatiengviet.com/embed/player/0/'.$videoid.'.html?type=video';
+    }
+    $html = '<iframe width="'.$width.'" height="'.$height.'" src="'.$url.'" frameborder="0" scrolling="no" allowfullscreen></iframe>';
+    return $html;
+}
 
 
 
