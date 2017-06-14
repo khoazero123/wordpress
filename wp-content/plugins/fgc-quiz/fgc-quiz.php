@@ -162,14 +162,17 @@ class FGC_Quiz {
     function show_profile_class_field( $user ) {
 	    global $wpdb;
         $list_class = $wpdb->get_results( "SELECT * FROM $this->table_class ", ARRAY_A);
-        $class_id = get_the_author_meta('_class_id', $user->ID );
+        $class_id = (int) get_the_author_meta('_class_id', $user->ID );
+        if($class_id) $class = (array) $wpdb->get_row("SELECT * FROM $this->table_class WHERE id = ".$class_id);
+        else $class = array('id'=>null,'name'=>'','member'=>0);
+
         echo '<h3>Extra profile information</h3>
             <table class="form-table">
                 <tr>
                     <th><label for="twitter">Class name:</label></th>
                     <td>';
-			if ( ! is_admin() ) {
-				echo '<input type="text" value="'.$class_id.'" class="regular-text" disabled /><br />
+			if ( ! current_user_can('administrator')) {
+				echo '<input type="text" value="'.$class['name'].'" class="regular-text" disabled /><br />
 				<span class="description">Your class name.</span>';
 			} else {
                 echo '<input type="hidden" name="class_old" value="'.$class_id.'" />
@@ -193,9 +196,14 @@ class FGC_Quiz {
         $class_old = (int) sanitize_text_field($_POST['class_old']);
         $class_id = (int) sanitize_text_field($_POST['class_id']);
         if($class_id != $class_old) {
+            
             update_usermeta( $user_id, '_class_id', $class_id );
-            $sql = "UPDATE $this->table_class SET members = members-1 WHERE id = $class_old;
-                    UPDATE $this->table_class SET members = members+1 WHERE id = $class_id;";
+            $sql = '';
+            if($class_old) $sql .= "UPDATE $this->table_class SET members = members-1 WHERE id = $class_old;";
+            if($class_id) $sql .= "UPDATE $this->table_class SET members = members+1 WHERE id = $class_id;";
+
+            //printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr('notice notice-success'), esc_html($sql) ); exit;
+
             $wpdb->query($wpdb->prepare($sql));
         }
     }
