@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: FGC Quiz
+ * Plugin Name: FGC Quiz - Option
  * Plugin URI: http://localhost
  * Description: a plugin for FGC Quiz
  * Version: 1.0

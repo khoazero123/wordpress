@@ -1,36 +1,21 @@
 <?php
 class Quiz_timetable {
-    private $list_class;
+    private $table_class;
+    private $table_timetable;
+    private $table_game;
+
+    public $list_class;
     public $timetable;
-    private $days = [
-                    'monday',
-                    'tuesday',
-                    'wednesday',
-                    'thursday',
-                    'friday',
-                    'saturday',
-                    'sunday',
-                ];
+
     function __construct() {
-        $this->list_class = get_option('quiz_options_course', []);
-        $this->timetable = get_option('quiz_options_timetable', []);
-        $timetable_demo = [
-            'B' => [
-                'members' => [
-                    1 => 'Khoa',
-                    2 => 'Bao',
-                    8 => 'Toan',
-                ],
-                'day' => [
-                    'monday' => '9h-9h30',
-                    'tuesday' => '9h-9h30',
-                    'wednesday' => '9h-9h30',
-                    'thursday' => '9h-9h30',
-                    'friday' => '9h-9h30',
-                    'saturday' => '9h-9h30',
-                ]
-            ],
-        ];
+        global $wpdb;
+        $this->table_class = $wpdb->prefix . "fgc_class";
+        $this->table_timetable = $wpdb->prefix . "fgc_timetable";
+        $this->table_game = $wpdb->prefix . "fgc_game";
+
+        $this->list_class = $wpdb->get_results( "SELECT * FROM $this->table_class ", ARRAY_A);
+        $this->timetable = $wpdb->get_results( "SELECT * FROM $this->table_timetable ", ARRAY_A);
+
     }
 
     public function list_class() {
@@ -54,17 +39,12 @@ class Quiz_timetable {
 
         <tbody id="the-list">
             <?php 
-            //var_dump($list_classname);
-            //foreach ($list_classname as $classname => $member) {
             foreach ($this->list_class as $class) {
-                $classname = $class['name'];
-                $member = $class['members'];
-                $public = $class['public'];
                 echo '<tr>
-                    <td>'.$classname.'</td>
-                    <td> '.$member.' </td>
-                    <td> '.($public===1 ? 'Public' : 'Private').' </td>
-                    <td> <a href="?'.$_SERVER['QUERY_STRING'].'&action=view&classname='.$classname.'">View</a> | <a href="?'.$_SERVER['QUERY_STRING'].'&action=edit&classname='.$classname.'">Edit</a> </td>
+                    <td>'.$class['name'].'</td>
+                    <td> '.$class['members'].' </td>
+                    <td> '.($class['public']==1 ? 'Public' : 'Private').' </td>
+                    <td> <a href="?'.$_SERVER['QUERY_STRING'].'&action=view&classname='.$class['id'].'">View</a> | <a href="?'.$_SERVER['QUERY_STRING'].'&action=edit&classname='.$class['id'].'">Edit</a> </td>
                 </tr>';
             }
             ?>

@@ -9,350 +9,447 @@
  * License: GPLv2
  */
  define( 'PLUGIN_DIR', plugin_dir_path( __FILE__ ));
+ define( 'PLUGIN_VERSION', '1.0');
+ define( 'FORCE_INSTALL', true); // Lost old data
 
-function register_mysettings() {
-    register_setting( 'fgc-settings-group', 'fgc_option_name' );
-}
- 
-function fgc_create_menu() {
-    $menuSlug = __FILE__;
-    add_menu_page('FGC Quiz Manager', 'FGC Quiz Manager', 'administrator', $menuSlug, 'fgc_print_manager_class',null,2);//fgc_settings_page
-    add_submenu_page($menuSlug, "Class Manager", "Class", 'manage_options', $menuSlug . '-list-class','fgc_print_manager_class');
-    add_submenu_page($menuSlug, "Timetable Manager", "Timetable", 'manage_options', $menuSlug . '-timetable','fgc_print_manager_timetable');
-    add_submenu_page($menuSlug, "Game Manager", "Game", 'manage_options', $menuSlug . '-game','fgc_print_manager_game');
+class FGC_Quiz {
+    private $table_class;
+    private $table_timetable;
+    private $table_game;
+    function __construct() {
+        global $wpdb;
+        $this->table_class = $wpdb->prefix . "fgc_class";
+        $this->table_timetable = $wpdb->prefix . "fgc_timetable";
+        $this->table_game = $wpdb->prefix . "fgc_game";
+        add_action('admin_menu', array( $this, 'create_menu'));
+        add_action('add_meta_boxes',array( $this, 'register_meta_box_class'));
+        add_action('save_post',array( $this, 'save_post_meta_class'));
 
-    add_action( 'admin_init', 'register_mysettings' );
-}
-add_action('admin_menu', 'fgc_create_menu'); 
- 
-function fgc_print_manager_timetable() {
-    include(PLUGIN_DIR.'timetable.php');
-    $timetable = new Quiz_timetable;
-    $action = isset($_GET['action']) ? $_GET['action'] : null;
-    switch ($action) {
-        case 'add':
-            $timetable->add_timetable();
-            break;
-        case 'edit':
-            $classname = isset($_GET['classname']) ? $_GET['classname'] : null;
-            $timetable->edit_timetable($classname);
-            break;
-        case 'view':
-            $classname = isset($_GET['classname']) ? $_GET['classname'] : null;
-            $timetable->view_timetable($classname);
-            break;
-        case 'delete':
-            $classname = isset($_GET['classname']) ? $_GET['classname'] : null;
-            $timetable->delete_timetable($classname);
-            break;
-        
-        case 'remove':
-            $user_id = isset($_GET['user_id']) ? $_GET['user_id'] : null;
-            $classname = isset($_GET['classname']) ? $_GET['classname'] : null;
-            $timetable->remove_from_timetable($user_id,$classname);
-            break;
-        
-        default:
-            $timetable->list_class();
-            break;
+        add_action( 'show_user_profile', array( $this, 'show_profile_class_field' ));
+        add_action( 'edit_user_profile', array( $this, 'show_profile_class_field' ));
+
+        add_action( 'personal_options_update', array( $this, 'save_profile_class_field' ));
+        add_action( 'edit_user_profile_update', array( $this, 'save_profile_class_field' ));
+
+        // add shortcode
+        add_shortcode( 'timetable', array( $this, 'shortcode_timetable'));
+        add_shortcode( 'video', array( $this, 'shortcode_video'));
+        add_shortcode( 'game', array( $this, 'shortcode_game'));
+
+        add_action('add_meta_boxes',array( $this, 'register_meta_box_helper')); 
+
     }
-    //$timetable->list_class();
-
-}
-function fgc_print_manager_class() {
-    include(PLUGIN_DIR.'class.php');
-    $class = new Quiz_class;
-
-    $action = isset($_GET['action']) ? $_GET['action'] : null;
-    switch ($action) {
-        case 'add':
-            $class->add_class();
-            break;
-        case 'edit':
-            $classname = isset($_GET['classname']) ? $_GET['classname'] : null;
-            $class->edit_class($classname);
-            break;
-        case 'view':
-            $classname = isset($_GET['classname']) ? $_GET['classname'] : null;
-            $class->view_class($classname);
-            break;
-        case 'delete':
-            $classname = isset($_GET['classname']) ? $_GET['classname'] : null;
-            $class->delete_class($classname);
-            break;
-        
-        case 'remove':
-            $user_id = isset($_GET['user_id']) ? $_GET['user_id'] : null;
-            $classname = isset($_GET['classname']) ? $_GET['classname'] : null;
-            $class->remove_from_class($user_id,$classname);
-            break;
-        
-        default:
-            $class->list_class();
-            break;
+    function create_menu() {
+        $menuSlug = __FILE__;
+        add_menu_page('FGC Quiz Manager', 'FGC Quiz Manager', 'administrator', $menuSlug, array( $this, 'manager_class'),null,2);//fgc_settings_page
+        add_submenu_page($menuSlug, "Class Manager", "Class", 'manage_options', $menuSlug . '-list-class',array( $this, 'manager_class'));
+        add_submenu_page($menuSlug, "Timetable Manager", "Timetable", 'manage_options', $menuSlug . '-timetable',array( $this, 'manager_timetable'));
+        add_submenu_page($menuSlug, "Game Manager", "Game", 'manage_options', $menuSlug . '-game',array( $this, 'manager_game'));
     }
-    //$class->list_class();
-}
-function fgc_print_manager_game() {
-    include(PLUGIN_DIR.'game.php');
-    $game = new Quiz_game;
 
-    $action = isset($_GET['action']) ? $_GET['action'] : null;
-    switch ($action) {
-        case 'add':
-            $game->add_class();
-            break;
-        case 'edit':
-            $slug = isset($_GET['slug']) ? $_GET['slug'] : null;
-            //exit($slug);
-            $game->edit_game($slug);
-            break;
-        case 'view':
-            $classname = isset($_GET['classname']) ? $_GET['classname'] : null;
-            $game->view_class($classname);
-            break;
-        case 'delete':
-            $classname = isset($_GET['classname']) ? $_GET['classname'] : null;
-            $game->delete_class($classname);
-            break;
-        
-        case 'remove':
-            $user_id = isset($_GET['user_id']) ? $_GET['user_id'] : null;
-            $classname = isset($_GET['classname']) ? $_GET['classname'] : null;
-            $game->remove_from_class($user_id,$classname);
-            break;
-        
-        default:
-            $game->list_game();
-            break;
+    function manager_class() {
+        include(PLUGIN_DIR.'class.php');
+        $class = new Quiz_class;
+
+        $action = isset($_GET['action']) ? $_GET['action'] : null;
+        $class_id = isset($_GET['class_id']) ? $_GET['class_id'] : null;
+        switch ($action) {
+            case 'add':
+                $class->add_class();
+                break;
+            case 'edit':
+                $class->edit_class($class_id);
+                break;
+            case 'view':
+                $class->view_class($class_id);
+                break;
+            case 'delete':
+                $class->delete_class($class_id);
+                break;
+            
+            case 'remove':
+                $user_id = isset($_GET['user_id']) ? $_GET['user_id'] : null;
+                $class->remove_from_class($user_id,$class_id);
+                break;
+            
+            default:
+                $class->list_class();
+                break;
+        }
+        //$class->list_class();
     }
-    //$class->list_class();
-}
+    function manager_timetable() {
+        include(PLUGIN_DIR.'timetable.php');
+        $timetable = new Quiz_timetable;
+        $action = isset($_GET['action']) ? $_GET['action'] : null;
+        switch ($action) {
+            case 'add':
+                $timetable->add_timetable();
+                break;
+            case 'edit':
+                $classname = isset($_GET['classname']) ? $_GET['classname'] : null;
+                $timetable->edit_timetable($classname);
+                break;
+            case 'view':
+                $classname = isset($_GET['classname']) ? $_GET['classname'] : null;
+                $timetable->view_timetable($classname);
+                break;
+            case 'delete':
+                $classname = isset($_GET['classname']) ? $_GET['classname'] : null;
+                $timetable->delete_timetable($classname);
+                break;
+            
+            case 'remove':
+                $user_id = isset($_GET['user_id']) ? $_GET['user_id'] : null;
+                $classname = isset($_GET['classname']) ? $_GET['classname'] : null;
+                $timetable->remove_from_timetable($user_id,$classname);
+                break;
+            
+            default:
+                $timetable->list_class();
+                break;
+        }
+        //$timetable->list_class();
 
-// add meta box in page Add new post
-function fgc_register_class_meta_box() {
-    add_meta_box( 'class-name', 'Lớp', 'fgc_print_box_class_name');
-}
-add_action('add_meta_boxes','fgc_register_class_meta_box'); 
-
-// print html meta box enter class name
-function fgc_print_box_class_name($post) {
-    $list_classname = get_option('quiz_options_course', []);
-    $classpost = get_post_meta($post->ID,'_classname',true);
-
-    wp_nonce_field( 'nonce_meta_box_classname', 'nonce_meta_box_classname');
-    echo '<label for="class_name">This post belong to class: </label>';
-    //echo '<input type="text" name="classname" value="'.$classname.'" />';
-    if ( is_admin() ) {
-        echo '<select name="classname">
-            <option value="">-- Select class --</option>';
-            //foreach ($list_classname as $classname => $member) {
-            foreach ($list_classname as $class) {
-                $classname = $class['name'];
-                echo '<option value="'.$classname.'"'.($classpost == $classname ? ' selected' : '').'>'.$classname.'</option>';
-            }
-            echo '</select>';
     }
-}
-
-// add meta box helper in page Add new post
-function fgc_register_helper_meta_box() {
-    add_meta_box( 'fgc-quiz-helper', 'Hưỡng dẫn dùng shortcode', 'fgc_print_box_helper');
-}
-add_action('add_meta_boxes','fgc_register_helper_meta_box'); 
-
-// print html meta box enter class name
-function fgc_print_box_helper($post) {
-    echo '<p><code>[timetable classname="B"]</code> to print timetable of class B, leave empty classname to auto select by user login.</p>';
-    echo '<p><code>[video url="http://..." width="560px" height="315px"]</code> to insert video player. Support youtube.com and voatiengviet.com</p>';
-    echo '<p><code>[game url="http://.../game.swf"]</code> to insert game flash.</p>';
-
-}
-
-function fgc_save_class_name($post_id) {
-    if(!isset($_POST['nonce_meta_box_classname'])) return;
-    if(!wp_verify_nonce($_POST['nonce_meta_box_classname'],'nonce_meta_box_classname')) return;
     
-    if(!empty($_POST['classname'])) {
-        $classname = sanitize_text_field($_POST['classname']);
-        update_post_meta( $post_id, '_classname', $classname);
+    function manager_game() {
+        include(PLUGIN_DIR.'game.php');
+        $game = new Quiz_game;
+
+        $action = isset($_GET['action']) ? $_GET['action'] : null;
+        $id = isset($_GET['id']) ? $_GET['id'] : null;
+        switch ($action) {
+            case 'add':
+                $game->add_game();
+                break;
+            case 'edit':
+                $game->edit_game($id);
+                break;
+            case 'view':
+                //$game->view_game($id);
+                break;
+            case 'delete':
+                $game->delete_game($id);
+                break;
+            
+            default:
+                $game->list_game();
+                break;
+        }
     }
-}
-add_action('save_post','fgc_save_class_name');
+    // add meta box in page Add new post
+    function register_meta_box_class() {
+        add_meta_box( 'class-name', 'Class', array($this,'print_box_class_name'));
+    }
+     
+    // print html meta box enter class name
+    function print_box_class_name($post) {
+        global $wpdb;
+        $list_class = $wpdb->get_results( "SELECT * FROM $this->table_class ", ARRAY_A);
+        $post_class_id = get_post_meta($post->ID,'_class_id',true);
 
-
-add_action( 'show_user_profile', 'fgc_show_profile_class_field' );
-add_action( 'edit_user_profile', 'fgc_show_profile_class_field' );
-
-function fgc_show_profile_class_field( $user ) {
-	$list_classname = get_option('quiz_options_course', []);
- ?>
-	<h3>Extra profile information</h3>
-	<table class="form-table">
-		<tr>
-			<th><label for="twitter">Class name:</label></th>
-			<td>
-			<?php if ( ! is_admin() ) { ?>
-				<input type="text" value="<?php echo esc_attr( get_the_author_meta( '_classname', $user->ID ) ); ?>" class="regular-text" disabled /><br />
-				<span class="description">Your class name.</span>
-			<?php } else {
-				echo '<select name="classname">
+        wp_nonce_field( 'nonce_meta_box_classname', 'nonce_meta_box_classname');
+        echo '<label for="class_name">This post belong to class: </label>';
+        //echo '<input type="text" name="classname" value="'.$classname.'" />';
+        if ( is_admin() ) {
+            echo '<select name="class_id">
+                <option value="">-- Select class --</option>';
+                //foreach ($list_classname as $classname => $member) {
+                foreach ($list_class as $class) {
+                    echo '<option value="'.$class['id'].'"'.($class['id'] == $post_class_id ? ' selected' : '').'>'.$class['name'].'</option>';
+                }
+                echo '</select>';
+        }
+    }
+    function save_post_meta_class($post_id) {
+        if(!isset($_POST['nonce_meta_box_classname'])) return;
+        if(!wp_verify_nonce($_POST['nonce_meta_box_classname'],'nonce_meta_box_classname')) return;
+        
+        if(!empty($_POST['class_id'])) {
+            $class_id = sanitize_text_field($_POST['class_id']);
+            update_post_meta( $post_id, '_class_id', $class_id);
+        }
+    }
+    function show_profile_class_field( $user ) {
+	    global $wpdb;
+        $list_class = $wpdb->get_results( "SELECT * FROM $this->table_class ", ARRAY_A);
+        $class_id = get_the_author_meta('_class_id', $user->ID );
+        echo '<h3>Extra profile information</h3>
+            <table class="form-table">
+                <tr>
+                    <th><label for="twitter">Class name:</label></th>
+                    <td>';
+			if ( ! is_admin() ) {
+				echo '<input type="text" value="'.$class_id.'" class="regular-text" disabled /><br />
+				<span class="description">Your class name.</span>';
+			} else {
+                echo '<input type="hidden" name="class_old" value="'.$class_id.'" />
+				<span class="description">Your class name.</span>';
+				echo '<select name="class_id">
 					<option value="">-- Select class --</option>';
-					//foreach ($list_classname as $classname => $member) {
-					foreach ($list_classname as $class) {
-                        $classname = $class['name'];
-                        $member = $class['members'];
-						echo '<option value="'.$classname.'"'.(esc_attr(get_the_author_meta('_classname', $user->ID )) == $classname ? ' selected' : '').'>'.$classname.' ('.$member.' members)</option>';
+					foreach ($list_class as $class) {
+						echo '<option value="'.$class['id'].'"'.($class_id == $class['id'] ? ' selected' : '').'>'.$class['name'].' ('.$class['members'].' members)</option>';
 					}
 					echo '</select>';
-			} ?>
-			</td>
-		</tr>
-	</table>
-<?php }
-
-/*
-Save field class name
- */
-
-add_action( 'personal_options_update', 'fgc_save_profile_class_field' );
-add_action( 'edit_user_profile_update', 'fgc_save_profile_class_field' );
-
-function fgc_save_profile_class_field( $user_id ) {
-    if ( ! is_admin() ) return false;
-    $list_classname = get_option('quiz_options_course', []);
-    $classname = sanitize_text_field($_POST['classname']);
-	$list_classname[$classname]['members'] = $list_classname[$classname]['members'] + 1;
-	update_option('quiz_options_course', $list_classname);
-	update_usermeta( $user_id, '_classname', $_POST['classname'] );
-}
-
-// add shortcode to print timetable for page and post
-add_shortcode( 'timetable', 'fgc_shortcode_timetable');
-
-function fgc_shortcode_timetable($args,$content=null) {
-    global $current_user;
-    extract(shortcode_atts(array(
-        'classname' => null,
-    ), $args));
-
-    include(PLUGIN_DIR.'timetable.php');
-    $timetable = new Quiz_timetable;
-    //$classname = isset($args['classname']) ? $args['classname'] : null;
-    if($classname && !array_key_exists($classname,$timetable->timetable)) return 'Class '.$classname.' doesn\'t have timetable!';
-    if(!$classname && is_user_logged_in()) {
-        $user = wp_get_current_user();
-        $classname = get_the_author_meta('_classname', $user->ID );
-        if(!array_key_exists($classname,$timetable->timetable)) return 'No timetable for '.$user->user_nicename;
-    } elseif(!is_user_logged_in()) {
-        return 'Please login to view your timetable!';
+			}
+			echo '</td>
+                </tr>
+            </table>';
     }
-    // if is admin -> print all timetable of all class
-    if (current_user_can('administrator')) {
-        $list_class = get_option('quiz_options_course', []);
-        if(!empty($list_class)) {
-            $html = '';
-            foreach ($list_class as $classname => $class) {
-                //$html .= '<h2>Timetable of class '.$classname.'</h2>';
-                $html .= $timetable->view_timetable($classname,true);
-            }
-            return $html;
+
+    function save_profile_class_field( $user_id ) {
+        global $wpdb;
+        //$list_class = $wpdb->get_results( "SELECT * FROM $this->table_class ", ARRAY_A);
+
+        $class_old = (int) sanitize_text_field($_POST['class_old']);
+        $class_id = (int) sanitize_text_field($_POST['class_id']);
+        if($class_id != $class_old) {
+            update_usermeta( $user_id, '_class_id', $class_id );
+            $sql = "UPDATE $this->table_class SET members = members-1 WHERE id = $class_old;
+                    UPDATE $this->table_class SET members = members+1 WHERE id = $class_id;";
+            $wpdb->query($wpdb->prepare($sql));
         }
-    } else {
-        return $timetable->view_timetable($classname,true);
     }
-}
 
-// add shortcode to print timetable for page and post
-add_shortcode( 'video', 'fgc_shortcode_video');
+    function shortcode_timetable($args,$content=null) {
+        global $wpdb,$current_user;
+        extract(shortcode_atts(array(
+            'classname' => null,
+        ), $args));
 
-function fgc_shortcode_video($args,$content=null) {
-    global $current_user;
-    extract(shortcode_atts(array(
-        'url' => null,
-        'width' => '100%',//640,
-        'height' => '360px',//360,
-    ), $args));
-    if(!preg_match('/(%|px)$/i',$width))
-        $width .= 'px';
-    
-    if(!preg_match('/(%|px)$/i',$height))
-        $height .= 'px';
-    
-    if(preg_match("/(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be\/)[^&\n]+/", $url, $matches)) {
-        $videoid = $matches[0];
-        $url = 'https://www.youtube.com/embed/'.$videoid;
-    } else if(preg_match("/https?:\/\/(?:www.)?voatiengviet.com\/a\/(\d+)/", $url, $matches)) {
-        $videoid = $matches[1];
-        //'<iframe src="https://www.voatiengviet.com/embed/player/0/3893960.html?type=video" frameborder="0" scrolling="no" width="640" height="363" allowfullscreen></iframe>'
-        $url = 'https://www.voatiengviet.com/embed/player/0/'.$videoid.'.html?type=video';
+        $timetable = null;
+        //$classname = 'A1';
+        if (!$classname && current_user_can('administrator')) {
+            $timetable = $wpdb->get_results( "SELECT * FROM $this->table_timetable ", ARRAY_A);
+        } else {
+            if($classname) {
+                $sql = "SELECT * FROM $this->table_timetable INNER JOIN $this->table_class ON $this->table_timetable .class_id = $this->table_class .id WHERE $this->table_class .name = '$classname'";
+                $timetable = $wpdb->get_row($sql);
+            }
+            if(!$timetable && is_user_logged_in()) {
+                $current_user = wp_get_current_user();
+                $class_id = get_the_author_meta('_class_id', $current_user->ID );
+                if($class_id) {
+                    $sql = "SELECT * FROM $this->table_timetable WHERE class_id = ".$class_id ;
+                    $timetable = $wpdb->get_row($sql);
+                }
+            } else {
+                return 'Please login to view your timetable!';
+            }
+        }
+        if(!empty($timetable)) {
+            return "You not belong to any class!";
+        }
+        $html = '';
+        foreach ($timetable as $table) {
+            # code...
+        }
+
+        //include(PLUGIN_DIR.'timetable.php');
+        //$timetable = new Quiz_timetable;
+
+/*        if($classname && !array_key_exists($classname,$timetable->timetable)) return 'Class '.$classname.' doesn\'t have timetable!';
+        if(!$classname && is_user_logged_in()) {
+            $user = wp_get_current_user();
+            $classname = get_the_author_meta('_classname', $user->ID );
+            if(!array_key_exists($classname,$timetable->timetable)) return 'No timetable for '.$user->user_nicename;
+        } elseif(!is_user_logged_in()) {
+            return 'Please login to view your timetable!';
+        }
+        // if is admin -> print all timetable of all class
+        if (current_user_can('administrator')) {
+            $list_class = get_option('quiz_options_course', []);
+            if(!empty($list_class)) {
+                $html = '';
+                foreach ($list_class as $classname => $class) {
+                    //$html .= '<h2>Timetable of class '.$classname.'</h2>';
+                    $html .= $timetable->view_timetable($classname,true);
+                }
+                return $html;
+            }
+        } else {
+            return $timetable->view_timetable($classname,true);
+        }*/
     }
-    $html = '<div style="width:'.$width.';height:'.$height.';"><iframe style=width:100%;height:100%;"" src="'.$url.'" frameborder="0" scrolling="no" allowfullscreen></iframe></div>';
-    return $html;
+
+    // add shortcode to print timetable for page and post
+    function shortcode_video($args,$content=null) {
+        global $current_user;
+        extract(shortcode_atts(array(
+            'url' => null,
+            'width' => '100%',//640,
+            'height' => '360px',//360,
+        ), $args));
+        if(!preg_match('/(%|px)$/i',$width))
+            $width .= 'px';
+        
+        if(!preg_match('/(%|px)$/i',$height))
+            $height .= 'px';
+        
+        if(preg_match("/(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be\/)[^&\n]+/", $url, $matches)) {
+            $videoid = $matches[0];
+            $url = 'https://www.youtube.com/embed/'.$videoid;
+        } else if(preg_match("/https?:\/\/(?:www.)?voatiengviet.com\/a\/(\d+)/", $url, $matches)) {
+            $videoid = $matches[1];
+            //'<iframe src="https://www.voatiengviet.com/embed/player/0/3893960.html?type=video" frameborder="0" scrolling="no" width="640" height="363" allowfullscreen></iframe>'
+            $url = 'https://www.voatiengviet.com/embed/player/0/'.$videoid.'.html?type=video';
+        }
+        $html = '<div style="width:'.$width.';height:'.$height.';"><iframe style=width:100%;height:100%;"" src="'.$url.'" frameborder="0" scrolling="no" allowfullscreen></iframe></div>';
+        return $html;
+    }
+
+    function shortcode_game($args,$content=null) {
+        extract(shortcode_atts(array(
+            'url' => null,
+            'width' => '550px',
+            'height' => '400px',
+        ), $args));
+
+        ob_start();
+        ?>
+        <div style="<?php echo 'width:100%;height:'.$height.';'; ?>">
+            <object id="flashcontent" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="<?php echo $width; ?>" height="<?php echo $height; ?>">
+                <param name="movie" value="<?php echo $url; ?>" />
+                
+                <!--[if !IE]>-->
+                <object type="application/x-shockwave-flash" 
+                        data="<?php echo $url; ?>" 
+                        width="<?php echo $width; ?>" 
+                        height="<?php echo $height; ?>">
+                <!--<![endif]-->
+                
+                    <p>
+                    Fallback or 'alternate' content goes here.
+                    This content will only be visible if the SWF fails to load.
+                    </p>
+                
+                <!--[if !IE]>-->
+                </object>
+                <!--<![endif]-->
+
+                </object>
+            </div>
+            <?php
+        $html = ob_get_clean();
+        return $html;
+    }
+
+    // add meta box helper in page Add new post
+    function register_meta_box_helper() {
+        add_meta_box( 'fgc-quiz-helper', 'Hưỡng dẫn dùng shortcode', array($this,'print_box_helper'));
+    }
+
+    // print html meta box enter class name
+    function print_box_helper($post) {
+        echo '<p><code>[timetable classname="B"]</code> to print timetable of class B, leave empty classname to auto select by user login.</p>';
+        echo '<p><code>[video url="http://..." width="560px" height="315px"]</code> to insert video player. Support youtube.com and voatiengviet.com</p>';
+        echo '<p><code>[game url="http://.../game.swf"]</code> to insert game flash.</p>';
+
+    }
+    static function install() {
+        global $wpdb;
+        $installed_ver = get_option( "fgc_quiz_version" );
+        //$installed_ver = '2';
+        if ( $installed_ver != PLUGIN_VERSION) {
+            // $wpdb->dbname;
+            $charset_collate = $wpdb->get_charset_collate();
+            $table_class = $wpdb->prefix . "fgc_class";
+            $table_timetable = $wpdb->prefix . "fgc_timetable";
+            $table_game = $wpdb->prefix . "fgc_game";
+            $insert_data_class = $insert_data_timetable = $insert_data_game = true;
+            $sql = '';
+            $message = [];
+
+            if(FORCE_INSTALL==true) {
+                $wpdb->query( "DROP TABLE IF EXISTS $table_timetable" );
+                $wpdb->query( "DROP TABLE IF EXISTS $table_class" );
+                $wpdb->query( "DROP TABLE IF EXISTS $table_game" );
+            }
+            // id INT(5) NOT NULL AUTO_INCREMENT,
+            if ($wpdb->get_var("SHOW TABLES LIKE '$table_class'") != $table_class) {
+                $sql .= "CREATE TABLE ".$table_class ." (
+                    id INT(5) NOT NULL AUTO_INCREMENT,
+                    name varchar(50) NOT NULL UNIQUE,
+                    members INT(5) UNSIGNED DEFAULT 0,
+                    public 	tinyint(1) DEFAULT 1,
+                    PRIMARY KEY (id)
+                ) $charset_collate;";
+                
+            } else {
+                $insert_data_class = false;
+                $message[] = 'Table '.$table_class.' exist!';
+            }
+            
+            if ($wpdb->get_var("SHOW TABLES LIKE '$table_timetable'") != $table_timetable) {
+                $sql .= "CREATE TABLE ".$table_timetable ." (
+                    class_id INT(2) NOT NULL,
+                    monday varchar(250),
+                    tuesday varchar(250),
+                    wednesday varchar(250),
+                    thursday varchar(250),
+                    friday varchar(250),
+                    saturday varchar(250),
+                    sunday varchar(250),
+                    FOREIGN KEY (class_id) REFERENCES $table_class(id)
+                ) $charset_collate;";
+            } else {
+                $insert_data_timetable = false;
+                $message[] = 'Table '.$table_timetable.' exist!';
+            }
+
+            if ($wpdb->get_var("SHOW TABLES LIKE '$table_game'") != $table_game) {
+                $sql .= "CREATE TABLE ".$table_game ." (
+                    id INT(5) NOT NULL AUTO_INCREMENT,
+                    name varchar(50) NOT NULL,
+                    url text NOT NULL,
+                    public 	tinyint(1) DEFAULT 1,
+                    PRIMARY KEY (id)
+                ) $charset_collate;";
+            } else {
+                $insert_data_game = false;
+                $message[] = 'Table '.$table_game.' exist!';
+            }
+
+            if(!empty($sql)) {
+                require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+                dbDelta( $sql );
+                update_option( "fgc_quiz_version", PLUGIN_VERSION);
+
+                if($insert_data_class==true) {
+                    $wpdb->insert($table_class, array('name' => 'A1', 'members' => 0, 'public' => 1));
+                    $wpdb->insert($table_class, array('name' => 'A2', 'members' => 0, 'public' => 1));
+                    $wpdb->insert($table_class, array('name' => 'B', 'members' => 0, 'public' => 1));
+                    $wpdb->insert($table_class, array('name' => 'C', 'members' => 0, 'public' => 1));
+
+                    $message[] = 'Insert data class success!';
+                }
+                if($insert_data_timetable==true) {
+                    $wpdb->insert($table_timetable, array('class_id' => 1));
+                    $wpdb->insert($table_timetable, array('class_id' => 2));
+                    $wpdb->insert($table_timetable, array('class_id' => 3));
+                    $wpdb->insert($table_timetable, array('class_id' => 4));
+
+                    $message[] = 'Insert data timetable success!';
+                }
+                if($insert_data_game==true) {
+                    $wpdb->insert($table_game, array('name' => 'Game 1', 'url' => 'http://english.training.fgct.net/images/games/freedom_-spot-the-difference/Freedom.swf'));
+                    $wpdb->insert($table_game, array('name' => 'Game 2', 'url' => 'http://english.training.fgct.net/images/games/fashion-girls_v586067/gcm_mochi.swf'));
+
+                    $message[] = 'Insert data game success!';
+                }
+            } else {
+                $message[] = 'No thing to query database!';
+            }
+            //$message = implode('<br />',$message);
+            //echo "<div class='updated'><p>$message</p></div>";
+            //exit();
+        }
+    }
+
 }
 
+register_activation_hook( __FILE__, array( 'FGC_Quiz', 'install' ) );
+new FGC_Quiz();
 
-// add shortcode 'game'
-add_shortcode( 'game', 'fgc_shortcode_game');
-
-function fgc_shortcode_game($args,$content=null) {
-    extract(shortcode_atts(array(
-        'url' => null,
-        'width' => '550px',
-        'height' => '400px',
-    ), $args));
-
-    ob_start();
-    ?>
-    <div style="<?php echo 'width:100%;height:'.$height.';'; ?>">
-        <object id="flashcontent" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="<?php echo $width; ?>" height="<?php echo $height; ?>">
-            <param name="movie" value="<?php echo $url; ?>" />
-            
-            <!--[if !IE]>-->
-            <object type="application/x-shockwave-flash" 
-                    data="<?php echo $url; ?>" 
-                    width="<?php echo $width; ?>" 
-                    height="<?php echo $height; ?>">
-            <!--<![endif]-->
-            
-                <p>
-                Fallback or 'alternate' content goes here.
-                This content will only be visible if the SWF fails to load.
-                </p>
-            
-            <!--[if !IE]>-->
-            </object>
-            <!--<![endif]-->
-
-            </object>
-        </div>
-        <?php
-    $html = ob_get_clean();
-    return $html;
-}
-
-
-// Not use
-function fgc_settings_page() {
-    ?>
-    <div class="wrap">
-    <h2>Demo Tạo trang cài đặt cho plugin</h2>
-    <?php if( isset($_GET['settings-updated']) ) { ?>
-        <div id="message" class="updated">
-            <p><strong><?php _e('Settings saved.') ?></strong></p>
-        </div>
-    <?php } ?>
-    <form method="post" action="options.php">
-        <?php settings_fields( 'fgc-settings-group' ); ?>
-        <table class="form-table">
-            <tr valign="top">
-            <th scope="row">Tùy chọn cài đặt</th>
-            <td><input type="text" name="fgc_option_name" value="<?php echo get_option('fgc_option_name'); ?>" /></td>
-            </tr>
-        </table>
-        <?php submit_button(); ?>
-    </form>
-    </div>
-    <?php
-}
 ?>
