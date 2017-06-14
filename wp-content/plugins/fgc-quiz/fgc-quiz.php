@@ -234,9 +234,15 @@ function fgc_shortcode_video($args,$content=null) {
     global $current_user;
     extract(shortcode_atts(array(
         'url' => null,
-        'width' => 640,
-        'height' => 360,
+        'width' => '100%',//640,
+        'height' => '360px',//360,
     ), $args));
+    if(!preg_match('/(%|px)$/i',$width))
+        $width .= 'px';
+    
+    if(!preg_match('/(%|px)$/i',$height))
+        $height .= 'px';
+    
     if(preg_match("/(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be\/)[^&\n]+/", $url, $matches)) {
         $videoid = $matches[0];
         $url = 'https://www.youtube.com/embed/'.$videoid;
@@ -245,7 +251,7 @@ function fgc_shortcode_video($args,$content=null) {
         //'<iframe src="https://www.voatiengviet.com/embed/player/0/3893960.html?type=video" frameborder="0" scrolling="no" width="640" height="363" allowfullscreen></iframe>'
         $url = 'https://www.voatiengviet.com/embed/player/0/'.$videoid.'.html?type=video';
     }
-    $html = '<iframe width="'.$width.'" height="'.$height.'" src="'.$url.'" frameborder="0" scrolling="no" allowfullscreen></iframe>';
+    $html = '<div style="width:'.$width.';height:'.$height.';"><iframe style=width:100%;height:100%;"" src="'.$url.'" frameborder="0" scrolling="no" allowfullscreen></iframe></div>';
     return $html;
 }
 
