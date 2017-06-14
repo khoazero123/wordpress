@@ -185,6 +185,7 @@ class Quiz_class {
             if(!$class)
                 printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr('notice notice-error'), esc_html('Class ID '.$class_id.' doesn\'t exist!'));
             else {
+                $wpdb->delete( $this->table_timetable, ['class_id'=>$class_id]);
                 $wpdb->delete( $this->table_class, ['id'=>$class_id]);
                 // Update batch user meta _class_id to null <-------------------------------
                 printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr('notice notice-success'), esc_html('Delete class '.$class['name'].' success!'));
