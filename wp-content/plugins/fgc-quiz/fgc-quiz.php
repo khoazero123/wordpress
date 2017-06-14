@@ -196,15 +196,17 @@ class FGC_Quiz {
         $class_old = (int) sanitize_text_field($_POST['class_old']);
         $class_id = (int) sanitize_text_field($_POST['class_id']);
         if($class_id != $class_old) {
-            
             update_usermeta( $user_id, '_class_id', $class_id );
-            $sql = '';
-            if($class_old) $sql .= "UPDATE $this->table_class SET members = members-1 WHERE id = $class_old;";
-            if($class_id) $sql .= "UPDATE $this->table_class SET members = members+1 WHERE id = $class_id;";
-
-            //printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr('notice notice-success'), esc_html($sql) ); exit;
-
-            $wpdb->query($wpdb->prepare($sql));
+            if($class_old) {
+                $sql = "UPDATE $this->table_class SET members = members-1 WHERE id = $class_old;";
+                $wpdb->query($wpdb->prepare($sql));
+            }
+            if($class_id) {
+                $sql = "UPDATE $this->table_class SET members = members+1 WHERE id = $class_id;";
+                $wpdb->query($wpdb->prepare($sql));
+            }
+            //$message = "Class old: $class_old , class new: $class_id . <br />".$sql;
+            //printf(  $message ); exit;
         }
     }
 
