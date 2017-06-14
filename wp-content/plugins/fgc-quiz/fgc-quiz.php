@@ -256,6 +256,44 @@ function fgc_shortcode_video($args,$content=null) {
 }
 
 
+// add shortcode 'game'
+add_shortcode( 'game', 'fgc_shortcode_game');
+
+function fgc_shortcode_game($args,$content=null) {
+    extract(shortcode_atts(array(
+        'url' => null,
+        'width' => '550px',
+        'height' => '400px',
+    ), $args));
+
+    ob_start();
+    ?>
+    <div style="<?php echo 'width:100%;height:'.$height.';'; ?>">
+        <object id="flashcontent" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="<?php echo $width; ?>" height="<?php echo $height; ?>">
+            <param name="movie" value="<?php echo $url; ?>" />
+            
+            <!--[if !IE]>-->
+            <object type="application/x-shockwave-flash" 
+                    data="<?php echo $url; ?>" 
+                    width="<?php echo $width; ?>" 
+                    height="<?php echo $height; ?>">
+            <!--<![endif]-->
+            
+                <p>
+                Fallback or 'alternate' content goes here.
+                This content will only be visible if the SWF fails to load.
+                </p>
+            
+            <!--[if !IE]>-->
+            </object>
+            <!--<![endif]-->
+
+            </object>
+        </div>
+        <?php
+    $html = ob_get_clean();
+    return $html;
+}
 
 
 // Not use
