@@ -347,7 +347,7 @@ class FGC_Quiz {
     function print_box_helper($post) {
         echo '<p><code>[timetable classname="B"]</code> to print timetable of class B, leave empty classname to auto select by user login.</p>';
         echo '<p><code>[video url="http://..." width="560px" height="315px"]</code> to insert video player. Support youtube.com and voatiengviet.com</p>';
-        echo '<p><code>[game url="http://.../game.swf"]</code> to insert game flash.</p>';
+        echo '<p><code>[game id="1"]</code> or <code>[game url="http://.../game.swf"]</code> to insert game flash.</p>';
 
     }
     static function install() {
