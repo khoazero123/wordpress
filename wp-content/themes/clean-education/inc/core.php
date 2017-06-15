@@ -1054,7 +1054,7 @@ add_action( 'clean_education_comment_section', 'clean_education_get_comment_sect
  * @since Clean Education 0.1
  */
 function clean_education_footer_content() {
-	//clean_education_flush_transients();
+	clean_education_flush_transients();
 	if ( ! $output = get_transient( 'clean_education_footer_content' ) ) {
 		echo '<!-- refreshing cache -->';
 
@@ -1069,7 +1069,7 @@ function clean_education_footer_content() {
 			</div><!-- .wrapper -->
 		</div><!-- #site-generator -->';
 
-	    set_transient( 'clean_education_footer_content', $output, 86940 );
+	    set_transient( 'clean_education_footer_content', $output, 0 );//86940
     }
 
     echo $output;

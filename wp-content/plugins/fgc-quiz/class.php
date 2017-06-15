@@ -35,6 +35,7 @@ class Quiz_class {
 
         <tbody id="the-list">
             <?php 
+            //echo '<pre>';var_dump($this->list_class);echo '</pre>';
             foreach ($this->list_class as $class) {
                 echo '<td>'.$class['name'].'</td>
                     <td> '.$class['members'].' </td>
