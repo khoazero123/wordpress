@@ -198,6 +198,7 @@ class Quiz_class {
                 if(!empty($list_users)) foreach ( $list_users as $user ) {
                     delete_user_meta( $user->ID, '_class_id');
                 }
+                // < ---------------- REMOVE post meta class_id too ----------------------------------------------------
                 printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr('notice notice-success'), esc_html('Delete class '.$class['name'].' success!'));
             }
         }
@@ -222,6 +223,10 @@ class Quiz_class {
                     printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr('notice notice-error'), esc_html('User ID '.$user_id.' doesn\'t exist!'));
                 else {
                     update_usermeta( $user_id, '_class_id', '');
+
+                    $sql = "UPDATE $this->table_class SET members = members-1 WHERE id = $class_id;";
+                    $wpdb->query($wpdb->prepare($sql));
+
                     printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr('notice notice-success'), esc_html('Remove '.$user->user_nicename.' from class '.$class['name'].' success.'));
                 }
             }

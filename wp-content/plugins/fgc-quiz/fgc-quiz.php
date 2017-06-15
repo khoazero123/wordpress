@@ -36,6 +36,15 @@ class FGC_Quiz {
         add_shortcode( 'video', array( $this, 'shortcode_video'));
         add_shortcode( 'game', array( $this, 'shortcode_game'));
 
+
+        // Add column CLASS to list page/post
+        add_filter( 'manage_posts_columns' , array( $this, 'add_class_column' ));
+        add_action( 'manage_posts_custom_column' , array( $this, 'display_posts_class'), 10, 2 );
+
+        add_filter( 'manage_page_posts_columns' , array( $this, 'add_class_column' ));
+        add_action( 'manage_page_posts_custom_column' , array( $this, 'display_posts_class'), 10, 2 );
+        
+
         add_action('add_meta_boxes',array( $this, 'register_meta_box_helper')); 
 
     }
@@ -133,9 +142,11 @@ class FGC_Quiz {
      
     // print html meta box enter class name
     function print_box_class_name($post) {
+        //echo '<pre>';var_dump($post);echo '</pre>';
         global $wpdb;
         $list_class = $wpdb->get_results( "SELECT * FROM $this->table_class ", ARRAY_A);
         $post_class_id = get_post_meta($post->ID,'_class_id',true);
+        $post_private = get_post_meta($post->ID,'_private',true);
 
         wp_nonce_field( 'nonce_meta_box_classname', 'nonce_meta_box_classname');
         echo '<label for="class_name">This post belong to class: </label>';
@@ -147,17 +158,19 @@ class FGC_Quiz {
                 foreach ($list_class as $class) {
                     echo '<option value="'.$class['id'].'"'.($class['id'] == $post_class_id ? ' selected' : '').'>'.$class['name'].'</option>';
                 }
-                echo '</select>';
+                echo '</select><br />';
+                echo 'Only this class can access this '.$post->post_type.' <input type="checkbox" name="private" value="1"'.($post_private == 1 ? ' checked' : '').'>';
         }
     }
     function save_post_meta_class($post_id) {
         if(!isset($_POST['nonce_meta_box_classname'])) return;
         if(!wp_verify_nonce($_POST['nonce_meta_box_classname'],'nonce_meta_box_classname')) return;
         
-        if(!empty($_POST['class_id'])) {
-            $class_id = sanitize_text_field($_POST['class_id']);
-            update_post_meta( $post_id, '_class_id', $class_id);
-        }
+        $class_id = isset($_POST['class_id']) ? $_POST['class_id'] : '';
+        $post_private = isset($_POST['private']) && $_POST['private'] == 1 ? true : false;
+        update_post_meta( $post_id, '_class_id', $class_id);
+        update_post_meta( $post_id, '_private', $post_private);
+        //if(!$class_id) delete_post_meta($post_id, '_private');
     }
     function show_profile_class_field( $user ) {
 	    global $wpdb;
@@ -250,6 +263,24 @@ class FGC_Quiz {
         if(empty($html)) $html = 'No have data timetable';
         return $html;
 
+    }
+
+    /* Add custom column to post list */
+    function add_class_column( $columns ) {
+        return array_merge( $columns, 
+            array( 'classname' => 'Class' ) );
+    }
+
+    /* Display custom column */
+    function display_posts_class( $column, $post_id ) {
+        global $wpdb;
+        if ($column == 'classname') {
+            $post_class_id = get_post_meta($post_id,'_class_id',true);
+            if($post_class_id) {
+                $class = (array) $wpdb->get_row("SELECT * FROM $this->table_class WHERE id = ".$post_class_id);
+                if($class) echo $class['name'];
+            }
+        }
     }
 
     // add shortcode to print timetable for page and post
@@ -430,5 +461,8 @@ class FGC_Quiz {
 
 register_activation_hook( __FILE__, array( 'FGC_Quiz', 'install' ) );
 new FGC_Quiz();
+
+
+
 
 ?>
