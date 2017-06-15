@@ -34,7 +34,7 @@ do_action( 'activate_header' );
 /**
  * Adds an action hook specific to this page.
  *
- * Fires on {@see wp_head}.
+ * Fires on {@see 'wp_head'}.
  *
  * @since MU
  */
@@ -42,7 +42,7 @@ function do_activate_header() {
 	/**
 	 * Fires before the Site Activation page is loaded.
 	 *
-	 * Fires on the {@see wp_head} action.
+	 * Fires on the {@see 'wp_head'} action.
      *
      * @since 3.0.0
      */
