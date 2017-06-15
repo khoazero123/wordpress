@@ -14,6 +14,11 @@ class Quiz_game {
         $this->list_game = $wpdb->get_results( "SELECT * FROM $this->table_game ORDER BY name ASC", ARRAY_A);
     }
 
+    public function get_game($id) {
+        if(isset($this->list_game[$id])) return $this->list_game[$id];
+        //$game = (array) $wpdb->get_row("SELECT * FROM $this->table_game WHERE id = '$id'");
+        return null;
+    }
     public function list_game() {
     ?>
         <div class="wrap">
@@ -26,6 +31,7 @@ class Quiz_game {
         <table class="wp-list-table widefat fixed striped posts" style="width:60%">
         <thead>
             <tr>
+                <th scope="col" id="title" class="manage-column column-author">ID</th>
                 <th scope="col" id="title" class="manage-column column-author">Name game</th>
                 <th scope="col" id="count" class="manage-column column-author">URL</th>
                 <th scope="col" id="public" class="manage-column column-author">Public</th>
@@ -36,7 +42,8 @@ class Quiz_game {
         <tbody id="the-list">
             <?php 
             foreach ($this->list_game as $game) {
-                echo '<td>'.$game['name'].'</td>
+                echo '<td>'.$game['id'].'</td>
+                    <td>'.$game['name'].'</td>
                     <td> '.$game['url'].' </td>
                     <td> '.($game['public']==1 ? 'Public' : 'Private').' </td>
                     <td> <a href="?'.$_SERVER['QUERY_STRING'].'&action=edit&id='.$game['id'].'">Edit</a> | <a href="?'.$_SERVER['QUERY_STRING'].'&action=delete&id='.$game['id'].'">Delete</a> </td>

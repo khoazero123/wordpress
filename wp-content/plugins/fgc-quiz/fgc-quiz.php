@@ -152,11 +152,9 @@ class FGC_Quiz {
 
         wp_nonce_field( 'nonce_meta_box_classname', 'nonce_meta_box_classname');
         echo '<label for="class_name">This post belong to class: </label>';
-        //echo '<input type="text" name="classname" value="'.$classname.'" />';
         if ( is_admin() ) {
             echo '<select name="class_id">
                 <option value="">-- Select class --</option>';
-                //foreach ($list_classname as $classname => $member) {
                 foreach ($list_class as $class) {
                     echo '<option value="'.$class['id'].'"'.($class['id'] == $post_class_id ? ' selected' : '').'>'.$class['name'].'</option>';
                 }
@@ -206,8 +204,6 @@ class FGC_Quiz {
 
     function save_profile_class_field( $user_id ) {
         global $wpdb;
-        //$list_class = $wpdb->get_results( "SELECT * FROM $this->table_class ", ARRAY_A);
-
         $class_old = (int) sanitize_text_field($_POST['class_old']);
         $class_id = (int) sanitize_text_field($_POST['class_id']);
         if($class_id != $class_old) {
@@ -222,6 +218,24 @@ class FGC_Quiz {
             }*/
             //$message = "Class old: $class_old , class new: $class_id . <br />".$sql;
             //printf(  $message ); exit;
+        }
+    }
+
+    /* Add custom column 'class' to post list */
+    function add_class_column( $columns ) {
+        return array_merge( $columns, 
+            array( 'classname' => 'Class' ) );
+    }
+
+    /* Display custom column */
+    function display_posts_class( $column, $post_id ) {
+        global $wpdb;
+        if ($column == 'classname') {
+            $post_class_id = get_post_meta($post_id,'_class_id',true);
+            if($post_class_id) {
+                $class = (array) $wpdb->get_row("SELECT * FROM $this->table_class WHERE id = ".$post_class_id);
+                if($class) echo $class['name'];
+            }
         }
     }
 
@@ -267,24 +281,6 @@ class FGC_Quiz {
 
     }
 
-    /* Add custom column 'class' to post list */
-    function add_class_column( $columns ) {
-        return array_merge( $columns, 
-            array( 'classname' => 'Class' ) );
-    }
-
-    /* Display custom column */
-    function display_posts_class( $column, $post_id ) {
-        global $wpdb;
-        if ($column == 'classname') {
-            $post_class_id = get_post_meta($post_id,'_class_id',true);
-            if($post_class_id) {
-                $class = (array) $wpdb->get_row("SELECT * FROM $this->table_class WHERE id = ".$post_class_id);
-                if($class) echo $class['name'];
-            }
-        }
-    }
-
     // add shortcode show video
     function shortcode_video($args,$content=null) {
         global $current_user;
@@ -314,10 +310,18 @@ class FGC_Quiz {
     function shortcode_game($args,$content=null) {
         extract(shortcode_atts(array(
             'url' => null,
+            'id' => null,
             'width' => '550px',
             'height' => '400px',
         ), $args));
 
+        if($id) {
+            include(PLUGIN_DIR.'game.php');
+            $game = new Quiz_game;
+            if($info_game=$game->get_game($id)) {
+                $url = $info_game['url'];
+            }
+        }
         $html = '<div style="width:100%;height:'.$height.';">
             <object id="flashcontent" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="'.$width.'" height="'.$height.'">
                 <param name="movie" value="'.$url.'" />
