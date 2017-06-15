@@ -45,5 +45,30 @@ function my_category_template( $template ) {
 	return $template;
 }
 
+function fgc_checkAccess() {
+	global $wp_query;
+	$access = true;
+	$message = false;
+	$current_object = $wp_query->queried_object;//echo '<pre>';var_dump($page);echo '</pre>';
+	if(isset($current_object->ID)) {
+		$post_private = get_post_meta($current_object->ID,'_private',true);//echo '<pre>';var_dump($post_private);echo '</pre>';
+		if($post_private) {
+			$post_class_id = get_post_meta($current_object->ID,'_class_id',true);
+
+			if(!is_user_logged_in()) { 
+				//auth_redirect();
+				$message = 'Please login to view this content!';
+			} else {
+				$current_user = wp_get_current_user();
+				$user_class_id = get_the_author_meta('_class_id', $current_user->ID );
+				if($post_class_id != $user_class_id) {
+					$message = 'You cannot access this '.$current_object->post_type.'!';
+					$access = false;
+				}
+			}
+		}
+	}
+	return $message;
+}
 
 ?>
