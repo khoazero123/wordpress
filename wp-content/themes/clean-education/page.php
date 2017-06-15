@@ -13,7 +13,7 @@
  */
 $message = null;
 $current_object = $wp_query->queried_object;//echo '<pre>';var_dump($page);echo '</pre>';
-$post_private = get_post_meta($current_object->ID,'_private',true);//echo '<pre>';var_dump($post_private);echo '</pre>';
+$post_private = get_post_meta(@$current_object->ID,'_private',true);//echo '<pre>';var_dump($post_private);echo '</pre>';
 if($post_private) {
 	$post_class_id = get_post_meta($current_object->ID,'_class_id',true);
 
