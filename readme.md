@@ -19,7 +19,7 @@
 
     1. Add a user to a class
 
-        ![Manager class](/wp-content/plugins/fgc-quiz/doc/images/user1.PNG)
+        ![Manager class](/wp-content/plugins/fgc-quiz/doc/images/user1.png)
 
 1. Manger timetable
     1. List timetable
