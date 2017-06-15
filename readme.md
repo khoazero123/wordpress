@@ -51,11 +51,11 @@
 1. Manager post / page by class
     1. Add column class in list post / page
 
-        ![Manager class](/wp-content/plugins/fgc-quiz/doc/images/post.PNG)
+        ![Manager class](/wp-content/plugins/fgc-quiz/doc/images/post.png)
 
     1. Set post / page belong to which class.
 
-        ![Manager class](/wp-content/plugins/fgc-quiz/doc/images/post2.PNG)
+        ![Manager class](/wp-content/plugins/fgc-quiz/doc/images/post2.png)
 
     1. If post or page set only for a class, other user in other class will cannot access that post / page
 
