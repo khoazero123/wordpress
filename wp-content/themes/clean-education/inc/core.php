@@ -1199,9 +1199,9 @@ add_action( 'clean_education_after_post', 'clean_education_post_navigation', 10 
 /**
  * Display Multiple Select type for and array of categories
  *
- * @param  [string] $name  [field name]
- * @param  [string] $id    [field_id]
- * @param  [array] $selected    [selected values]
+ * @param  string $name  [field name]
+ * @param  string $id    [field_id]
+ * @param  array $selected    [selected values]
  * @param  string $label [label of the field]
  */
 function clean_education_dropdown_categories( $name, $id, $selected, $label = '' ) {
