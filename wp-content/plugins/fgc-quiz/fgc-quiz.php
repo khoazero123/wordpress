@@ -37,7 +37,7 @@ class FGC_Quiz {
         add_shortcode( 'game', array( $this, 'shortcode_game'));
 
 
-        // Add column CLASS to list page/post
+        // Add column CLASS to list page/post in admin
         add_filter( 'manage_posts_columns' , array( $this, 'add_class_column' ));
         add_action( 'manage_posts_custom_column' , array( $this, 'display_posts_class'), 10, 2 );
 
@@ -66,6 +66,9 @@ class FGC_Quiz {
             case 'add':
                 $class->add_class();
                 break;
+            case 'add_member':
+                $class->add_member($id);
+                break;
             case 'edit':
                 $class->edit_class($id);
                 break;
@@ -75,7 +78,6 @@ class FGC_Quiz {
             case 'delete':
                 $class->delete_class($id);
                 break;
-            
             case 'remove':
                 $user_id = isset($_GET['user_id']) ? $_GET['user_id'] : null;
                 $class->remove_from_class($user_id,$id);
@@ -193,7 +195,7 @@ class FGC_Quiz {
 				echo '<select name="class_id">
 					<option value="">-- Select class --</option>';
 					foreach ($list_class as $class) {
-						echo '<option value="'.$class['id'].'"'.($class_id == $class['id'] ? ' selected' : '').'>'.$class['name'].' ('.$class['members'].' members)</option>';
+						echo '<option value="'.$class['id'].'"'.($class_id == $class['id'] ? ' selected' : '').'>'.$class['name'].'</option>';
 					}
 					echo '</select>';
 			}
@@ -209,15 +211,15 @@ class FGC_Quiz {
         $class_old = (int) sanitize_text_field($_POST['class_old']);
         $class_id = (int) sanitize_text_field($_POST['class_id']);
         if($class_id != $class_old) {
-            update_usermeta( $user_id, '_class_id', $class_id );
-            if($class_old) {
-                $sql = "UPDATE $this->table_class SET members = members-1 WHERE id = $class_old;";
-                $wpdb->query($wpdb->prepare($sql));
+            update_user_meta( $user_id, '_class_id', $class_id );
+            /*if($class_old) {
+                $sql = "UPDATE $this->table_class SET members = members-1 WHERE id = %d;";
+                $wpdb->query($wpdb->prepare($sql,$class_old));
             }
             if($class_id) {
-                $sql = "UPDATE $this->table_class SET members = members+1 WHERE id = $class_id;";
-                $wpdb->query($wpdb->prepare($sql));
-            }
+                $sql = "UPDATE $this->table_class SET members = members+1 WHERE id = %d;";
+                $wpdb->query($wpdb->prepare($sql,$class_id));
+            }*/
             //$message = "Class old: $class_old , class new: $class_id . <br />".$sql;
             //printf(  $message ); exit;
         }
@@ -265,7 +267,7 @@ class FGC_Quiz {
 
     }
 
-    /* Add custom column to post list */
+    /* Add custom column 'class' to post list */
     function add_class_column( $columns ) {
         return array_merge( $columns, 
             array( 'classname' => 'Class' ) );
@@ -283,7 +285,7 @@ class FGC_Quiz {
         }
     }
 
-    // add shortcode to print timetable for page and post
+    // add shortcode show video
     function shortcode_video($args,$content=null) {
         global $current_user;
         extract(shortcode_atts(array(
@@ -316,38 +318,25 @@ class FGC_Quiz {
             'height' => '400px',
         ), $args));
 
-        ob_start();
-        ?>
-        <div style="<?php echo 'width:100%;height:'.$height.';'; ?>">
-            <object id="flashcontent" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="<?php echo $width; ?>" height="<?php echo $height; ?>">
-                <param name="movie" value="<?php echo $url; ?>" />
-                
+        $html = '<div style="width:100%;height:'.$height.';">
+            <object id="flashcontent" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="'.$width.'" height="'.$height.'">
+                <param name="movie" value="'.$url.'" />
                 <!--[if !IE]>-->
-                <object type="application/x-shockwave-flash" 
-                        data="<?php echo $url; ?>" 
-                        width="<?php echo $width; ?>" 
-                        height="<?php echo $height; ?>">
+                <object type="application/x-shockwave-flash" data="'.$url.'" width="'.$width.'" height="'.$height.'">
                 <!--<![endif]-->
-                
-                    <p>
-                    Fallback or 'alternate' content goes here.
-                    This content will only be visible if the SWF fails to load.
-                    </p>
-                
+                    <p>Fallback or alternate content goes here. This content will only be visible if the SWF fails to load. </p>
                 <!--[if !IE]>-->
                 </object>
                 <!--<![endif]-->
+                </object>
+            </div>';
 
-                </object>
-            </div>
-            <?php
-        $html = ob_get_clean();
         return $html;
     }
 
     // add meta box helper in page Add new post
     function register_meta_box_helper() {
-        add_meta_box( 'fgc-quiz-helper', 'Hưỡng dẫn dùng shortcode', array($this,'print_box_helper'));
+        add_meta_box( 'fgc-quiz-helper', 'How to use shortcode', array($this,'print_box_helper'));
     }
 
     // print html meta box enter class name
@@ -376,7 +365,7 @@ class FGC_Quiz {
                 $wpdb->query( "DROP TABLE IF EXISTS $table_class" );
                 $wpdb->query( "DROP TABLE IF EXISTS $table_game" );
             }
-            // id INT(5) NOT NULL AUTO_INCREMENT,
+
             if ($wpdb->get_var("SHOW TABLES LIKE '$table_class'") != $table_class) {
                 $sql .= "CREATE TABLE ".$table_class ." (
                     id INT(5) NOT NULL AUTO_INCREMENT,
@@ -443,8 +432,10 @@ class FGC_Quiz {
                     $message[] = 'Insert data timetable success!';
                 }
                 if($insert_data_game==true) {
-                    $wpdb->insert($table_game, array('name' => 'Game 1', 'url' => 'http://english.training.fgct.net/images/games/freedom_-spot-the-difference/Freedom.swf'));
-                    $wpdb->insert($table_game, array('name' => 'Game 2', 'url' => 'http://english.training.fgct.net/images/games/fashion-girls_v586067/gcm_mochi.swf'));
+                    $wpdb->insert($table_game, array('name' => 'Game 1', 
+                        'url' => 'http://english.training.fgct.net/images/games/freedom_-spot-the-difference/Freedom.swf'));
+                    $wpdb->insert($table_game, array('name' => 'Game 2', 
+                        'url' => 'http://english.training.fgct.net/images/games/fashion-girls_v586067/gcm_mochi.swf'));
 
                     $message[] = 'Insert data game success!';
                 }

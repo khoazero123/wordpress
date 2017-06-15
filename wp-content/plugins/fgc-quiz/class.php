@@ -37,6 +37,10 @@ class Quiz_class {
             <?php 
             //echo '<pre>';var_dump($this->list_class);echo '</pre>';
             foreach ($this->list_class as $class) {
+                $args = array('meta_key' => '_class_id','meta_value' => $class['id'],'orderby' => 'nicename', 'order' => 'ASC',); 
+                $list_users = (array) get_users( $args );
+
+                $class['members'] = count($list_users);
                 echo '<td>'.$class['name'].'</td>
                     <td> '.$class['members'].' </td>
                     <td> '.($class['public']==1 ? 'Public' : 'Private').' </td>
@@ -86,7 +90,8 @@ class Quiz_class {
                         }
                         ?>
                     </tbody>
-                </table>
+                </table> <br />
+                <input type="button" name="submit" onclick="location.href='?<?php echo $_SERVER['QUERY_STRING']; ?>&action=add_member&id=<?php echo $class_id; ?>';" class="button button-primary" value="Add member">
                 <?php
             }
         }
@@ -175,7 +180,55 @@ class Quiz_class {
     <?php
         echo '</div>';
     }
-    
+    public function add_member($class_id) {
+        global $wpdb;
+        echo '<div class="wrap">';
+        if(!$class_id) printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr('notice notice-error'), esc_html('No class select!'));
+        elseif(!isset($this->list_class[$class_id]))
+            printf( '<div class="notice notice-error"><p>Class '.$class_id.' doesn\'t exist!</p></div>');
+        else {
+            $class_name = $this->list_class[$class_id]['name'];
+            echo '<h2>Add member to class: '.$class_name.'</h2>';
+            if( isset($_POST['submit']) ) {
+                $email = sanitize_text_field($_REQUEST['email']);
+                if(!$email)
+                    printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr('notice notice-error'), esc_html('Please enter user email!') );
+                else {
+                    $user = get_user_by( 'email', $email );
+                    if(!$user)
+                        printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr('notice notice-error'), esc_html('User '.$email.' doesn\'t exist!'));
+                    else {
+                        $user_class_old = get_the_author_meta('_class_id', $user->ID );
+                        if($user_class_old && $class_id == $user_class_old)
+                            printf( '<div class="notice notice-error"><p>User '.$email.' already exists in this class!</p></div>');
+                        else {
+                            //if($user_class_old) $wpdb->query($wpdb->prepare("UPDATE $this->table_class SET members = members-1 WHERE id = %d;",$user_class_old));
+                            //$wpdb->query($wpdb->prepare("UPDATE $this->table_class SET members = members+1 WHERE id = %d;",$class_id));
+
+                            update_user_meta( $user->ID, '_class_id', $class_id );
+                            printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr('notice notice-success'), esc_html('Add user '.$email.' success!'));
+                        }
+                    }
+                }
+            }
+            ?>
+            <form action="admin.php?<?php echo $_SERVER['QUERY_STRING']; ?>" method="POST">
+                <?php wp_nonce_field( 'nonce_add_member', 'nonce_add_member'); ?>
+                <table class="form-table">
+                    <tr valign="top">
+                        <th scope="row">Email user: </th>
+                        <td><input type="text" name="email" value="<?php echo @$_REQUEST['email']; ?>" /></td>
+                    </tr>
+                </table>
+                <p class="submit">
+                    <input type="submit" name="submit" id="submit" class="button button-primary" value="Add">
+                    <input type="button" name="submit" onclick="location.href='?page=<?php echo $_REQUEST['page']; ?>';" class="button button-cancel" value="Cancel">
+                </p>
+            </form>
+            <?php
+        }
+        echo '</div>';
+    }
     public function delete_class($class_id) {
         global $wpdb;
         echo '<div class="wrap">';
@@ -223,10 +276,8 @@ class Quiz_class {
                 if(empty($user))
                     printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr('notice notice-error'), esc_html('User ID '.$user_id.' doesn\'t exist!'));
                 else {
-                    update_usermeta( $user_id, '_class_id', '');
-
-                    $sql = "UPDATE $this->table_class SET members = members-1 WHERE id = $class_id;";
-                    $wpdb->query($wpdb->prepare($sql));
+                    update_user_meta( $user_id, '_class_id', '');
+                    //$wpdb->query($wpdb->prepare("UPDATE $this->table_class SET members = members-1 WHERE id = %d;",$class_id));
 
                     printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr('notice notice-success'), esc_html('Remove '.$user->user_nicename.' from class '.$class['name'].' success.'));
                 }
