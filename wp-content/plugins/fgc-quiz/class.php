@@ -190,23 +190,27 @@ class Quiz_class {
             $class_name = $this->list_class[$class_id]['name'];
             echo '<h2>Add member to class: '.$class_name.'</h2>';
             if( isset($_POST['submit']) ) {
-                $email = sanitize_text_field($_REQUEST['email']);
-                if(!$email)
-                    printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr('notice notice-error'), esc_html('Please enter user email!') );
+                $query = sanitize_text_field($_REQUEST['query']);
+                if(!$query)
+                    printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr('notice notice-error'), esc_html('Please enter username or email!') );
                 else {
-                    $user = get_user_by( 'email', $email );
+                    if (filter_var($query, FILTER_VALIDATE_EMAIL))
+                        $user = get_user_by( 'email', $query );
+                    else
+                        $user = get_user_by( 'login', $query );
                     if(!$user)
-                        printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr('notice notice-error'), esc_html('User '.$email.' doesn\'t exist!'));
+                        printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr('notice notice-error'), esc_html('User '.$query.' doesn\'t exist!'));
                     else {
                         $user_class_old = get_the_author_meta('_class_id', $user->ID );
                         if($user_class_old && $class_id == $user_class_old)
-                            printf( '<div class="notice notice-error"><p>User '.$email.' already exists in this class!</p></div>');
+                            printf( '<div class="notice notice-error"><p>User '.$query.' already exists in this class!</p></div>');
                         else {
                             //if($user_class_old) $wpdb->query($wpdb->prepare("UPDATE $this->table_class SET members = members-1 WHERE id = %d;",$user_class_old));
                             //$wpdb->query($wpdb->prepare("UPDATE $this->table_class SET members = members+1 WHERE id = %d;",$class_id));
 
                             update_user_meta( $user->ID, '_class_id', $class_id );
-                            printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr('notice notice-success'), esc_html('Add user '.$email.' success!'));
+                            printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr('notice notice-success'), esc_html('Add user '.$query.' success!'));
+                            //$_REQUEST['query'] = '';
                         }
                     }
                 }
@@ -216,8 +220,8 @@ class Quiz_class {
                 <?php wp_nonce_field( 'nonce_add_member', 'nonce_add_member'); ?>
                 <table class="form-table">
                     <tr valign="top">
-                        <th scope="row">Email user: </th>
-                        <td><input type="text" name="email" value="<?php echo @$_REQUEST['email']; ?>" /></td>
+                        <th scope="row">Username or email: </th>
+                        <td><input type="text" name="query" value="<?php echo @$_REQUEST['query']; ?>" /></td>
                     </tr>
                 </table>
                 <p class="submit">
@@ -253,6 +257,15 @@ class Quiz_class {
                     delete_user_meta( $user->ID, '_class_id');
                 }
                 // < ---------------- REMOVE post meta class_id too ----------------------------------------------------
+                $args = array(
+                    'meta_key'     => '_class_id',
+                    'meta_value'   => $class_id,
+                ); 
+                $list_posts = get_posts( $args );
+                if(!empty($list_posts)) foreach ( $list_posts as $post ) {
+                    delete_post_meta( $post->ID, '_class_id');
+                }
+
                 printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr('notice notice-success'), esc_html('Delete class '.$class['name'].' success!'));
             }
         }

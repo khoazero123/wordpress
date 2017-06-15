@@ -10,7 +10,10 @@
  */
  define( 'PLUGIN_DIR', plugin_dir_path( __FILE__ ));
  define( 'PLUGIN_VERSION', '1.0');
- define( 'FORCE_INSTALL', true); // Lost old data
+ define( 'PLUGIN_INSTALLED_VERSION', get_option( "fgc_quiz_version" ));
+
+ // Force drop old table when diff version plugin -> Lost old data
+ define( 'FORCE_INSTALL', true);
 
 class FGC_Quiz {
     private $table_class;
@@ -21,6 +24,7 @@ class FGC_Quiz {
         $this->table_class = $wpdb->prefix . "fgc_class";
         $this->table_timetable = $wpdb->prefix . "fgc_timetable";
         $this->table_game = $wpdb->prefix . "fgc_game";
+        
         add_action('admin_menu', array( $this, 'create_menu'));
         add_action('add_meta_boxes',array( $this, 'register_meta_box_class'));
         add_action('save_post',array( $this, 'save_post_meta_class'));
@@ -352,10 +356,8 @@ class FGC_Quiz {
     }
     static function install() {
         global $wpdb;
-        $installed_ver = get_option( "fgc_quiz_version" );
-        //$installed_ver = '2';
-        if ( $installed_ver != PLUGIN_VERSION) {
-            // $wpdb->dbname;
+        //$installed_ver = get_option( "fgc_quiz_version" );
+        if ( PLUGIN_INSTALLED_VERSION != PLUGIN_VERSION) {
             $charset_collate = $wpdb->get_charset_collate();
             $table_class = $wpdb->prefix . "fgc_class";
             $table_timetable = $wpdb->prefix . "fgc_timetable";
@@ -456,8 +458,5 @@ class FGC_Quiz {
 
 register_activation_hook( __FILE__, array( 'FGC_Quiz', 'install' ) );
 new FGC_Quiz();
-
-
-
 
 ?>
