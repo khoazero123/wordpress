@@ -89,9 +89,7 @@ class Quiz_timetable {
                             $timetable_md5_new .= $_POST['time'][$day];
                         }
                     }
-                    //echo '<pre>';var_dump($update);echo '</pre>';exit;
                     if(!empty($update)) {
-                        //echo '<pre>';var_dump($insert);echo '</pre>';
                         if(md5($timetable_md5_new) != md5($timetable_md5_old)) {
                             $default = array('class_id' => $class_id,'updated_at' => gmdate("Y-m-d H:i:s",time()+7*3600));
                             $insert = array_merge($default, $update);

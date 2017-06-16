@@ -32,16 +32,15 @@ class Quiz_class {
                 <th scope="col" id="action" class="manage-column column-author">Action</th>
             </tr>
         </thead>
-
         <tbody id="the-list">
             <?php 
             //echo '<pre>';var_dump($this->list_class);echo '</pre>';
             foreach ($this->list_class as $class) {
                 $args = array('meta_key' => '_class_id','meta_value' => $class['id'],'orderby' => 'nicename', 'order' => 'ASC',); 
                 $list_users = (array) get_users( $args );
-
                 $class['members'] = count($list_users);
-                echo '<td>'.$class['name'].'</td>
+                echo '<tr class="">
+                    <td>'.$class['name'].'</td>
                     <td> '.$class['members'].' </td>
                     <td> '.($class['public']==1 ? 'Public' : 'Private').' </td>
                     <td> <a href="?'.$_SERVER['QUERY_STRING'].'&action=view&id='.$class['id'].'">View</a> | <a href="?'.$_SERVER['QUERY_STRING'].'&action=delete&id='.$class['id'].'">Delete</a> | <a href="?'.$_SERVER['QUERY_STRING'].'&action=edit&id='.$class['id'].'">Edit</a> </td>
