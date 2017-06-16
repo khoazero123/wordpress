@@ -106,6 +106,7 @@ class Quiz_timetable {
                     }
                 }
                 ?>
+                 <h1 class="wp-heading-inline">Edit timetable of class <?php echo $class['name']; ?></h1>
                 <form action="admin.php?<?php echo $_SERVER['QUERY_STRING']; ?>" method="POST">
                     <?php wp_nonce_field( 'nonce_edit_timetable', 'nonce_edit_timetable'); ?>
                     <table class="wp-list-table widefat fixed striped posts" style="width:100%">
