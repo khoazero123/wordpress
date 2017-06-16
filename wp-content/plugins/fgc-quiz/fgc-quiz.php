@@ -108,8 +108,14 @@ class FGC_Quiz {
             case 'view':
                 $timetable->view_timetable($id);
                 break;
+            case 'apply_timetable':
+                $timetable->apply_timetable($id);
+                break;
+            case 'delete_history':
+                $timetable->delete_timetable($id);
+                break;
             default:
-                $timetable->list_class();
+                $timetable->list_timetable();
                 break;
         }
         //$timetable->list_class();
@@ -388,7 +394,9 @@ class FGC_Quiz {
             
             if ($wpdb->get_var("SHOW TABLES LIKE '$table_timetable'") != $table_timetable) {
                 $sql .= "CREATE TABLE ".$table_timetable ." (
+                    id INT(5) NOT NULL AUTO_INCREMENT,
                     class_id INT(2) NOT NULL,
+                    updated_at DATETIME NULL,
                     monday varchar(250),
                     tuesday varchar(250),
                     wednesday varchar(250),
