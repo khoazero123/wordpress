@@ -75,15 +75,16 @@ class Quiz_timetable {
                 $timetable_md5_new = '';
                 if($timetable) {
                     foreach($this->days as $day) {
-                        if(isset($timetable[$day]) && !empty($timetable[$day])) $timetable_md5_old .= $timetable[$day];
+                        //if(isset($timetable[$day]) && !empty($timetable[$day])) $timetable_md5_old .= $timetable[$day];
+                        if(isset($timetable[$day])) $timetable_md5_old .= $timetable[$day];
                     }
                 }
 
                 if(isset($_POST['submit']) && !empty($_POST['time'])) {
                     $update = [];
-                    foreach ($_POST['time'] as $day => $time) {
-                        if(!empty($time)) {
-                            $update[$day] = $time;
+                    foreach($this->days as $day) {
+                        if(isset($_POST[$day])) {
+                            $update[$day] = $_POST[$day];
                             $timetable_md5_new .= $time;
                         }
                     }
@@ -178,7 +179,7 @@ class Quiz_timetable {
                     <h1 class="wp-heading-inline">Timetable of class <?php echo $class['name']; ?></h1>
                     <?php 
                     if(is_admin())
-                        echo '<a href="'.$_SERVER['QUERY_STRING'].'&action=edit&id='.$class_id.'" class="page-title-action">Edit</a>';
+                        echo '<a href="?'.$_SERVER['QUERY_STRING'].'&action=edit&id='.$class_id.'" class="page-title-action">Edit</a>';
                     ?>
                     <table class="wp-list-table widefat fixed striped posts" style="width:100%">
                         <thead>

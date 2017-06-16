@@ -11,7 +11,6 @@
  define( 'PLUGIN_DIR', plugin_dir_path( __FILE__ ));
  define( 'PLUGIN_VERSION', '1.0');
  define( 'PLUGIN_INSTALLED_VERSION', get_option( "fgc_quiz_version" ));
-
  // Force drop old table when diff version plugin -> Lost old data
  define( 'FORCE_INSTALL', true);
 
