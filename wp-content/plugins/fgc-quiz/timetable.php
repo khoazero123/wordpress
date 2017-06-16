@@ -175,7 +175,11 @@ class Quiz_timetable {
                 $list_timetable_history = (array) $wpdb->get_results("SELECT * FROM $this->table_timetable WHERE class_id = '$class_id' AND id <> {$timetable['id']} ORDER BY updated_at DESC");
                 ob_start();
                 ?>
-                    <h1 class="wp-heading-inline">Timetable of class <?php echo $class['name']; ?></h1> | <a href="?<?php echo $_SERVER['QUERY_STRING']; ?>&action=edit&id=<?php echo $class_id; ?>" class="page-title-action">Edit</a>
+                    <h1 class="wp-heading-inline">Timetable of class <?php echo $class['name']; ?></h1>
+                    <?php 
+                    if(is_admin())
+                        echo '<a href="'.$_SERVER['QUERY_STRING'].'&action=edit&id='.$class_id.'" class="page-title-action">Edit</a>';
+                    ?>
                     <table class="wp-list-table widefat fixed striped posts" style="width:100%">
                         <thead>
                             <tr>
