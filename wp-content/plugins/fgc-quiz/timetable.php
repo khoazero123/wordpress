@@ -96,7 +96,7 @@ class Quiz_timetable {
                             /* When create new class, will create a row empty timetable for that class.
                             * So will update that row, not insert new row */
                             if($timetable_md5_old=='' && $timetable)
-                                $wpdb->update($this->table_timetable, $update, ['id'=>$timetable['id']]);
+                                $wpdb->update($this->table_timetable, $insert, ['id'=>$timetable['id']]);
                             else
                                 $wpdb->insert($this->table_timetable, $insert);
                             // Get new data timetable after update new data
