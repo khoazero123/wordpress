@@ -153,5 +153,10 @@ class Quiz_game {
     <?php
         echo '</div>';
     }
-    
+    public function delete_game($game_id) {
+        global $wpdb;
+        $wpdb->delete( $this->table_game, ['id'=>$game_id]);
+        $url = $_SERVER['HTTP_REFERER'];
+        echo '<script>location.href=\''.$url.'\';</script>';
+    }
 }

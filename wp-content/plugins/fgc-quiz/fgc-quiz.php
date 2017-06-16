@@ -70,7 +70,7 @@ class FGC_Quiz {
         $class = new Quiz_class;
 
         $action = isset($_GET['action']) ? $_GET['action'] : null;
-        $id = isset($_GET['id']) ? $_GET['id'] : null;
+        $id = isset($_GET['id']) ? (int)$_GET['id'] : null;
         switch ($action) {
             case 'add':
                 $class->add_class();
@@ -102,7 +102,7 @@ class FGC_Quiz {
         include(PLUGIN_DIR.'timetable.php');
         $timetable = new Quiz_timetable;
         $action = isset($_GET['action']) ? $_GET['action'] : null;
-        $id = isset($_GET['id']) ? $_GET['id'] : null;
+        $id = isset($_GET['id']) ? (int)$_GET['id'] : null;
         switch ($action) {
             case 'add':
                 $timetable->add_timetable();
@@ -132,7 +132,7 @@ class FGC_Quiz {
         $game = new Quiz_game;
 
         $action = isset($_GET['action']) ? $_GET['action'] : null;
-        $id = isset($_GET['id']) ? $_GET['id'] : null;
+        $id = isset($_GET['id']) ? (int)$_GET['id'] : null;
         switch ($action) {
             case 'add':
                 $game->add_game();
@@ -141,7 +141,7 @@ class FGC_Quiz {
                 $game->edit_game($id);
                 break;
             case 'view':
-                //$game->view_game($id);
+                $game->view_game($id);
                 break;
             case 'delete':
                 $game->delete_game($id);
