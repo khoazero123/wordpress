@@ -1,4 +1,10 @@
 <?php
-$a = ['a'=>1,'b'=>''];
-$b = null;
-var_dump(isset($b));
+$config = ['a'=>11];
+
+class Quiz {
+    static public function install() {
+        global $config;
+        var_dump($config);
+    }
+}
+Quiz::install();

@@ -11,10 +11,10 @@ class Quiz_timetable {
     private $days = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
 
     function __construct() {
-        global $wpdb;
-        $this->table_class = $wpdb->prefix . "fgc_class";
-        $this->table_timetable = $wpdb->prefix . "fgc_timetable";
-        $this->table_game = $wpdb->prefix . "fgc_game";
+        global $wpdb, $fgc_config;
+        $this->table_class = $fgc_config['table_class'];
+        $this->table_timetable = $fgc_config['table_timetable'];
+        $this->table_game = $fgc_config['table_game'];
 
         //$sql = "SELECT * FROM $this->table_timetable INNER JOIN $this->table_class ON $this->table_timetable .class_id = $this->table_class .id ORDER BY $this->table_class .name ASC";
         //$this->list_class = $this->list_timetable = $wpdb->get_results( $sql, ARRAY_A);

@@ -6,10 +6,10 @@ class Quiz_game {
 
     public $list_game;
     function __construct() {
-        global $wpdb;
-        $this->table_class = $wpdb->prefix . "fgc_class";
-        $this->table_timetable = $wpdb->prefix . "fgc_timetable";
-        $this->table_game = $wpdb->prefix . "fgc_game";
+        global $wpdb, $fgc_config;
+        $this->table_class = $fgc_config['table_class'];
+        $this->table_timetable = $fgc_config['table_timetable'];
+        $this->table_game = $fgc_config['table_game'];
 
         $this->list_game = $wpdb->get_results( "SELECT * FROM $this->table_game ORDER BY name ASC", ARRAY_A);
     }
