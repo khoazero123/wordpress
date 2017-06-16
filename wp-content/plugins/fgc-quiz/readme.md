@@ -38,6 +38,10 @@
 
         ![Manager class](/wp-content/plugins/fgc-quiz/doc/images/timetable4.PNG)
 
+    1. History changed timetable
+
+        ![Manager class](/wp-content/plugins/fgc-quiz/doc/images/timetable5.PNG)
+
 1. Manager game (to use shortcode)
 
     1. List game
