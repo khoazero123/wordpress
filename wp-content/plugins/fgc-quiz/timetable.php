@@ -81,14 +81,15 @@ class Quiz_timetable {
                 }
 
                 if(isset($_POST['submit']) && !empty($_POST['time'])) {
+                    //echo '<pre>';var_dump($_POST);echo '</pre>';exit;
                     $update = [];
                     foreach($this->days as $day) {
-                        if(isset($_POST[$day])) {
-                            $update[$day] = $_POST[$day];
-                            $timetable_md5_new .= $time;
+                        if(isset($_POST['time'][$day])) {
+                            $update[$day] = $_POST['time'][$day];
+                            $timetable_md5_new .= $_POST['time'][$day];
                         }
                     }
-
+                    //echo '<pre>';var_dump($update);echo '</pre>';exit;
                     if(!empty($update)) {
                         //echo '<pre>';var_dump($insert);echo '</pre>';
                         if(md5($timetable_md5_new) != md5($timetable_md5_old)) {

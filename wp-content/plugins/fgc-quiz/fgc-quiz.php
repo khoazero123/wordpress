@@ -387,7 +387,7 @@ class FGC_Quiz {
 	 *
 	 * @return string
 	 */
-	public function recaptcha_response($recaptcha_response=null) {
+	public function recaptcha_response($recaptcha_response) {
         global $fgc_config;
 		$post_body = array(
 			'secret' => $fgc_config['private_key'],
