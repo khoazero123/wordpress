@@ -4,9 +4,9 @@ class Quiz_timetable {
     private $table_timetable;
     private $table_game;
 
-    public $list_class;
-    public $list_timetable;
-    public $list_class_timetable; // have timetable in class
+    //public $list_class;
+    //public $list_timetable;
+    //public $list_class_timetable; // have timetable in class
 
     private $days = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
 
@@ -22,12 +22,15 @@ class Quiz_timetable {
         /*$sql = "SELECT m1.* FROM timetable m1 LEFT JOIN timetable m2 ON (m1.class_id = m2.class_id AND m1.id < m2.id) WHERE m2.id IS NULL ORDER BY m1.class_id ASC";
         $sql = "SELECT tmp_timetable.*, class.name as class_name from class inner join (SELECT m1.* FROM timetable m1 LEFT JOIN timetable m2 ON (m1.class_id = m2.class_id AND m1.id < m2.id) WHERE m2.id IS NULL ORDER BY m1.class_id ASC) as tmp_timetable on class.id = tmp_timetable.class_id";
         $sql = "SELECT tmp_timetable.*, tmp_class.name as class_name from class tmp_class inner join (SELECT m1.* FROM timetable m1 LEFT JOIN timetable m2 ON (m1.class_id = m2.class_id AND m1.id < m2.id) WHERE m2.id IS NULL ORDER BY m1.class_id ASC) as tmp_timetable on tmp_class.id = tmp_timetable.class_id";*/
-        $sql = "SELECT tmp_class.id as class_id, tmp_class.name as class_name, tmp_timetable.* from $this->table_class tmp_class left join (SELECT m1.* FROM $this->table_timetable m1 LEFT JOIN $this->table_timetable m2 ON (m1.class_id = m2.class_id AND m1.id < m2.id) WHERE m2.id IS NULL ORDER BY m1.class_id ASC) as tmp_timetable on tmp_class.id = tmp_timetable.class_id";
-        $this->list_class_timetable = $wpdb->get_results( $sql, ARRAY_A);
+        //$sql = "SELECT tmp_class.id as class_id, tmp_class.name as class_name, tmp_timetable.* from $this->table_class tmp_class left join (SELECT m1.* FROM $this->table_timetable m1 LEFT JOIN $this->table_timetable m2 ON (m1.class_id = m2.class_id AND m1.id < m2.id) WHERE m2.id IS NULL ORDER BY m1.class_id ASC) as tmp_timetable on tmp_class.id = tmp_timetable.class_id";
+        //$this->list_class_timetable = $wpdb->get_results( $sql, ARRAY_A);
 
     }
 
     public function list_timetable() {
+        global $wpdb;
+        $sql = "SELECT tmp_class.id as class_id, tmp_class.name as class_name, tmp_timetable.* from $this->table_class tmp_class left join (SELECT m1.* FROM $this->table_timetable m1 LEFT JOIN $this->table_timetable m2 ON (m1.class_id = m2.class_id AND m1.id < m2.id) WHERE m2.id IS NULL ORDER BY m1.class_id ASC) as tmp_timetable on tmp_class.id = tmp_timetable.class_id";
+        $list_class_timetable = $wpdb->get_results( $sql, ARRAY_A);
     ?>
         <div class="wrap">
             <h1 class="wp-heading-inline">List timetable</h1>
@@ -47,7 +50,7 @@ class Quiz_timetable {
 
         <tbody id="the-list">
             <?php 
-            foreach ($this->list_class_timetable as $class_timetable) {
+            foreach ($list_class_timetable as $class_timetable) {
                 echo '<tr>
                     <td>'.$class_timetable['class_name'].'</td>
                     <td>'.$class_timetable['updated_at'].'</td>
