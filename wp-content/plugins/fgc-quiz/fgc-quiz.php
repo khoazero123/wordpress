@@ -8,15 +8,16 @@
  * Author URI: http://localhost
  * License: GPLv2
  */
+ define( 'PLUGIN_NAME', '');
  define( 'PLUGIN_DIR', plugin_dir_path( __FILE__ ));
  define( 'PLUGIN_VERSION', '1.0');
- define( 'PLUGIN_INSTALLED_VERSION', get_option( "fgc_quiz_version" ));
 
 $fgc_config = [
     'force_install' => true, // Force drop old table when diff version plugin -> Lost old data
     'table_class' => $wpdb->prefix . 'fgc_class',
     'table_timetable' => $wpdb->prefix . 'fgc_timetable',
     'table_game' => $wpdb->prefix . 'fgc_game',
+    // reCaptcha key
     'public_key' => '6LcV-cYSAAAAAH0dCd63jJ4ykpZtCr19-2W9FmzR',
 	'private_key' => '6LcV-cYSAAAAABeVODrPSzaVoZFSs1u1dy7EEQo1',
 ];
@@ -40,19 +41,17 @@ class FGC_Quiz {
         add_shortcode( 'video', array( $this, 'shortcode_video'));
         add_shortcode( 'game', array( $this, 'shortcode_game'));
 
-
         // Add column CLASS to list page/post in admin
-        add_filter( 'manage_posts_columns' , array( $this, 'add_class_column' ));
-        add_action( 'manage_posts_custom_column' , array( $this, 'display_posts_class'), 10, 2 );
+        add_filter( 'manage_post_posts_columns' , array( $this, 'add_class_column' ));
+        add_action( 'manage_post_posts_custom_column' , array( $this, 'display_posts_class'), 10, 2 );
 
         add_filter( 'manage_page_posts_columns' , array( $this, 'add_class_column' ));
         add_action( 'manage_page_posts_custom_column' , array( $this, 'display_posts_class'), 10, 2 );
-        
 
         add_action('add_meta_boxes',array( $this, 'register_meta_box_helper'));
         // adds the captcha to the registration form
-		add_action( 'register_form', array( $this, 'captcha_display' ) );
 
+		add_action( 'register_form', array( $this, 'captcha_display' ) );
 		// authenticate the captcha answer
 		add_action( 'registration_errors', array( $this, 'validate_captcha_field' ), 10, 3 );
 
@@ -68,7 +67,6 @@ class FGC_Quiz {
     function manager_class() {
         include(PLUGIN_DIR.'class.php');
         $class = new Quiz_class;
-
         $action = isset($_GET['action']) ? $_GET['action'] : null;
         $id = isset($_GET['id']) ? (int)$_GET['id'] : null;
         switch ($action) {
@@ -146,7 +144,6 @@ class FGC_Quiz {
             case 'delete':
                 $game->delete_game($id);
                 break;
-            
             default:
                 $game->list_game();
                 break;
@@ -154,11 +151,13 @@ class FGC_Quiz {
     }
     // add meta box in page Add new post
     function register_meta_box_class() {
-        add_meta_box( 'class-name', 'Class', array($this,'print_box_class_name'));
+        if(get_post_type() == 'post' || get_post_type() == 'page')
+            add_meta_box( 'class-name', 'Class', array($this,'print_box_class_name'));
     }
      
     // print html meta box enter class name
     function print_box_class_name($post) {
+        //echo get_post_type();exit;
         global $wpdb, $fgc_config;
         $list_class = $wpdb->get_results( "SELECT * FROM {$fgc_config['table_class']} ", ARRAY_A);
         $post_class_id = get_post_meta($post->ID,'_class_id',true);
@@ -196,7 +195,7 @@ class FGC_Quiz {
         echo '<h3>Extra profile information</h3>
             <table class="form-table">
                 <tr>
-                    <th><label for="twitter">Class name:</label></th>
+                    <th><label for="">Class name:</label></th>
                     <td>';
 			if ( ! current_user_can('administrator')) {
 				echo '<input type="text" value="'.$class['name'].'" class="regular-text" disabled /><br />
@@ -354,7 +353,8 @@ class FGC_Quiz {
 
     // add meta box helper in page Add new post
     function register_meta_box_helper() {
-        add_meta_box( 'fgc-quiz-helper', 'How to use shortcode', array($this,'print_box_helper'));
+        if(get_post_type() == 'post' || get_post_type() == 'page')
+            add_meta_box( 'fgc-quiz-helper', 'How to use shortcode', array($this,'print_box_helper'));
     }
 
     // print html meta box enter class name
@@ -409,8 +409,8 @@ class FGC_Quiz {
 
     static function install() {
         global $wpdb, $fgc_config;
-        //$installed_ver = get_option( "fgc_quiz_version" );
-        if ( PLUGIN_INSTALLED_VERSION != PLUGIN_VERSION) {
+        $installed_ver = get_option( "fgc_quiz_version" );
+        if ( $installed_ver != PLUGIN_VERSION) {
             $charset_collate = $wpdb->get_charset_collate();
             $insert_data_class = $insert_data_timetable = $insert_data_game = true;
             $sql = '';
@@ -511,4 +511,13 @@ class FGC_Quiz {
 register_activation_hook( __FILE__, array( 'FGC_Quiz', 'install' ) );
 new FGC_Quiz();
 
+include(PLUGIN_DIR.'widget-timetable.php');
+$class = new FGC_Quiz_Widget_Timetable;
+/*
+ * Khởi tạo widget item
+ */
+add_action( 'widgets_init', 'create_fgc_quiz_widget' );
+function create_fgc_quiz_widget() {
+    register_widget('FGC_Quiz_Widget_Timetable');
+}
 ?>
