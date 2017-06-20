@@ -21,15 +21,15 @@
 
     1. Edit a class: allow rename, public or private class.
 
-        ![Manager class](/fgc-quiz/doc/images/Capture3.PNG)
+        ![Manager class](/fgc-quiz/doc/images/edit-class.gif)
 
     1. Add a user to a class
 
-        ![Manager class](/fgc-quiz/doc/images/add-member.PNG)
+        ![Manager class](/fgc-quiz/doc/images/add-member.gif)
 
         or
 
-        ![Manager class](/fgc-quiz/doc/images/user1.png)
+        ![Manager class](/fgc-quiz/doc/images/edit-user.gif)
 
 1. Manger timetable: allow view, edit timetable of class
     1. List timetable: see time update timetable. Link to view detail, edit.
@@ -38,7 +38,7 @@
 
     1. Edit timetable of a class: When edit timetable, if have different will save history of timetable.
 
-        ![Manager class](/fgc-quiz/doc/images/timetable2.PNG)
+        ![Manager class](/fgc-quiz/doc/images/edit-timetable.gif)
 
     1. View timetable of a class
 
@@ -64,7 +64,7 @@
 
     1. Edit a game
 
-        ![Manager class](/fgc-quiz/doc/images/game2.PNG)
+        ![Manager class](/fgc-quiz/doc/images/edit-game.gif)
 
 1. Manager post / page by class
     1. Add column class in list post / page
@@ -92,7 +92,7 @@
 
     1. Add new class
 
-        ![Manager class](/fgc-quiz/doc/images/class-post2.PNG)
+        ![Manager class](/fgc-quiz/doc/images/add-class-post.gif)
 
     1. Add, remove member from class (use ajax)
 
