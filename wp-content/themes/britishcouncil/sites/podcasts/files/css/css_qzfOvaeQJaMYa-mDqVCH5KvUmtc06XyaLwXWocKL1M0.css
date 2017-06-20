@@ -1,0 +1,7469 @@
+@font-face {
+    font-family: "british_council-bold";
+    font-weight: normal;
+    font-style: normal;
+    src: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/fonts/british_council_bold.eot);
+    src: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/fonts/british_council_bold.eot?#iefix) format("embedded-opentype"), url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/fonts/british_council_bold.woff) format("woff"), url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/fonts/british_council_bold.ttf) format("truetype"), url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/fonts/british_council_bold.svg#british_council_bold) format("svg");
+}
+
+@font-face {
+    font-family: "british_council";
+    font-weight: normal;
+    font-style: normal;
+    src: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/fonts/british_council_regular.eot);
+    src: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/fonts/british_council_regular.eot?#iefix) format("embedded-opentype"), url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/fonts/british_council_regular.woff) format("woff"), url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/fonts/british_council_regular.ttf) format("truetype"), url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/fonts/british_council_regular.svg#british_council_regular) format("svg");
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+
+audio,
+canvas,
+video {
+    display: inline-block;
+}
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+[hidden] {
+    display: none;
+}
+
+html {
+    font-family: "british_council", Verdana, Tahoma, sans-serif;
+    font-size: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    line-height: 1.5em;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+a:link {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover,
+a:focus {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:focus {
+    outline: thin dotted;
+}
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+p,
+pre {
+    margin: 1.5em 0;
+}
+
+blockquote {
+    margin: 1.5em 30px;
+}
+
+h1 {
+    font-size: 2em;
+    line-height: 1.5em;
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+}
+
+h2 {
+    font-size: 1.5em;
+    line-height: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+h3 {
+    font-size: 1.17em;
+    line-height: 1.28205em;
+    margin-top: 1.28205em;
+    margin-bottom: 1.28205em;
+}
+
+h4 {
+    font-size: 1em;
+    line-height: 1.5em;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+h5 {
+    font-size: 0.83em;
+    line-height: 1.80723em;
+    margin-top: 1.80723em;
+    margin-bottom: 1.80723em;
+}
+
+h6 {
+    font-size: 0.67em;
+    line-height: 2.23881em;
+    margin-top: 2.23881em;
+    margin-bottom: 2.23881em;
+}
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+
+dfn {
+    font-style: italic;
+}
+
+hr {
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+    border: 1px solid #666;
+    padding-bottom: -1px;
+    margin: 1.5em 0;
+}
+
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+code,
+kbd,
+pre,
+samp,
+tt,
+var {
+    font-family: "Courier New", "DejaVu Sans Mono", monospace, sans-serif;
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+q {
+    quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+small {
+    font-size: 80%;
+}
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+dl,
+menu,
+ol,
+ul {
+    margin: 1.5em 0;
+}
+
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+    margin: 0;
+}
+
+dd {
+    margin: 0 0 0 30px;
+}
+
+menu,
+ol,
+ul {
+    padding: 0 0 0 30px;
+}
+
+img {
+    border: 0;
+    max-width: 100%;
+    height: auto;
+    __width: auto;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+figure {
+    margin: 0;
+}
+
+fieldset {
+    margin: 0 2px;
+    border-color: #c0c0c0;
+    border-top-width: 0.0625em;
+    border-top-style: solid;
+    padding-top: 0.4625em;
+    border-bottom-width: 0.0625em;
+    border-bottom-style: solid;
+    padding-bottom: 0.9125em;
+    border-left-width: 0.0625em;
+    border-left-style: solid;
+    padding-left: 0.9125em;
+    border-right-width: 0.0625em;
+    border-right-style: solid;
+    padding-right: 0.9125em;
+}
+
+legend {
+    border: 0;
+    padding: 0;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+    max-width: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+button,
+input {
+    line-height: normal;
+}
+
+button,
+select {
+    text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+input[type="search"] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+textarea {
+    overflow: auto;
+    vertical-align: top;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+#page,
+.region-bottom {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+
+#header,
+#content,
+#navigation,
+.region-sidebar-first,
+.region-sidebar-second,
+#footer {
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+}
+
+#header:before,
+#header:after,
+#main:before,
+#main:after,
+#footer:before,
+#footer:after {
+    content: "";
+    display: table;
+}
+
+#header:after,
+#main:after,
+#footer:after {
+    clear: both;
+}
+
+@media all and (min-width:480px) {
+    #main {
+        padding-top: 3em;
+        position: relative;
+    }
+    #navigation {
+        position: absolute;
+        top: 0;
+        height: 3em;
+        width: 100%;
+    }
+}
+
+@media all and (min-width:480px) and (max-width:959px) {
+    .sidebar-first {}
+    .sidebar-first #content {
+        float: left;
+        width: 200%;
+        margin-left: 100%;
+        margin-right: -300%;
+    }
+    .sidebar-first .region-sidebar-first {
+        float: left;
+        width: 100%;
+        margin-left: 0%;
+        margin-right: -100%;
+    }
+    .sidebar-second {}
+    .sidebar-second #content {
+        float: left;
+        width: 200%;
+        margin-left: 0%;
+        margin-right: -200%;
+    }
+    .sidebar-second .region-sidebar-second {
+        float: left;
+        width: 100%;
+        margin-left: 200%;
+        margin-right: -300%;
+    }
+    .two-sidebars {}
+    .two-sidebars #content {
+        float: left;
+        width: 200%;
+        margin-left: 100%;
+        margin-right: -300%;
+    }
+    .two-sidebars .region-sidebar-first {
+        float: left;
+        width: 100%;
+        margin-left: 0%;
+        margin-right: -100%;
+    }
+    .two-sidebars .region-sidebar-second {
+        float: left;
+        width: 300%;
+        margin-left: 0%;
+        margin-right: -300%;
+        padding-left: 0;
+        padding-right: 0;
+        clear: left;
+    }
+    .two-sidebars .region-sidebar-second .block {
+        padding-left: 10px;
+        padding-right: 10px;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        box-sizing: border-box;
+        word-wrap: break-word;
+    }
+    .two-sidebars .region-sidebar-second .block:nth-child(3n+1) {
+        float: left;
+        width: 100%;
+        margin-left: 0%;
+        margin-right: -100%;
+        clear: left;
+    }
+    .two-sidebars .region-sidebar-second .block:nth-child(3n+2) {
+        float: left;
+        width: 100%;
+        margin-left: 100%;
+        margin-right: -200%;
+    }
+    .two-sidebars .region-sidebar-second .block:nth-child(3n) {
+        float: left;
+        width: 100%;
+        margin-left: 200%;
+        margin-right: -300%;
+    }
+}
+
+@media all and (min-width:960px) {
+    .sidebar-first {}
+    .sidebar-first #content {
+        float: left;
+        width: 400%;
+        margin-left: 100%;
+        margin-right: -500%;
+    }
+    .sidebar-first .region-sidebar-first {
+        float: left;
+        width: 100%;
+        margin-left: 0%;
+        margin-right: -100%;
+    }
+    .sidebar-second {}
+    .sidebar-second #content {
+        float: left;
+        width: 400%;
+        margin-left: 0%;
+        margin-right: -400%;
+    }
+    .sidebar-second .region-sidebar-second {
+        float: left;
+        width: 100%;
+        margin-left: 400%;
+        margin-right: -500%;
+    }
+    .two-sidebars {}
+    .two-sidebars #content {
+        float: left;
+        width: 300%;
+        margin-left: 100%;
+        margin-right: -400%;
+    }
+    .two-sidebars .region-sidebar-first {
+        float: left;
+        width: 100%;
+        margin-left: 0%;
+        margin-right: -100%;
+    }
+    .two-sidebars .region-sidebar-second {
+        float: left;
+        width: 100%;
+        margin-left: 400%;
+        margin-right: -500%;
+    }
+}
+
+.with-wireframes #header,
+.with-wireframes #main,
+.with-wireframes #content,
+.with-wireframes #navigation,
+.with-wireframes .region-sidebar-first,
+.with-wireframes .region-sidebar-second,
+.with-wireframes #footer,
+.with-wireframes .region-bottom {
+    outline: 1px solid #ccc;
+}
+
+.element-invisible,
+.element-focusable,
+#navigation .block-menu .block__title,
+#navigation .block-menu-block .block__title {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+.element-focusable:active,
+.element-focusable:focus {
+    position: static !important;
+    clip: auto;
+    height: auto;
+    width: auto;
+    overflow: auto;
+}
+
+#skip-link {
+    margin: 0;
+}
+
+#skip-link a,
+#skip-link a:visited {
+    display: block;
+    width: 100%;
+    padding: 2px 0 3px 0;
+    text-align: center;
+    background-color: #666;
+    color: #fff;
+}
+
+.header__logo {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+.header__logo-image {
+    vertical-align: bottom;
+}
+
+.header__name-and-slogan {
+    float: left;
+}
+
+.header__site-name {
+    margin: 0;
+    font-size: 2em;
+    line-height: 1.5em;
+}
+
+.header__site-link:link,
+.header__site-link:visited {
+    color: #000;
+    text-decoration: none;
+}
+
+.header__site-link:hover,
+.header__site-link:focus {
+    text-decoration: underline;
+}
+
+.header__site-slogan {
+    margin: 0;
+}
+
+.header__secondary-menu {
+    float: right;
+}
+
+.header__region {
+    clear: both;
+}
+
+#navigation {}
+
+#navigation .block {
+    margin-bottom: 0;
+}
+
+#navigation .links,
+#navigation .menu {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+#navigation .links li,
+#navigation .menu li {
+    float: left;
+    padding: 0 10px 0 0;
+    list-style-type: none;
+    list-style-image: none;
+}
+
+.breadcrumb ol {
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumb li {
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.page__title,
+.node__title,
+.block__title,
+.comments__title,
+.comments__form-title,
+.comment__title {
+    margin: 0;
+}
+
+.messages,
+.messages--status,
+.messages--warning,
+.messages--error {
+    margin: 1.5em 0;
+    padding: 10px 10px 10px 50px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAD6UlEQVR42s2WX0xbVRzH3YwmC4k+GF/0ZS/S267/bmnX9nL7bwstZlnbjTDYyoC5GCbB0ZW5pdJCe6swbLFA6bpWIGuRMWVjKGP+21QW3SZBSAjGh4XEaTZTH82Cm/3ztS2xs7mw4KLRk3xyzj33/H6fe5Pz7zEA/yr/vUDukj9FH6drqTaqT8EoPs/UV+nX6TD1BlUh9AqLHlmgPKLcRHmoCOWmElK/FOKTYpS8UwLJkASiUyLI3pKhlClN0g46qj+qL/pbArlbrlO1q25JeiSgR2iYJ8ywXLSg/qP6LNl2ro8+Q4MMkKCd9K2t3q3KdQnkXXIF5aISkgEJzONm1F2qW52pDJN1MI2bUBIuAdVOJWSMTPNQgX6/vkjVpvpREpag6oMqWCYta1IzbsHh9ga0RJtzY8URMdRO9U/KSuWmNQUqh2pY3CtG+fvlqJyofMAFNrZAE+7e/RWR4X4cD9tgOGsA2U2CdtMDqwqyMyIzQ5KKqAKmcyaYxkzYd3YvjGNGFtXRPRj58DT+LOemRrFnrBLyITmUDmUyO/NYgu2d26ukHVJo3tXAMGpAs+cQmh0NeClan30uwN7TgnQ6nRd4r3thOGOAJqYB2UVC79AfZAnKHGUxQa8A2tNaNLW/jKvXv8Dyb8s4yryKA4O10A3roIvpUB+swTdz1/LJZ27PQBvT5lBH1RD4BChzlQ2wBNtc22aE/ULQgzRCl4P5BPcT93GMOYz9wb2QhCRgAq35d8u/L2PXe7tADVGgBlcQ+AXQtmlvsP/gzbJZvp8PMkJCFBYh8m0knyiVSsHe0YIGZz1+/uVOvt8z7QGvnwf+ST5EIRHIUyR4fh50rbp5lsDcYR4ReAXgBrng9q/Qfa0bfy035r7Ot2dvz4IX4IEIEAXwvDzscOw4zxJUd1YfEXlE4Aa4BQHMlwzSSBeI7iXvoTxWDqKPYCFsFaKmr+YVliB0JfS89DVpiuhlB9k/tSOZTuYFvq98yI7L0/MAsVWcGp0bfW61hbahwltxSeARsIKyWKesSKQSWIwvYkvvllwfx88pgOvhwthu/AzAxlVX8vz385tLbaVxwpcLZtEw0QDjsBGctzksiE4CimZFfHp++oWHbnbuUfdB0komMgHsRN1r0MWBsEmYODF5onY92/UTwcvBxuzXcN1ccHycVSn2FaPYWwzCQUDWKIt7z3utAJ5c74Hz+OLSomynY+cVfiM/xW3JiDyZpB3FuZrj4oCwE+Ad4qWMjPHjpTtL0mzMoxyZz9yM39Q7Y85Ok930icqm+k59TL2wm9l90dZv8y/8sPAigGf/iUN/Q4anM2zOsdLe+L+4VfwBVVjDs2rTYx0AAAAASUVORK5CYII=');
+    background-position: 8px 8px;
+    background-repeat: no-repeat;
+    border: 1px solid #be7;
+}
+
+.messages--warning {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAACuElEQVRIiWP4//8/Ay0xSYqntTpnT252zqeJBf0Njhsykrz/pyd6/e9vcNpGVQv6q2wlm0qc/r0+IPD/3UG+/61l9v9mdrjIUc2C7hqHUzc3S///eZwBjO9tF/vfWe1wjioWTKixVm8otPn38wQT3IKfxxn/t5Va/utpsNSg2ILWcttrNzdJgQ3+dpQRjEHs+9tE/zeXWt+gyILOamuTqlxrsOtPLub+7+emBsSq/88v5wL7oqHQ9H9nmbkF2RbUF1rev7lJEuziuU3i/90ddcB4UZsoJC62ifyvK7R4QJYFrcUGrmUZ5v9hYb9hosh/bzcDMN42VRgeF9W5hv8bi/XdSbagKtfs2c1NEvCIPbaQ/7+/pwkYn17Ki0hR24T/l2eZPCfJgsZ83dCiNOP/yCnn7iau/8G+5mD8aBsHSoqqyNL9X5erHUm0BcVpRm9ubhZHMoTh/4eDzP/DA23+RwTZ/P96hAlF7t5Wof8FyfpvibKgNk8noyDZ4D9quofg1Bjr/1kJlhjiIF+Upmn/r83RzCJoQXaC3qcbm8SwGMLwvybP/H8jMGlik7u7VeB/Zqz2J7wWVGdr1uTG62J1PQgfWST1/+hiCaxyIF8UJqv9r8hQrcVpQVqkzrcbG0WwGvB2H/P/lnx5MAaxsam5vYn3f2KY+jesFpSlqfZnxWjidP2OGWL/g/0swBjExu4Lhv958Ur/i5KU+lEsCA1lYI4JUv95bZ0gTo2Pt3P+z0myBmMQG5e6mxu4/kf4Kf8EmQm3oCRNebKrvSawIGPBqRG9sMOp5hjjfwdrlf/58bKT4RaUpWvtcLZV/39iscD/H0AFP46jYwYiMeP/44u4/9tbKQODSXUH3II9G7v18hI0n8YGKv+IDVT6joxj/BVx4mgcOCde/SnITPRUJAHEGlTCEkQV19TAAN8FC67hZdFXAAAAAElFTkSuQmCC');
+    border-color: #ed5;
+}
+
+.messages--error {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAACpElEQVR42rWWTUgbQRiGQ0Tx4MWDeFM8eBA9iKAoggiCoCiiIiL4L3oQV1CJB0UEf6iRYFpK7UniTw9VSqL2kvQsVDBpSZrtRo35czVNW3oprRf17exSl4yzu1ikAy9h59vvedhkMrMGAGoxknAk2w8MJ/WosXThiZkZt9jdLeglPjn5ATc3mhJNuNjbK0QbG3ExMICL/n6IfX0gcxB7ekDAELu6IHZ2IlJbi1hLS1BLogmPtbUhMTv7oMSamzUlqnByMxLT0/8STQkDj9TV4ZLj5OysrODl8jIu5Gs68dFR7JG6dWkJ0fFx+TpSX89IDMnwcHU1yKec12Yz3rlc4HkeLwjkXJpPip3U3+7vIx6P4ymph4eG5PlwTQ0lMdytlmBxMWKtrXLeT0zA5XTibvj9fjxfXETkb/3N/Dz2dneVuiTZtliU/rPSUsQ5ziuxZYG03IIlJdKKUPJjdRUAKMmzuTnskB/VYbdTtd9HR4g2NCi9Z2VliDY1BSnBaUEBzsrLqXyzWCiQ9HU5HA4afniIUFWV0hOqqMBpURErOM7NxWlhIZOvCwvA7S3Uxq+DA5AnZ3pO8vJYQSArC8c5Oeqx2Rj4udeLQH6+6v2B7GxW8DkjA0JmJpONwUHY7XZGIAgCzCYTeJUewmIFfqMRfEoKlQ2yJbza2oLWcLvdeDI2hk/3+iQWKzAYkJzNjg5srq9TwJ9OJ76YTNScx+ORJT66X1/grKyEbW2NgfPp6XKd/JMZySrHaQsSU1Oe+0/w3WpVgyu5HBlR6lc+H8gioevDwz6JrWwV5+3txyoSFk5DcOX1MnCyJ4Vwfb1zt1UY9SR8aioDpuppaVpwZbPTl+hHF04dOKzk8XBF8DgJC3/woU/W/EciOtELOWi8DDwp//215Q+p7kiKh2lQSAAAAABJRU5ErkJggg==');
+    border-color: #ed541d;
+}
+
+.messages__list {
+    margin: 0;
+}
+
+.messages__item {
+    list-style-image: none;
+}
+
+.messages--error p.error {
+    color: #333;
+}
+
+.ok,
+.messages--status {
+    background-color: #f8fff0;
+    color: #234600;
+}
+
+.warning,
+.messages--warning {
+    background-color: #fffce5;
+    color: #840;
+}
+
+.error,
+.messages--error {
+    background-color: #fef5f1;
+    color: #8c2e0b;
+}
+
+.tabs-primary,
+.tabs-secondary {
+    overflow: hidden;
+    *zoom: 1;
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjEuMCIgeDI9IjAuNSIgeTI9IjAuMCI+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjYmJiYmJiIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDAwMDAwIiBzdG9wLW9wYWNpdHk9IjAuMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+    background-size: 100%;
+    background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(100%, #bbbbbb), color-stop(100%, rgba(0, 0, 0, 0)));
+    background-image: -moz-linear-gradient(bottom, #bbbbbb 1px, rgba(0, 0, 0, 0) 1px);
+    background-image: -webkit-linear-gradient(bottom, #bbbbbb 1px, rgba(0, 0, 0, 0) 1px);
+    background-image: linear-gradient(to top, #bbbbbb 1px, rgba(0, 0, 0, 0) 1px);
+    list-style: none;
+    border-bottom: 1px solid #bbb \0/ie;
+    margin: 1.5em 0;
+    padding: 0 2px;
+    white-space: nowrap;
+}
+
+.tabs-primary__tab,
+.tabs-primary__tab.is-active,
+.tabs-secondary__tab,
+.tabs-secondary__tab.is-active {
+    float: left;
+    margin: 0 3px;
+}
+
+a.tabs-primary__tab-link,
+a.tabs-primary__tab-link.is-active,
+a.tabs-secondary__tab-link,
+a.tabs-secondary__tab-link.is-active {
+    border: 1px solid #e9e9e9;
+    border-right: 0;
+    border-bottom: 0;
+    display: block;
+    line-height: 1.5em;
+    text-decoration: none;
+}
+
+.tabs-primary__tab,
+.tabs-primary__tab.is-active {
+    -moz-border-radius-topleft: 4px;
+    -webkit-border-top-left-radius: 4px;
+    border-top-left-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    -webkit-border-top-right-radius: 4px;
+    border-top-right-radius: 4px;
+    text-shadow: 1px 1px 0 #fff;
+    border: 1px solid #bbb;
+    border-bottom-color: transparent;
+    border-bottom: 0 \0/ie;
+}
+
+.tabs-primary__tab.is-active {
+    border-bottom-color: #fff;
+}
+
+a.tabs-primary__tab-link,
+a.tabs-primary__tab-link.is-active {
+    -moz-border-radius-topleft: 4px;
+    -webkit-border-top-left-radius: 4px;
+    border-top-left-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    -webkit-border-top-right-radius: 4px;
+    border-top-right-radius: 4px;
+    -moz-transition: background-color 0.3s;
+    -o-transition: background-color 0.3s;
+    -webkit-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+    color: #333;
+    background-color: #dedede;
+    letter-spacing: 1px;
+    padding: 0 1em;
+    text-align: center;
+}
+
+a.tabs-primary__tab-link:hover,
+a.tabs-primary__tab-link:focus {
+    background-color: #e9e9e9;
+    border-color: #f2f2f2;
+}
+
+a.tabs-primary__tab-link:active,
+a.tabs-primary__tab-link.is-active {
+    background-color: transparent;
+    *zoom: 1;
+    filter: progid: DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFE9E9E9', endColorstr='#00E9E9E9');
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U5ZTllOSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2U5ZTllOSIgc3RvcC1vcGFjaXR5PSIwLjAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+    background-size: 100%;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e9e9e9), color-stop(100%, rgba(233, 233, 233, 0)));
+    background-image: -moz-linear-gradient(#e9e9e9, rgba(233, 233, 233, 0));
+    background-image: -webkit-linear-gradient(#e9e9e9, rgba(233, 233, 233, 0));
+    background-image: linear-gradient(#e9e9e9, rgba(233, 233, 233, 0));
+    border-color: #fff;
+}
+
+.tabs-secondary {
+    font-size: .9em;
+    margin-top: -1.5em;
+}
+
+.tabs-secondary__tab,
+.tabs-secondary__tab.is-active {
+    margin: 0.75em 3px;
+}
+
+a.tabs-secondary__tab-link,
+a.tabs-secondary__tab-link.is-active {
+    -moz-border-radius: 0.75em;
+    -webkit-border-radius: 0.75em;
+    border-radius: 0.75em;
+    -moz-transition: background-color 0.3s;
+    -o-transition: background-color 0.3s;
+    -webkit-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+    text-shadow: 1px 1px 0 #fff;
+    background-color: #f2f2f2;
+    color: #666;
+    padding: 0 .5em;
+}
+
+a.tabs-secondary__tab-link:hover,
+a.tabs-secondary__tab-link:focus {
+    background-color: #dedede;
+    border-color: #999;
+    color: #333;
+}
+
+a.tabs-secondary__tab-link:active,
+a.tabs-secondary__tab-link.is-active {
+    text-shadow: 1px 1px 0 #333;
+    background-color: #666;
+    border-color: #000;
+    color: #fff;
+}
+
+.inline {
+    display: inline;
+    padding: 0;
+}
+
+.inline li {
+    display: inline;
+    list-style-type: none;
+    padding: 0 1em 0 0;
+}
+
+span.field-label {
+    padding: 0 1em 0 0;
+}
+
+.more-link {
+    text-align: right;
+}
+
+.more-help-link {
+    text-align: right;
+}
+
+.more-help-link a {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA7UlEQVR42qWTPQqDQBCFcwSPkCNITpAj5AjeIm1uYpkyR7Cy2Mot7OwsBAsRwUKwmOwLGRle3EIy8PyBfZ/z3J2TiPylz8VWWZZpUB40BonRKyizaxkA88MYYiqCEgv4MTvnZJom0VqWRbz3FlJZgLYtqmEY1Lg9r+sKsIXcLSC3AC019H0vqLquLeC5AfiHYSGkcdAJimKIBQiJ4+CO92OAtm0FNc8zOjkMwE5Q63FAtbeg6zpAYvG8BWR7i5qmQYwY4MIHqYhE2DOPQWcGJBQF2XU72ZzyUeZ5GCNt5/hybJgYdAXsq5sOEE/jG6dC5IOqCXTmAAAAAElFTkSuQmCC');
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    padding: 1px 0 1px 20px;
+}
+
+.pager {
+    clear: both;
+    padding: 0;
+    text-align: center;
+}
+
+.pager-item,
+.pager-first,
+.pager-previous,
+.pager-next,
+.pager-last,
+.pager-ellipsis,
+.pager-current {
+    display: inline;
+    padding: 0 0.5em;
+    list-style-type: none;
+    background-image: none;
+}
+
+.pager-item,
+.pager-first,
+.pager-previous,
+.pager-next,
+.pager-last,
+.pager-ellipsis {}
+
+.pager-current {
+    font-weight: bold;
+}
+
+.block {
+    margin-bottom: 1.5em;
+}
+
+.menu__item.is-leaf {
+    __list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHBAMAAAA2fErgAAAAD1BMVEX///+/v7+Li4sAAADAwMBFvsw8AAAAAXRSTlMAQObYZgAAAB1JREFUCFtjYAADYwMGBmYVZSDhKAwkFJWhYiAAAB2+Aa/9ugeaAAAAAElFTkSuQmCC');
+    __list-style-type: square;
+}
+
+.menu__item.is-expanded {
+    __list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHAQMAAAD+nMWQAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAABJJREFUeJxj+MdQw2DBIMAABgAUsAHD3c3BpwAAAABJRU5ErkJggg==');
+    __list-style-type: circle;
+}
+
+.menu__item.is-collapsed {
+    __list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHAQMAAAD+nMWQAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAABFJREFUCB1jVmCGQClmEWYOAAZ8AMy3HPLXAAAAAElFTkSuQmCC');
+    __list-style-type: disc;
+}
+
+.menu a.active {
+    __color: #000;
+}
+
+.new,
+.update {
+    color: #c00;
+    background-color: transparent;
+}
+
+.unpublished {
+    height: 0;
+    overflow: visible;
+    background-color: transparent;
+    color: #d8d8d8;
+    font-size: 75px;
+    line-height: 1;
+    font-family: Impact, "Arial Narrow", Helvetica, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.comments {
+    margin: 1.5em 0;
+}
+
+.comment-preview {
+    background-color: #ffffea;
+}
+
+.comment {}
+
+.comment .permalink {
+    text-transform: uppercase;
+    font-size: 75%;
+}
+
+.indented {
+    margin-left: 30px;
+}
+
+.form-item {
+    margin: 1.5em 0;
+}
+
+.form-checkboxes .form-item,
+.form-radios .form-item {
+    margin: 0;
+}
+
+tr.odd .form-item,
+tr.even .form-item {
+    margin: 0;
+}
+
+.form-item input.error,
+.form-item textarea.error,
+.form-item select.error {
+    border: 1px solid #c00;
+}
+
+.form-item .description {
+    font-size: 0.85em;
+}
+
+.form-type-radio .description,
+.form-type-checkbox .description {
+    margin-left: 2.4em;
+}
+
+.form-required {
+    color: #c00;
+}
+
+label.option {
+    display: inline;
+    font-weight: normal;
+}
+
+a.button {
+    -moz-appearance: button;
+    -webkit-appearance: button;
+}
+
+.password-parent,
+.confirm-parent {
+    margin: 0;
+}
+
+#user-login-form {
+    text-align: left;
+}
+
+.openid-links {
+    margin-bottom: 0;
+}
+
+.openid-link,
+.user-link {
+    margin-top: 1.5em;
+}
+
+html.js #user-login-form li.openid-link,
+#user-login-form li.openid-link {
+    margin-left: -20px;
+}
+
+#user-login ul {
+    margin: 1.5em 0;
+}
+
+form th {
+    text-align: left;
+    padding-right: 1em;
+    border-bottom: 3px solid #ccc;
+}
+
+form tbody {
+    border-top: 1px solid #ccc;
+}
+
+form table ul {
+    margin: 0;
+}
+
+tr.even,
+tr.odd {
+    background-color: #eee;
+    border-bottom: 1px solid #ccc;
+    padding: 0.1em 0.6em;
+}
+
+tr.even {
+    background-color: #fff;
+}
+
+td.active {
+    background-color: #ddd;
+}
+
+td.checkbox,
+th.checkbox {
+    text-align: center;
+}
+
+td.menu-disabled {
+    background: #ccc;
+}
+
+#autocomplete .selected {
+    background: #0072b9;
+    color: #fff;
+}
+
+html.js .collapsible .fieldset-legend {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHAQMAAAD+nMWQAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAABJJREFUeJxj+MdQw2DBIMAABgAUsAHD3c3BpwAAAABJRU5ErkJggg==');
+    background-position: 5px 65%;
+    background-repeat: no-repeat;
+    padding-left: 15px;
+}
+
+html.js .collapsed .fieldset-legend {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHAQMAAAD+nMWQAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAABFJREFUCB1jVmCGQClmEWYOAAZ8AMy3HPLXAAAAAElFTkSuQmCC');
+    background-position: 5px 50%;
+}
+
+.fieldset-legend .summary {
+    color: #999;
+    font-size: 0.9em;
+    margin-left: 0.5em;
+}
+
+tr.drag {
+    background-color: #fffff0;
+}
+
+tr.drag-previous {
+    background-color: #ffd;
+}
+
+.tabledrag-toggle-weight {
+    font-size: 0.9em;
+}
+
+tr.selected td {
+    background: #ffc;
+}
+
+.progress {
+    font-weight: bold;
+}
+
+.progress .bar {
+    background: #ccc;
+    border-color: #666;
+    margin: 0 0.2em;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.progress .filled {
+    background-color: #0072b9;
+    background-image: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/progress.gif?1479443232);
+}
+
+@media print {
+    a:link,
+    a:visited {
+        text-decoration: underline !important;
+    }
+    a:link.header__site-link,
+    a:visited.header__site-link {
+        text-decoration: none !important;
+    }
+    #content {}
+    #content a[href]:after {
+        content: " (" attr(href) ")";
+        font-weight: normal;
+        font-size: 16px;
+    }
+    #content a[href^="javascript:"]:after,
+    #content a[href^="#"]:after {
+        content: "";
+    }
+    #content abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+    #content {
+        float: none !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    body,
+    #page,
+    #main,
+    #content {
+        color: #000;
+        background-color: transparent !important;
+        background-image: none !important;
+    }
+    #skip-link,
+    #toolbar,
+    #navigation,
+    .region-sidebar-first,
+    .region-sidebar-second,
+    #footer,
+    .breadcrumb,
+    .tabs,
+    .action-links,
+    .links,
+    .book-navigation,
+    .forum-topic-navigation,
+    .pager,
+    .feed-icons {
+        visibility: hidden;
+        display: none;
+    }
+}
+
+#mobile-region {
+    display: none;
+}
+
+@media screen and (max-width:768px) {
+    #mobile-region {
+        display: block;
+    }
+}
+
+#mobile-region #sidr-0-button {
+    display: block;
+}
+
+.sidr ul li:hover>a,
+.sidr ul li:hover>span,
+.sidr ul li.active>a,
+.sidr ul li.active>span,
+.sidr ul li.sidr-class-active>a,
+.sidr ul li.sidr-class-active>span,
+.sidr ul li ul li:hover>a,
+.sidr ul li ul li:hover>span,
+.sidr ul li ul li.active>a,
+.sidr ul li ul li.active>span,
+.sidr ul li ul li.sidr-class-active>a,
+.sidr ul li ul li.sidr-class-active>span {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+#sidr-0 {
+    background-color: #333333;
+    -webkit-overflow-scrolling: touch;
+}
+
+#sidr-0 ul {
+    margin: 0;
+}
+
+#sidr-0 .sidr-left-menu-close-button {
+    display: block;
+    background-color: #484848;
+    height: 50px;
+    cursor: pointer;
+}
+
+#sidr-0 .sidr-left-menu-close-button:before {
+    content: 'Close';
+    line-height: 50px;
+    margin-left: 15px;
+}
+
+#sidr-0 #sidr-id-block-menu-menu-section-menu .sidr-class-block__title {
+    display: none;
+}
+
+#sidr-0 #sidr-id-block-menu-menu-section-menu ul {
+    border: none;
+}
+
+#sidr-0 #sidr-id-block-menu-menu-section-menu ul li {
+    border: none;
+}
+
+#sidr-0 #sidr-id-block-menu-menu-section-menu ul .sidr-class-menu .sidr-class-menu {
+    display: none;
+}
+
+#sidr-0 #sidr-id-block-menu-menu-section-menu>ul>li {
+    background-color: #00843d;
+    border-top: #4c88aa;
+    border-bottom: #4c88aa;
+}
+
+#sidr-0 #sidr-id-block-menu-menu-section-menu>ul>li a {
+    font-size: 14px;
+    line-height: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+#sidr-0 #sidr-id-block-menu-menu-section-menu>ul>li>a:after {
+    content: ">";
+    float: right;
+}
+
+#sidr-0 #sidr-id-block-menu-menu-section-menu>ul>li>ul>li {
+    background-color: #006747;
+    border-top: #4c88aa;
+}
+
+#sidr-0 #sidr-id-block-menu-menu-section-menu>ul>li>ul>li a:hover,
+#sidr-0 #sidr-id-block-menu-menu-section-menu>ul>li>ul>li a:focus,
+#sidr-0 #sidr-id-block-menu-menu-section-menu>ul>li>ul>li a:active {
+    color: #ffffff;
+}
+
+#sidr-0 #sidr-id-block-menu-menu-section-menu>ul>li>ul>li ul {
+    margin-left: 15px;
+}
+
+#sidr-0 #sidr-id-block-menu-menu-section-menu>ul>li>ul>li.sidr-class-first {
+    border-top: none;
+}
+
+#sidr-0 #sidr-id-block-system-user-menu--2 .sidr-class-contextual-links-wrapper {
+    display: none;
+}
+
+#sidr-0 #sidr-id-block-system-user-menu--2 ul.sidr-class-menu {
+    font-size: 13px;
+    background-color: #858585;
+    border: none;
+}
+
+#sidr-0 #sidr-id-block-system-user-menu--2 ul.sidr-class-menu li {
+    border-color: #aaaaaa;
+}
+
+#sidr-0 #sidr-id-block-menu-menu-top-menu--2 .sidr-class-contextual-links-wrapper {
+    display: none;
+}
+
+#sidr-0 #sidr-id-block-menu-menu-top-menu--2 ul.sidr-class-menu {
+    font-size: 13px;
+    border: none;
+    text-align: center;
+}
+
+#sidr-0 #sidr-id-block-menu-menu-top-menu--2 ul.sidr-class-menu li {
+    border: none;
+}
+
+#sidr-0 #sidr-id-block-menu-menu-top-menu--2 ul.sidr-class-menu li:nth-child(1) {
+    background-color: #903779;
+}
+
+#sidr-0 #sidr-id-block-menu-menu-top-menu--2 ul.sidr-class-menu li:nth-child(2) {
+    background-color: #9bcf00;
+}
+
+#sidr-0 #sidr-id-block-menu-menu-top-menu--2 ul.sidr-class-menu li:nth-child(3) {
+    background-color: #ff6600;
+}
+
+#header-bar {
+    width: 100%;
+    border-bottom: 1px solid #afdca1;
+    height: 33px;
+    background-color: #00843d;
+}
+
+@media screen and (max-width:768px) {
+    #header-bar {
+        display: none;
+    }
+}
+
+#header-bar .region-header-bar {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+#header-bar .region-header-bar ul {
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0;
+}
+
+#header-bar .region-header-bar .top-login-menu-block,
+#header-bar .region-header-bar #block-menu-menu-top-login-menu {
+    float: left;
+    width: 27%;
+}
+
+#header-bar .region-header-bar .top-login-menu-block ul,
+#header-bar .region-header-bar #block-menu-menu-top-login-menu ul {
+    padding-left: 10px;
+}
+
+#header-bar .region-header-bar .top-login-menu-block ul li,
+#header-bar .region-header-bar #block-menu-menu-top-login-menu ul li {
+    float: left;
+    margin-right: 18px;
+    padding: 5px 0;
+    list-style-image: none;
+}
+
+#header-bar .region-header-bar .block-lang-dropdown {
+    float: left;
+    width: 16%;
+    margin-bottom: 0;
+    padding-top: 3px;
+}
+
+#header-bar .region-header-bar .block-lang-dropdown select.lang-dropdown-select-element {
+    height: 25px;
+}
+
+#header-bar .region-header-bar #block-menu-menu-menu-top-menu {
+    float: left;
+    width: 57%;
+}
+
+#header-bar .region-header-bar #block-menu-menu-menu-top-menu ul li {
+    float: right;
+    border-right: 1px solid #afdca1;
+    padding: 4px 12px;
+    cursor: pointer;
+    list-style-image: none;
+}
+
+#header-bar .region-header-bar #block-menu-menu-menu-top-menu li:nth-child(1):hover,
+#header-bar .region-header-bar #block-menu-menu-menu-top-menu li:nth-child(1):active {
+    background-color: #903779;
+    color: #ffffff;
+}
+
+#header-bar .region-header-bar #block-menu-menu-menu-top-menu li:nth-child(2):hover,
+#header-bar .region-header-bar #block-menu-menu-menu-top-menu li:nth-child(2):active {
+    background-color: #006ec7;
+    color: #ffffff;
+}
+
+#header-bar .region-header-bar #block-menu-menu-menu-top-menu li:nth-child(3):hover,
+#header-bar .region-header-bar #block-menu-menu-menu-top-menu li:nth-child(3):active {
+    background-color: #f60;
+    color: #ffffff;
+}
+
+#header-bar .region-header-bar #block-menu-menu-menu-top-menu li:last-child {
+    border-left: 1px solid #afdca1;
+}
+
+.header-bg {
+    width: 100%;
+    background-color: #00843d;
+    background-repeat: no-repeat;
+    background-position: center 140%;
+}
+
+.header-bg .header-wrapper {
+    max-width: 1024px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+@media screen and (max-width:768px) {
+    .header-bg .header-wrapper .header {
+        padding: 0 !important;
+    }
+}
+
+.header-bg .header-wrapper .header__logo {
+    width: 100%;
+    margin: 0 0 10px 0;
+}
+
+@media screen and (max-width:1024px) {
+    .header-bg .header-wrapper .header__logo {
+        padding: 10px;
+    }
+}
+
+.header-bg .header-wrapper .header__logo img {
+    float: left;
+}
+
+@media screen and (max-width:1024px) {
+    .header-bg .header-wrapper .header__logo img {
+        width: 80px;
+    }
+}
+
+.header-bg .header-wrapper .header__logo .header__logo-seperate {
+    float: left;
+    height: 35px;
+    margin-left: 40px;
+    padding-top: 4px;
+    padding-left: 40px;
+    border-left: 1px solid #3AB312;
+}
+
+@media screen and (max-width:767px) {
+    .header-bg .header-wrapper .header__logo .header__logo-seperate {
+        display: none;
+    }
+}
+
+.header-bg .header-wrapper .header__logo .header__slogan {
+    float: right;
+}
+
+@media screen and (max-width:1024px) {
+    .header-bg .header-wrapper .header__logo .header__slogan img {
+        width: 140px;
+    }
+}
+
+.sticky-only {
+    display: none;
+    float: left;
+}
+
+.is-sticky #navigation {
+    clear: both;
+    z-index: 10;
+    background-color: #00843d;
+    margin: 0;
+    width: 100% !important;
+    left: 0;
+}
+
+.is-sticky #navigation .region-navigation {
+    display: none;
+}
+
+.is-sticky .sticky-only {
+    display: block;
+}
+
+.is-sticky .logo {
+    border-right: 1px solid #3AB312;
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-sticky-logo.png) left center no-repeat;
+    width: 125px;
+    height: 30px;
+    margin: 10px 5px;
+}
+
+.is-sticky #mobile-region {
+    display: block;
+    float: left;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.is-sticky #mobile-region .menu-mobile-menu {
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-sticky-menu.png) center center no-repeat;
+    width: 22px;
+    height: 30px;
+}
+
+.is-sticky .search {
+    height: 30px;
+    margin: 10px 0 10px 10px;
+}
+
+.is-sticky .search .block-search {
+    float: initial !important;
+    margin: 0 !important;
+}
+
+.is-sticky .title {
+    height: 30px;
+    margin: 5px 0 5px 10px;
+    font-size: 13px;
+    line-height: 30px;
+    font-weight: normal;
+    display: none;
+}
+
+.is-sticky .rating {
+    float: right;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 2px;
+}
+
+.is-sticky .rating .fivestar-widget .star {
+    width: 28px;
+    height: 24px;
+    background: none;
+}
+
+.is-sticky .rating .description {
+    margin-top: 5px;
+}
+
+.is-sticky .sharing {
+    float: right;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.is-sticky .sharing .sharethis-wrapper>span:nth-child(1),
+.is-sticky .sharing .sharethis-wrapper>span:nth-child(2),
+.is-sticky .sharing .sharethis-wrapper>span:nth-child(3) {
+    display: none;
+}
+
+.is-sticky .sharing .sharethis-buttons:nth-child(2) {
+    display: none;
+}
+
+.is-sticky .sharing .sharethis-wrapper {
+    margin-top: 0 !important;
+}
+
+@media screen and (min-width:1024px) {
+    .node-type-article .is-sticky .title {
+        display: block;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .is-sticky {
+        display: none;
+    }
+}
+
+#navigation-sticky-wrapper {
+    clear: both;
+}
+
+#navigation {
+    position: static;
+    color: #ffffff;
+    font-size: 14px;
+    height: 50px;
+    padding: 0;
+}
+
+#navigation .menu-mobile-home,
+#navigation .menu-mobile-search {
+    display: none;
+}
+
+@media screen and (max-width:1023px) {
+    #navigation {
+        margin-bottom: 35px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    #navigation {
+        margin-bottom: 0;
+        border-top: 1px solid #afdca1;
+    }
+    #navigation>div {
+        float: left;
+        width: 33.3%;
+        height: 100%;
+        border-right: 1px solid #afdca1;
+        border-top: 1px solid #afdca1;
+        border-bottom: 1px solid #afdca1;
+        text-align: center;
+        cursor: pointer;
+    }
+    #navigation>div:last-child {
+        border-right: none;
+    }
+    #navigation .region-navigation {
+        display: none;
+    }
+    #navigation .menu-mobile-menu {
+        background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-mobile-menu.png) center center no-repeat;
+        display: block;
+        height: 49px;
+    }
+    #navigation .menu-mobile-home {
+        background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-mobile-home.png) center center no-repeat;
+        display: block;
+    }
+    #navigation .menu-mobile-home a {
+        display: block;
+        height: 100%;
+    }
+    #navigation .menu-mobile-search {
+        display: block;
+    }
+    #navigation .menu-mobile-search #block-search-form {
+        float: initial;
+        background-color: #00843d;
+    }
+    #navigation .menu-mobile-search #block-search-form .container-inline {
+        background-color: transparent;
+    }
+    #navigation .menu-mobile-search #block-search-form .container-inline .form-text {
+        position: absolute;
+        top: 104px;
+        z-index: 7;
+        left: 0;
+        width: 100%;
+        height: 40px;
+        padding: 4px 8px;
+        font-size: 16px;
+    }
+    #navigation .menu-mobile-search #block-search-form .container-inline .search_icon {
+        margin: 0 auto;
+    }
+    #navigation .menu-mobile-search #block-search-form .container-inline .form-submit {
+        background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-search2.png) -3px 0 no-repeat;
+        height: 30px;
+    }
+}
+
+#navigation .block-superfish .sf-menu {
+    line-height: 50px;
+}
+
+#navigation .block-superfish .sf-menu>.sf-depth-1 {
+    padding: 14px 13px;
+    max-width: 160px;
+    line-height: 17px;
+}
+
+@media screen and (max-width:1023px) {
+    #navigation .block-superfish .sf-menu>.sf-depth-1 {
+        padding: 0 6px;
+        max-width: 140px;
+    }
+}
+
+#navigation .block-superfish .sf-menu>.first {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#navigation .block-superfish .sf-menu>.first a {
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-nav-home.png) no-repeat;
+    width: 21px;
+    height: 21px;
+    text-indent: -9999px;
+}
+
+#navigation .block-superfish .sf-menu>li:hover {
+    background-color: #006747;
+}
+
+#navigation .block-superfish .sf-menu>li>ul {
+    display: none;
+    background-image: none;
+    background-color: #006747;
+    border-radius: 0;
+    margin-top: 10px;
+}
+
+#navigation .block-superfish .sf-menu>li>ul li {
+    line-height: 16px;
+}
+
+#navigation .block-superfish .sf-menu>li>ul li a {
+    padding: 7px 15px;
+    font-size: 13px;
+}
+
+#navigation .block-search {
+    float: right;
+    margin: 8px 0;
+}
+
+#navigation .block-search .container-inline {
+    background-color: #ffffff;
+}
+
+#navigation .block-search .container-inline .form-text {
+    border: 0;
+    font-size: 12px;
+    padding: 8px;
+    display: none;
+}
+
+#navigation .block-search .container-inline .form-submit {
+    border: none;
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-search.png) no-repeat;
+    background-color: transparent;
+    text-indent: -9999px;
+    width: 25px;
+    display: none;
+}
+
+#navigation .block-search .container-inline .search_icon {
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-search2.png) no-repeat;
+    background-color: #00843d;
+    display: block;
+    width: 30px;
+    height: 31px;
+}
+
+#navigation .expanded .form-text {
+    display: inline-block !important;
+}
+
+#navigation .expanded .form-submit {
+    display: inline-block !important;
+}
+
+#navigation .expanded .search_icon {
+    display: none !important;
+}
+
+@media screen and (max-width:768px) {
+    .header__region div {
+        box-sizing: content-box;
+    }
+}
+
+.header__region>#block-views-custom-blocks-block-1 {
+    margin-bottom: 0;
+}
+
+.header__region .views_slideshow_cycle_main {
+    color: #ffffff;
+    float: left;
+    width: 75%;
+}
+
+@media screen and (max-width:1023px) {
+    .header__region .views_slideshow_cycle_main {
+        width: 100%;
+    }
+    .header__region .views_slideshow_cycle_main .views-slideshow-cycle-main-frame-row img {
+        width: 100% !important;
+        height: auto;
+    }
+}
+
+.header__region .views_slideshow_cycle_main .views-field-nothing {
+    position: absolute;
+    top: 0;
+    width: 270px;
+    height: 100%;
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/slider_bg.png);
+    font-size: 12px;
+    line-height: 18px;
+    padding: 20px 15px;
+}
+
+.header__region .views_slideshow_cycle_main .views-field-nothing span.field-content {
+    display: block;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 10px;
+}
+
+.header__region .views_slideshow_cycle_main .views-field-nothing span.field-content p {
+    font-size: 12px;
+    line-height: 18px;
+}
+
+@media screen and (max-width:768px) {
+    .header__region .views_slideshow_cycle_main .views-field-nothing {
+        position: static;
+        box-sizing: border-box;
+        top: initial;
+        width: 98%;
+        font-size: 11px;
+        padding: 10px;
+        margin: 0 auto;
+        height: auto;
+    }
+    .header__region .views_slideshow_cycle_main .views-field-nothing span.field-content {
+        font-size: 15px;
+        line-height: 18px;
+    }
+    .header__region .views_slideshow_cycle_main .views-field-nothing p {
+        margin: 8px 0;
+    }
+}
+
+.header__region .views_slideshow_cycle_main .views-field-field-image-1 a {
+    display: block;
+}
+
+.header__region .views-slideshow-cycle-main-frame {
+    height: 340px !important;
+}
+
+@media screen and (max-width:768px) {
+    .header__region .views-slideshow-cycle-main-frame {
+        height: auto !important;
+    }
+    .header__region .views-slideshow-cycle-main-frame>div {
+        position: static !important;
+        height: auto !important;
+    }
+}
+
+.header__region .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row-item {
+    height: 340px !important;
+}
+
+@media screen and (max-width:768px) {
+    .header__region .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row-item {
+        height: auto !important;
+    }
+}
+
+.header__region .views-slideshow-controls-bottom {
+    float: left;
+    width: 25%;
+    height: 100%;
+    color: #ffffff;
+    box-shadow: 2px 0px 6px #004c34;
+}
+
+@media screen and (max-width:1023px) {
+    .header__region .views-slideshow-controls-bottom {
+        display: none;
+    }
+}
+
+.header__region .views-slideshow-controls-bottom .views-slideshow-pager-fields {
+    background-color: #00843d;
+    font-size: 14px;
+}
+
+.header__region .views-slideshow-controls-bottom .views-slideshow-pager-fields .views-slideshow-pager-field-item {
+    height: 67px;
+    line-height: 18px;
+    cursor: pointer;
+    padding: 0 15px;
+    border-bottom: 1px solid #339d63;
+    display: table;
+    width: 100%;
+}
+
+.header__region .views-slideshow-controls-bottom .views-slideshow-pager-fields .views-slideshow-pager-field-item .views-field-field-tab {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.header__region .views-slideshow-controls-bottom .views-slideshow-pager-fields .views-slideshow-pager-field-item:last-child {
+    border-bottom: none;
+}
+
+.header__region .views-slideshow-controls-bottom .views-slideshow-pager-fields .active {
+    background-color: #006747;
+    position: relative;
+}
+
+.header__region .views-slideshow-controls-bottom .views-slideshow-pager-fields .active .views-field-title {
+    border: none;
+}
+
+.header__region .views-slideshow-controls-bottom .views-slideshow-pager-fields .active:before {
+    content: "";
+    position: absolute;
+    z-index: 9;
+    right: 100%;
+    width: 0;
+    height: 0;
+    border-top: 35px solid transparent;
+    border-right: 20px solid #006747;
+    border-bottom: 35px solid transparent;
+}
+
+.node-type-teacher-training .header {
+    position: relative;
+}
+
+.node-type-teacher-training .header .page__title {
+    font-size: 22px;
+    font-family: 'british_council';
+    margin-top: 85px;
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/trans_bg.png);
+    padding: 4px 8px;
+    float: left;
+    height: 34px;
+}
+
+@media screen and (max-width:768px) {
+    .node-type-teacher-training .header .page__title {
+        margin-top: 150px;
+        font-size: 19px;
+    }
+}
+
+.node-type-teacher-training .header .article-sharethis-container {
+    margin-bottom: 10px;
+    margin-top: 20px;
+    clear: both;
+}
+
+@media screen and (max-width:768px) {
+    .node-type-teacher-training .header .article-sharethis-container .st_twitter_hcount,
+    .node-type-teacher-training .header .article-sharethis-container .st_facebook_hcount,
+    .node-type-teacher-training .header .article-sharethis-container .st_email_hcount {
+        display: none;
+    }
+}
+
+.node-type-teacher-training .header .article-sharethis-container .sharethis-wrapper {
+    float: none;
+}
+
+.node-type-teacher-training .header .page-field_apply_url-container {
+    position: absolute;
+    right: 10px;
+    bottom: 12px;
+    width: 270px;
+    text-align: center;
+    font-size: 14px;
+    font-family: 'british_council-bold';
+    padding: 1px 0;
+    border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    -khtml-border-radius: 4px 4px 4px 4px;
+    background: #0071cd;
+    background: -moz-linear-gradient(top, #0071cd 0%, #0070c6 46%, #00568c 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #0071cd), color-stop(46%, #0070c6), color-stop(100%, #00568c));
+    background: -webkit-linear-gradient(top, #0071cd 0%, #0070c6 46%, #00568c 100%);
+    background: -o-linear-gradient(top, #0071cd 0%, #0070c6 46%, #00568c 100%);
+    background: -ms-linear-gradient(top, #0071cd 0%, #0070c6 46%, #00568c 100%);
+    background: linear-gradient(to bottom, #0071cd 0%, #0070c6 46%, #00568c 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#0071cd', endColorstr='#00568c', GradientType=0);
+}
+
+.node-type-teacher-training .header .page-field_apply_url-container a {
+    display: block;
+}
+
+@media screen and (max-width:768px) {
+    .node-type-teacher-training .header .page-field_apply_url-container {
+        position: static;
+        width: 100%;
+        border-top: 1px solid #000000;
+    }
+}
+
+.node-type-teacher-training .header .page-field_apply_url-container:before {
+    content: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-arrow-white.png);
+    position: absolute;
+    margin-left: 115px;
+    margin-top: 2px;
+}
+
+.node-type-teacher-training .header .teacher-training-field-apply-url-container {
+    position: relative;
+    float: right;
+    width: 328px;
+    margin-top: -50px;
+    text-align: center;
+    background: #0073cb;
+    background: -moz-linear-gradient(top, #0073cb 0%, #01578c 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #0073cb), color-stop(100%, #01578c));
+    background: -webkit-linear-gradient(top, #0073cb 0%, #01578c 100%);
+    background: -o-linear-gradient(top, #0073cb 0%, #01578c 100%);
+    background: -ms-linear-gradient(top, #0073cb 0%, #01578c 100%);
+    background: linear-gradient(to bottom, #0073cb 0%, #01578c 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#0073cb', endColorstr='#01578c', GradientType=0);
+    border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    -khtml-border-radius: 4px 4px 4px 4px;
+}
+
+.node-type-teacher-training .header .teacher-training-field-apply-url-container a {
+    display: block;
+    padding: 8px 0;
+}
+
+@media screen and (max-width:768px) {
+    .node-type-teacher-training .header .teacher-training-field-apply-url-container {
+        width: 100px;
+        margin-top: -35px;
+        margin-right: 10px;
+    }
+    .node-type-teacher-training .header .teacher-training-field-apply-url-container a {
+        padding: 2px 0;
+    }
+}
+
+.node-type-teacher-training .header .teacher-training-field-apply-url-container:after {
+    content: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-apply-arrow.png);
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+@media screen and (max-width:768px) {
+    .node-type-teacher-training .header .teacher-training-field-apply-url-container:after {
+        top: 2px;
+    }
+}
+
+.tabs-primary__tab,
+.tabs-primary__tab.is-active {
+    font-size: 13px;
+    list-style-image: none;
+    margin-top: 4px;
+}
+
+.showit {
+    display: block !important;
+}
+
+#page {
+    width: 100%;
+    max-width: none;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+@media screen and (max-width:768px) {
+    .page__title {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+h3 {
+    margin: 16px 0 8px 0;
+    color: #00843d;
+}
+
+h4 {
+    margin: 10px 0 6px 0;
+    color: #00843d;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+body #header {
+    background-image: none;
+    color: #ffffff;
+}
+
+ul {
+    padding-left: 15px;
+    margin: 0;
+}
+
+ul li {
+    list-style-image: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-list-dot.png);
+}
+
+.contextual-links-wrapper ul li:before {
+    content: none !important;
+}
+
+.triangle {
+    list-style-image: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-list-tr-down.png);
+}
+
+.tabs-primary ul li {
+    list-style-image: none !important;
+}
+
+.print_html a {
+    display: block;
+    text-indent: -9999px;
+    width: 20px;
+    height: 20px;
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-print.png) center center no-repeat;
+}
+
+.print_html a img {
+    display: none;
+}
+
+.ui-dialog .ui-dialog-content {
+    padding: 0;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+    font-size: 14px;
+}
+
+.no-sidebars #content {
+    width: 100% !important;
+}
+
+.field-type-text-long,
+.field-type-text-with-summary {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.field-type-text-long h4,
+.field-type-text-with-summary h4 {
+    margin-top: 30px;
+}
+
+.field-type-text-long ul,
+.field-type-text-with-summary ul {
+    padding-left: 25px;
+}
+
+.field-type-text-long li,
+.field-type-text-with-summary li {
+    margin-bottom: 12px;
+}
+
+.field-type-text-long p,
+.field-type-text-with-summary p {
+    margin: 12px 0;
+}
+
+.breadcrumb {
+    clear: both;
+    color: #ffffff;
+    font-size: 11px;
+    opacity: 0.7;
+}
+
+@media screen and (max-width:768px) {
+    .breadcrumb {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+#main {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding-top: 20px;
+    clear: both;
+}
+
+@media screen and (max-width:768px) {
+    #main {
+        padding-top: 30px;
+        max-width: 100%;
+    }
+}
+
+article a:visited,
+article a:link {
+    color: #00843d;
+}
+
+p.rteindent1 {
+    margin-left: 40px;
+}
+
+.field-name-field-viddler-video iframe {
+    width: 100%;
+}
+
+@media screen and (max-width:768px) {
+    .field-name-field-viddler-video object {
+        width: 100%;
+    }
+}
+
+.horizontal-tabs ul.horizontal-tabs-list li,
+.flex-direction-nav li {
+    list-style-image: none;
+}
+
+@media screen and (max-width:768px) {
+    #header,
+    #content,
+    #navigation,
+    .region-sidebar-first,
+    .region-sidebar-second,
+    #footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    #navigation {
+        padding-left: 0 !important;
+        max-width: 100%;
+    }
+    .not-front #content {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .not-front .print_html {
+        display: none;
+    }
+}
+
+.field-collection-view-links .edit,
+.field-collection-view-links .delete {
+    list-style-image: none;
+    border: 1px solid #00843d;
+    padding-left: 10px;
+    margin-top: 10px;
+}
+
+.flex-direction-nav a:before {
+    margin-top: 10px;
+}
+
+.viddler-app-wrap div.viddler-embed div.media-gui div.bottom,
+.viddler-app-wrap div.viddler-embed div.media-gui div.top {
+    z-index: 1 !important;
+}
+
+#quick-level-test {
+    width: 1px;
+    min-width: 100%;
+    height: 550px;
+}
+
+@media screen and (max-width:768px) {
+    #quick-level-test {
+        height: 760px;
+    }
+}
+
+.field-collection-container {
+    border: 0;
+}
+
+.field-collection-container .action-links-field-collection-add {
+    padding-left: 0 !important;
+    float: none;
+}
+
+.field-collection-container .action-links-field-collection-add li {
+    list-style-image: none;
+    list-style-type: none;
+    float: left;
+    background-color: #00843d;
+    padding: 2px 14px;
+}
+
+.field-collection-container .action-links-field-collection-add li a {
+    color: #ffffff !important;
+}
+
+.field-group-accordion-wrapper {
+    margin: 20px 0;
+}
+
+.field-group-accordion-wrapper>h3 {
+    background-color: #00843d;
+    background-image: none;
+    border-radius: 0;
+    color: #ffffff;
+    padding: 8px 14px;
+    padding-left: 25px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+}
+
+.field-group-accordion-wrapper>h3 a {
+    color: #ffffff !important;
+}
+
+.field-group-accordion-wrapper>h3 .ui-icon {
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-arrow-right-white.png) center center no-repeat;
+}
+
+.field-group-accordion-wrapper>h3.ui-state-active {
+    background: #006747;
+}
+
+.field-group-accordion-wrapper>h3.ui-state-active .ui-icon {
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-arrow-downward-white.png) center center no-repeat;
+}
+
+.field-group-accordion-wrapper .field-group-accordion-item {
+    background: #e8f0d8;
+    padding: 14px;
+    border: none;
+    height: auto !important;
+}
+
+.field-group-accordion-wrapper .field-group-accordion-item iframe {
+    min-height: 550px;
+}
+
+.field-group-accordion-wrapper .field-group-accordion-item p {
+    margin: 10px 0;
+}
+
+table thead {
+    background-color: #00843d;
+    color: #ffffff;
+}
+
+table thead th {
+    border: none;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tbody tr:last-child {
+    border-bottom: 1px solid #cdcdcd;
+}
+
+table tbody td {
+    border-right: 1px solid #cdcdcd;
+    padding: 4px 6px;
+}
+
+table tbody td:first-child {
+    border-left: 1px solid #cdcdcd;
+}
+
+.rate-widget {
+    margin-top: 10px;
+}
+
+.rate-widget>div {
+    float: left;
+    clear: none;
+    line-height: 24px;
+    margin-right: 10px;
+    color: #ffffff;
+}
+
+.rate-widget>div ul {
+    padding-left: 0;
+}
+
+.rate-widget .rate-fivestar-btn-filled {
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/elt.png) -1px -29px no-repeat;
+    width: 22px;
+    height: 22px;
+}
+
+.rate-widget .rate-fivestar-btn-empty {
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/elt.png) -1px -3px no-repeat;
+    width: 22px;
+    height: 22px;
+}
+
+#content {
+    width: 66% !important;
+    margin-right: 0 !important;
+}
+
+@media screen and (max-width:768px) and (orientation:portrait) {
+    #content {
+        float: initial !important;
+        width: auto !important;
+    }
+}
+
+@media screen and (max-width:768px) {
+    #content {
+        width: 100% !important;
+    }
+}
+
+#content p a,
+#content p a:visited,
+#content p a:link {
+    color: #00843d;
+}
+
+#content .news_block>.view-taxonomy-blocks>.view-content {
+    overflow: auto;
+}
+
+#content .news_block>.view-taxonomy-blocks>.view-content>.views-row {
+    float: left;
+    width: 49%;
+    height: 370px;
+    overflow: hidden;
+    margin-right: 2%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width:1024px) {
+    #content .news_block>.view-taxonomy-blocks>.view-content>.views-row {
+        height: auto;
+    }
+}
+
+@media screen and (max-width:768px) and (orientation:portrait) {
+    #content .news_block>.view-taxonomy-blocks>.view-content>.views-row {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+#content .news_block>.view-taxonomy-blocks>.view-content>.views-row .views-field-name {
+    font-size: 11px;
+    color: #00843d;
+}
+
+@media screen and (max-width:768px) {
+    #content .news_block>.view-taxonomy-blocks>.view-content>.views-row .views-field-name {
+        padding-left: 10px;
+        padding-right: 10px;
+        font-family: 'british_council-bold';
+        font-size: 13px;
+    }
+}
+
+#content .news_block>.view-taxonomy-blocks>.view-content>.views-row .views-field-title {
+    font-size: 14px;
+    line-height: 16px;
+    font-family: 'british_council-bold';
+    color: #00843d;
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width:768px) {
+    #content .news_block>.view-taxonomy-blocks>.view-content>.views-row .views-field-title {
+        padding-left: 10px;
+        padding-right: 10px;
+        font-family: 'british_council';
+    }
+}
+
+#content .news_block>.view-taxonomy-blocks>.view-content>.views-row .views-field-field-image img {
+    width: 100%;
+    height: auto;
+}
+
+#content .news_block>.view-taxonomy-blocks>.view-content>.views-row .views-field-body,
+#content .news_block>.view-taxonomy-blocks>.view-content>.views-row .views-field-field-text-teaser {
+    font-size: 13px;
+    line-height: 16px;
+    padding-bottom: 12px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #e6e6e6;
+    height: 100px;
+    overflow: auto;
+}
+
+@media screen and (max-width:768px) {
+    #content .news_block>.view-taxonomy-blocks>.view-content>.views-row .views-field-body,
+    #content .news_block>.view-taxonomy-blocks>.view-content>.views-row .views-field-field-text-teaser {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 20px;
+        height: auto;
+        overflow: visible;
+    }
+}
+
+#content .news_block>.view-taxonomy-blocks>.view-content>.views-row .views-field-body P,
+#content .news_block>.view-taxonomy-blocks>.view-content>.views-row .views-field-field-text-teaser P {
+    margin: 0;
+}
+
+#content .news_block>.view-taxonomy-blocks>.view-content>.views-row .views-field-comment-count {
+    font-size: 11px;
+    color: #c6c6c6;
+    float: right;
+}
+
+@media screen and (max-width:768px) {
+    #content .news_block>.view-taxonomy-blocks>.view-content>.views-row .views-field-comment-count {
+        margin-top: -28px;
+    }
+}
+
+#content .news_block>.view-taxonomy-blocks>.view-content>.views-row .views-field-comment-count:before {
+    content: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-talk.png);
+}
+
+#content .news_block>.view-taxonomy-blocks>.view-content>.views-row-even {
+    margin-right: 0;
+}
+
+#content #block-views-comments-block {
+    width: 100%;
+    border-top: 5px solid #00843d;
+    background-color: #fbfbfb;
+    padding: 6px 18px;
+}
+
+@media screen and (max-width:767px) {
+    #content #block-views-comments-block {
+        padding: 6px;
+        padding-bottom: 40px;
+        position: relative;
+    }
+}
+
+#content #block-views-comments-block .block-title {
+    color: #00843d;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+#content #block-views-comments-block .view-comments {
+    position: relative;
+}
+
+#content #block-views-comments-block .views-slideshow-controls-top {
+    float: right;
+    margin-top: -30px;
+    font-size: 15px;
+}
+
+@media screen and (max-width:767px) {
+    #content #block-views-comments-block .views-slideshow-controls-top {
+        float: none;
+        position: absolute;
+        margin-top: 220px;
+        width: 100%;
+    }
+    #content #block-views-comments-block .views-slideshow-controls-top .views-slideshow-slide-counter {
+        display: none;
+    }
+}
+
+#content #block-views-comments-block .views-slideshow-controls-top>div {
+    float: left;
+}
+
+#content #block-views-comments-block .views-slideshow-controls-top .views-slideshow-slide-counter {
+    color: #c6c6c6;
+}
+
+#content #block-views-comments-block .views-slideshow-controls-text>span {
+    padding: 0 8px;
+    border-right: 1px solid #000000;
+}
+
+#content #block-views-comments-block .views-slideshow-controls-text>span:last-child {
+    border-right: none;
+}
+
+@media screen and (max-width:767px) {
+    #content #block-views-comments-block .views-slideshow-controls-text {
+        width: 100%;
+    }
+    #content #block-views-comments-block .views-slideshow-controls-text>span {
+        padding: 0;
+        text-align: center;
+        background-color: #f4f4f4;
+        width: 33%;
+        height: 35px;
+        line-height: 35px;
+        border-right: 1px solid #dbdbdb;
+        display: block;
+        float: left;
+    }
+    #content #block-views-comments-block .views-slideshow-controls-text #views_slideshow_controls_text_pause_comments-block {
+        display: none;
+    }
+}
+
+#content #block-views-comments-block .views-slideshow-cycle-main-frame>.views-slideshow-cycle-main-frame-row {
+    width: 100% !important;
+}
+
+@media screen and (max-width:768px) and (orientation:portrait) {
+    #content #block-views-comments-block .views-slideshow-cycle-main-frame {
+        width: 100% !important;
+    }
+}
+
+#content #block-views-comments-block .views-slideshow-cycle-main-frame-row-item {
+    margin-left: 60px;
+    padding: 6px 15px;
+    background-color: #ffffff;
+    font-size: 15px;
+}
+
+#content #block-views-comments-block .views-slideshow-cycle-main-frame-row-item .views-field-picture {
+    float: left;
+    margin-left: -75px;
+    margin-top: -5px;
+    width: 60px;
+}
+
+#content #block-views-comments-block .views-slideshow-cycle-main-frame-row-item .views-field-picture img {
+    width: 100%;
+}
+
+#content #block-views-comments-block .views-slideshow-cycle-main-frame-row-item .views-field-subject {
+    color: #00843d;
+    margin-bottom: 10px;
+}
+
+#content #block-views-comments-block .views-slideshow-cycle-main-frame-row-item .views-field-created,
+#content #block-views-comments-block .blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item .views-field-comment-count,
+.blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row #content #block-views-comments-block .views-slideshow-cycle-main-frame-row-item .views-field-comment-count {
+    float: right;
+    font-size: 12px;
+    margin-top: -18px;
+}
+
+#content #block-views-comments-block .views-slideshow-cycle-main-frame-row-item .views-field-comment-body {
+    margin: 0;
+    line-height: 18px;
+    height: 65px;
+    overflow: auto;
+    clear: both;
+}
+
+#content #block-views-comments-block .views-slideshow-cycle-main-frame-row-item .views-field-title {
+    font-size: 12px;
+    color: #00843d;
+    border-top: 1px solid #e6e6e6;
+    padding-top: 5px;
+    margin-bottom: 0;
+    text-align: right;
+}
+
+@media screen and (max-width:767px) {
+    #content #block-views-comments-block .views-slideshow-cycle-main-frame-row-item {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    #content #block-views-comments-block .views-slideshow-cycle-main-frame-row-item .views-field-picture {
+        margin: -20px 10px 0 0 !important;
+    }
+    #content #block-views-comments-block .views-slideshow-cycle-main-frame-row-item .views-field-subject {
+        float: left;
+        margin-top: -30px;
+        margin-bottom: 0;
+        line-height: 16px;
+        height: 32px;
+        overflow: hidden;
+    }
+    #content #block-views-comments-block .views-slideshow-cycle-main-frame-row-item .views-field-created,
+    #content #block-views-comments-block .blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item .views-field-comment-count,
+    .blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row #content #block-views-comments-block .views-slideshow-cycle-main-frame-row-item .views-field-comment-count {
+        float: left !important;
+        color: #acacac;
+        margin-top: 0 !important;
+    }
+    #content #block-views-comments-block .views-slideshow-cycle-main-frame-row-item .views-field-comment-body {
+        clear: both;
+        height: 95px;
+        overflow: hidden;
+        font-size: 12px;
+    }
+    #content #block-views-comments-block .views-slideshow-cycle-main-frame-row-item .views-field-title {
+        font-size: 11px;
+        line-height: 14px;
+        height: 52px;
+        overflow: hidden;
+    }
+}
+
+.catagory_landing .view-taxonomy-blocks>.view-content>.views-row {
+    border-bottom: 1px solid #00843d;
+    padding: 10px 0;
+    overflow: auto;
+}
+
+.catagory_landing .view-taxonomy-blocks>.view-content>.views-row>div {
+    float: left;
+    width: 50%;
+}
+
+@media all and (max-width:768px) {
+    .catagory_landing .view-taxonomy-blocks>.view-content>.views-row>div {
+        float: none;
+        width: 100%;
+    }
+    .catagory_landing .view-taxonomy-blocks>.view-content>.views-row>div img {
+        width: 100%;
+    }
+}
+
+.catagory_landing .view-taxonomy-blocks>.view-content .views-field-nothing {
+    min-height: 70px;
+    padding-right: 15px;
+}
+
+@media all and (max-width:768px) {
+    .catagory_landing .view-taxonomy-blocks>.view-content .views-field-nothing {
+        padding-right: 0;
+        min-height: 0;
+    }
+}
+
+.catagory_landing .view-taxonomy-blocks>.view-content .views-field-nothing .views-field-name {
+    color: #00843d;
+    font-family: 'british_council-bold';
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.catagory_landing .view-taxonomy-blocks>.view-content .views-field-nothing .views-field-description {
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.catagory_landing .view-taxonomy-blocks>.view-content .views-field-view {
+    padding: 12px 15px;
+    background-color: #ebeef0;
+}
+
+.catagory_landing .view-taxonomy-blocks>.view-content .views-field-view .view-content {
+    background-color: #ffffff;
+    padding: 8px;
+    overflow: auto;
+}
+
+.catagory_landing .view-taxonomy-blocks>.view-content .views-field-view .view-content>div {
+    position: relative;
+    border-top: 1px solid #f1f1f1;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.catagory_landing .view-taxonomy-blocks>.view-content .views-field-view .view-content>div:first-child {
+    border-top: 0;
+    padding-top: 0;
+}
+
+.catagory_landing .view-taxonomy-blocks>.view-content .views-field-view .views-field-field-site-structure {
+    background-color: #00843d;
+    color: #ffffff;
+    font-size: 13px;
+    line-height: 16px;
+    padding: 4px 6px;
+    float: left;
+}
+
+.catagory_landing .view-taxonomy-blocks>.view-content .views-field-view .views-field-comment-count {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 40px;
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-bubble.jpg) left center no-repeat;
+    padding-left: 15px;
+    color: #adadad;
+    font-size: 11px;
+}
+
+.catagory_landing .view-taxonomy-blocks>.view-content .views-field-view .views-field-created,
+.catagory_landing .view-taxonomy-blocks>.view-content .views-field-view .blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item .views-field-comment-count,
+.blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item .catagory_landing .view-taxonomy-blocks>.view-content .views-field-view .views-field-comment-count {
+    float: right;
+    color: #adadad;
+    font-size: 11px;
+}
+
+.catagory_landing .view-taxonomy-blocks>.view-content .views-field-view .views-field-field-image {
+    position: absolute;
+    left: 0;
+}
+
+@media all and (max-width:768px) {
+    .catagory_landing .view-taxonomy-blocks>.view-content .views-field-view .views-field-field-image {
+        position: static;
+    }
+}
+
+.catagory_landing .view-taxonomy-blocks>.view-content .views-field-view .views-field-title {
+    padding-left: 130px;
+    font-size: 12px;
+    line-height: 14px;
+    font-family: 'british_council-bold';
+    margin-bottom: 12px;
+}
+
+@media all and (max-width:768px) {
+    .catagory_landing .view-taxonomy-blocks>.view-content .views-field-view .views-field-title {
+        padding: 0;
+    }
+}
+
+.catagory_landing .view-taxonomy-blocks>.view-content .views-field-view .views-field-field-text-teaser {
+    padding-left: 130px;
+    font-size: 11px;
+    line-height: 14px;
+    margin-bottom: 15px;
+}
+
+@media all and (max-width:768px) {
+    .catagory_landing .view-taxonomy-blocks>.view-content .views-field-view .views-field-field-text-teaser {
+        padding-left: 0;
+    }
+}
+
+.catagory_landing .view-taxonomy-blocks>.view-content .views-field-view .views-field-field-text-teaser p {
+    margin: 0;
+}
+
+.blog-view {
+    width: 100%;
+    border-top: 5px solid #4ea5e8;
+    background-color: #00843d;
+    padding: 15px 20px;
+    color: #ffffff;
+    height: auto;
+    position: relative;
+}
+
+@media screen and (max-width:768px) {
+    .blog-view {
+        height: 350px;
+        padding: 15px 0;
+    }
+}
+
+.blog-view h2 {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.blog-view .views-slideshow-controls-top {
+    float: right;
+    font-size: 13px;
+    margin-top: -35px;
+}
+
+.blog-view .views-slideshow-controls-top>div {
+    float: left;
+}
+
+.blog-view .views-slideshow-controls-top .views-slideshow-slide-counter {
+    margin-right: 15px;
+    color: #5ea6e0;
+}
+
+.blog-view .views-slideshow-controls-top .views-slideshow-controls-text>span {
+    padding: 0 8px;
+    border-left: 1px solid #ffffff;
+}
+
+.blog-view .views-slideshow-controls-top .views-slideshow-controls-text>span:first-child {
+    border-left: none;
+}
+
+@media screen and (max-width:768px) {
+    .blog-view h2 {
+        text-align: center;
+    }
+    .blog-view .views-slideshow-controls-top {
+        position: absolute;
+        bottom: 0;
+        border-top: 1px solid #ffffff;
+        width: 100%;
+    }
+    .blog-view .views-slideshow-controls-top .views-slideshow-slide-counter {
+        display: none;
+    }
+    .blog-view .views-slideshow-controls-top .views-slideshow-controls-text {
+        float: none;
+    }
+    .blog-view .views-slideshow-controls-top .views-slideshow-controls-text>span {
+        padding: 5px 0;
+        display: block;
+        float: left;
+        width: 50%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    .blog-view .views-slideshow-controls-top .views-slideshow-controls-text-pause {
+        display: none !important;
+    }
+}
+
+.blog-view .views_slideshow_cycle_main {
+    margin-top: 15px;
+}
+
+.blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame {
+    width: 100% !important;
+}
+
+@media screen and (max-width:768px) {
+    .blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame {
+        padding: 0 5px;
+    }
+}
+
+.blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row {
+    width: 100% !important;
+}
+
+.blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item {
+    width: 50%;
+    float: left;
+}
+
+.blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item .views-field-picture {
+    width: 35px;
+    height: 35px;
+    float: left;
+}
+
+.blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item .views-field-picture img {
+    width: 100%;
+    height: auto;
+}
+
+.blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item .views-field-value,
+.blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item .views-field-value-1 {
+    margin-left: 10px;
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item .views-field-title {
+    background-color: #ffffff;
+    padding: 10px;
+    color: #00843d;
+    font-size: 15px !important;
+    line-height: 18px;
+    margin: 0;
+    height: 62px;
+    overflow: hidden;
+    clear: both;
+}
+
+.blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item .views-field-created,
+.blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item .views-field-comment-count {
+    color: #80b9e7;
+    font-size: 12px;
+}
+
+.blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item .views-field-comment-count {
+    float: right;
+}
+
+.blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item .views-field-comment-count:before {
+    content: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-talk2.png);
+}
+
+@media screen and (max-width:768px) {
+    .blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item {
+        width: 100%;
+        float: none;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+.blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item:first-child {
+    padding-right: 25px;
+}
+
+@media screen and (max-width:768px) {
+    .blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item:first-child {
+        padding-right: 5px;
+    }
+}
+
+.sidebars {
+    float: left;
+    width: 34%;
+}
+
+@media screen and (max-width:768px) {
+    .sidebars {
+        width: 100%;
+    }
+}
+
+.sidebars .sidebar>.block {
+    margin-bottom: 1em;
+}
+
+.sidebars .item-list {
+    font-size: 14px;
+}
+
+.sidebars .item-list ul {
+    padding-left: 25px;
+}
+
+.sidebars #views-exposed-form-glossary-block-1 {
+    display: none;
+}
+
+.sidebars h2 {
+    color: #037739;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 21px;
+    padding: 10px 12px;
+    background-color: #f4f4f4;
+}
+
+.sidebars .pager .pager-previous {
+    float: left;
+}
+
+.sidebars .pager .pager-current {
+    border-bottom: none;
+    background-color: transparent;
+    color: #000000;
+    font-size: 11px;
+}
+
+.sidebars .pager .pager-next {
+    margin-right: 0;
+    position: static;
+    float: right;
+}
+
+.sidebars .pager .ajax-progress {
+    display: none;
+}
+
+.sidebars .region-sidebar-second {
+    margin: 0 !important;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sidebars .region-sidebar-second .block-image img {
+    width: 100%;
+}
+
+.sidebars .letter-menu-block {
+    background-color: #f4f4f4;
+    border-top: 3px solid #00843d;
+    padding-bottom: 10px;
+}
+
+.sidebars .letter-menu-block .attachment .view-content {
+    border-top: 1px solid #b0b0b0;
+    border-bottom: 1px solid #b0b0b0;
+    padding: 4px 10px;
+    overflow: auto;
+}
+
+.sidebars .letter-menu-block .attachment .view-content .views-summary a {
+    display: block;
+    float: left;
+    color: #000000;
+    width: 23px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.sidebars .letter-menu-block .attachment .view-content .views-summary a:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.sidebars .letter-menu-block .attachment .view-content .ajax-progress {
+    display: none;
+}
+
+.sidebars .letter-menu-block table.views-table {
+    margin: 0;
+    width: 100%;
+}
+
+.sidebars .letter-menu-block table.views-table th {
+    text-align: left;
+    padding: 4px 15px;
+}
+
+.sidebars .letter-menu-block table.views-table td {
+    padding: 2px 15px;
+}
+
+.sidebars .letter-menu-block table.views-table tr,
+.sidebars .letter-menu-block table.views-table td.active {
+    border: none;
+    background-color: transparent;
+}
+
+.sidebars .letter-menu-block table.views-table td:hover {
+    background-color: #676767;
+    color: #ffffff;
+}
+
+.sidebars .letter-menu-block table.views-table tbody {
+    font-size: 13px;
+}
+
+.sidebars .popular-block {
+    background-color: #f4f4f4;
+    border-top: 3px solid #00843d;
+}
+
+.sidebars .popular-block .view-content .views-row {
+    font-family: 'arial';
+    font-size: 12px;
+    padding: 8px 12px 8px 35px;
+    border-top: 1px solid #b0b0b0;
+    line-height: 18px;
+    position: relative;
+}
+
+.sidebars .popular-block .view-content .views-row .views-field-comment-count {
+    color: #acacac;
+    margin-right: 10px;
+    display: none;
+}
+
+.sidebars .popular-block .view-content .views-row .views-field-comment-count:before {
+    content: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-talk.png);
+}
+
+.sidebars .popular-block .view-content .views-row:hover .views-field-comment-count {
+    display: inline;
+}
+
+.sidebars .popular-block .view-content .views-row:before {
+    font-family: 'Times New Roman';
+    color: #b3b3b3;
+    font-size: 24px;
+    font-family: 'british_council-bold';
+    font-style: italic;
+    position: absolute;
+    left: 12px;
+}
+
+.sidebars .popular-block .view-content .views-row:nth-child(1):before {
+    content: "1";
+}
+
+.sidebars .popular-block .view-content .views-row:nth-child(2):before {
+    content: "2";
+}
+
+.sidebars .popular-block .view-content .views-row:nth-child(3):before {
+    content: "3";
+}
+
+.sidebars .popular-block .view-content .views-row:nth-child(4):before {
+    content: "4";
+}
+
+.sidebars .popular-block .view-content .views-row:nth-child(5):before {
+    content: "5";
+}
+
+.sidebars .country-select-block {
+    background-color: #00843d;
+    padding: 14px 8px;
+}
+
+.sidebars .country-select-block h2 {
+    padding: 0;
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 15px;
+    font-family: 'british_council-bold';
+}
+
+.sidebars .country-select-block .form-item {
+    margin: 0;
+}
+
+.sidebars .country-select-block select {
+    width: 100%;
+    margin-top: 8px;
+    padding: 2px;
+    font-size: 12px;
+}
+
+.sidebars .help_support,
+.sidebars .dictionaries_block {
+    border-bottom: 1px solid #4c4c4c;
+    color: #ffffff;
+    padding: 18px 0;
+}
+
+.sidebars .help_support h2,
+.sidebars .dictionaries_block h2 {
+    font-size: 17px;
+    line-height: 18px;
+    padding-left: 0;
+    padding-right: 0;
+    background: #333333 url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-i.png) 10px 12px no-repeat;
+    color: #ffffff;
+    padding: 10px 20px 10px 30px;
+    text-decoration: none;
+    font-family: british_council-bold;
+    text-transform: uppercase;
+}
+
+.sidebars .help_support ul,
+.sidebars .dictionaries_block ul {
+    font-size: 14px;
+    line-height: 26px;
+    color: #000000;
+    border: 1px solid #333333;
+    padding: 5px 35px;
+    background-color: #ebeff0;
+}
+
+.sidebars .help_support ul li,
+.sidebars .dictionaries_block ul li {
+    list-style-type: none;
+    list-style-image: none;
+}
+
+.sidebars .help_support ul li:before,
+.sidebars .dictionaries_block ul li:before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 7px solid #00843d;
+    position: absolute;
+    margin-left: -15px;
+    margin-top: 8px;
+}
+
+.sidebars .dictionaries_block {
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-dict.png) 10px 5px no-repeat;
+    background-color: #333333;
+    border: none;
+}
+
+.sidebars .dictionaries_block form {
+    margin: 10px 0;
+}
+
+.sidebars .dictionaries_block form .form-item {
+    width: 180px;
+    margin: 0 5px 0 0;
+    float: left;
+}
+
+@media screen and (max-width:768px) {
+    .sidebars .dictionaries_block form .form-item {
+        width: 130px;
+    }
+}
+
+.sidebars .dictionaries_block form .form-item input {
+    width: 100%;
+    border-radius: 2px 2px 2px 2px;
+    -moz-border-radius: 2px 2px 2px 2px;
+    -webkit-border-radius: 2px 2px 2px 2px;
+    -khtml-border-radius: 2px 2px 2px 2px;
+}
+
+.sidebars .dictionaries_block form input[type=submit] {
+    color: #ffffff;
+    font-size: 12px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 2px 2px 2px 2px;
+    -moz-border-radius: 2px 2px 2px 2px;
+    -webkit-border-radius: 2px 2px 2px 2px;
+    -khtml-border-radius: 2px 2px 2px 2px;
+    background: #00a349;
+    background: -moz-linear-gradient(top, #00a349 0%, #00843e 72%, #00843e 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #00a349), color-stop(72%, #00843e), color-stop(100%, #00843e));
+    background: -webkit-linear-gradient(top, #00a349 0%, #00843e 72%, #00843e 100%);
+    background: -o-linear-gradient(top, #00a349 0%, #00843e 72%, #00843e 100%);
+    background: -ms-linear-gradient(top, #00a349 0%, #00843e 72%, #00843e 100%);
+    background: linear-gradient(to bottom, #00a349 0%, #00843e 72%, #00843e 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#00a349', endColorstr='#00843e', GradientType=0);
+}
+
+.sidebars .sidebar-course-block .view-content>.views-row {
+    position: relative;
+}
+
+.sidebars .sidebar-course-block .views-field-title {
+    position: absolute;
+    top: 12px;
+    font-size: 11px;
+    color: #ffffff;
+    background-color: #006ec7;
+    padding: 0 10px;
+}
+
+.sidebars .sidebar-course-block .views-field-field-site-structure {
+    position: absolute;
+    z-index: 2;
+    color: #ffffff;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    padding: 2px 8px;
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/trans_bg.png);
+    font-size: 14px;
+    font-family: "british_council-bold";
+}
+
+.sidebars .sidebar-course-block .views-field-field-image img {
+    width: 328px;
+}
+
+@media screen and (max-width:768px) {
+    .sidebars .sidebar-course-block .views-field-field-image img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.sidebars .normal-block {
+    border-top: 1px solid #dbdbdb;
+    font-size: 13px;
+    padding: 10px 12px;
+    background-color: #f4f4f4;
+}
+
+.sidebars .sidebar-book-navigation>.menu {
+    padding-left: 0;
+    font-size: 12px;
+    list-style-type: none;
+}
+
+.sidebars .sidebar-book-navigation>.menu>li {
+    list-style-image: none;
+    border-top: 1px solid #dbdbdb;
+}
+
+.sidebars .sidebar-book-navigation>.menu>li>a {
+    padding: 5px 12px;
+    background-color: #f4f4f4;
+    display: block;
+}
+
+.sidebars .sidebar-book-navigation>.menu>li>.menu {
+    background-color: #e8f0d8;
+    padding: 5px 12px 5px 27px;
+    color: #037739;
+}
+
+.sidebars .sidebar-book-navigation>.menu>li .is-active-trail>a {
+    color: #000000;
+}
+
+.sidebars .sidebar-book-navigation>.menu>li.active-trail>a {
+    background-color: #00843d;
+    color: #ffffff;
+}
+
+.sidebars .course_two {
+    color: #ffffff;
+    padding: 18px 0;
+    font-size: 14px;
+    line-height: normal;
+}
+
+.sidebars .course_two h2 {
+    padding-left: 0;
+    padding-right: 0;
+    color: #02c15a;
+    background: #333333 url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-hat.svg) 10px 12px no-repeat;
+    color: #ffffff;
+    padding: 10px 20px 10px 40px;
+    text-decoration: none;
+    font-family: british_council-bold;
+    text-transform: uppercase;
+}
+
+.sidebars .course_two>p {
+    background-color: #333333;
+    padding: 10px 15px;
+}
+
+.sidebars .course_two p {
+    margin: 0;
+}
+
+.sidebars .course_two ul {
+    margin: 0;
+    color: #000000;
+    border: 1px solid #333333;
+    padding: 5px 35px;
+    background-color: #ebeff0;
+}
+
+.sidebars .course_two ul li {
+    list-style-image: none;
+    list-style-type: none;
+    line-height: 1.5em;
+}
+
+.sidebars .course_two ul li:before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 7px solid #00843d;
+    position: absolute;
+    margin-left: -15px;
+    margin-top: 6px;
+}
+
+.book-navigation {
+    clear: both;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.book-navigation .page-links {
+    border: none;
+    border-bottom: 1px solid #00843d;
+    background-color: #e8f0d8;
+    font-size: 14px;
+    font-family: 'british_council-bold';
+}
+
+.book-navigation a {
+    text-decoration: none;
+    color: #00843d;
+}
+
+.book-navigation .page-previous {
+    padding-left: 15px;
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-arrow-left.png) left center no-repeat;
+}
+
+.book-navigation .page-next {
+    padding-right: 15px;
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-arrow-right.png) right center no-repeat;
+}
+
+.book-navigation .page-up {
+    width: auto;
+    margin: 0;
+}
+
+.find_course_link {
+    margin-top: 10px;
+    border-top: 3px solid #00843d;
+    background-color: #e8f0d8;
+    color: #00843d;
+    padding: 0.5em;
+    padding-left: 40px;
+    position: relative;
+}
+
+.find_course_link p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.find_course_link:before {
+    content: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-hat-white.svg);
+    position: absolute;
+    left: 0;
+    background-color: #00843d;
+    height: 100%;
+    top: 0;
+    padding: 8px 6px 0 6px;
+    box-sizing: border-box;
+}
+
+.view-id-ad_block .views-field-field-site-link {
+    background-color: #436300 !important;
+}
+
+.view-id-ad_block .views-field-field-image {
+    width: 100% !important;
+    line-height: 0;
+}
+
+.view-id-ad_block .views-field-field-image img {
+    width: 100%;
+}
+
+.view-ad-block {
+    position: relative;
+}
+
+.view-ad-block>.view-content>.views-row {
+    position: relative;
+    margin-bottom: 1em;
+}
+
+.view-ad-block .views-field-field-site-link-1 {
+    background-color: #00843d;
+    padding: 8px 8px;
+    padding-left: 20px;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.view-ad-block .views-field-field-site-link-1:before {
+    content: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-arrow-right-white.png);
+    position: absolute;
+    margin-left: -12px;
+}
+
+.view-ad-block .views-field-body {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+    font-weight: normal;
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/promo_box_bg.png);
+    float: none !important;
+    color: #ffffff;
+    padding: 6px;
+}
+
+.view-ad-block .views-field-body a {
+    display: block;
+}
+
+.view-ad-block .views-field-field-image {
+    line-height: 0;
+}
+
+@media screen and (max-width:768px) {
+    .view-ad-block .views-field-field-image img {
+        width: 100%;
+    }
+}
+
+.view-ad-block .view-content>div:hover .views-field-body {
+    display: block;
+    float: none !important;
+}
+
+@media screen and (max-width:768px) {
+    .page-taxonomy-term- #content {
+        width: 100% !important;
+    }
+}
+
+.page-taxonomy-term- #top-main {
+    background-color: #00843d;
+    width: 100%;
+    overflow: auto;
+}
+
+@media screen and (max-width:768px) {
+    .page-taxonomy-term- #top-main {
+        background-color: transparent;
+    }
+}
+
+.page-taxonomy-term- #top-main .top-main__wrapper {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.page-taxonomy-term- #top-main .top-main__wrapper .region-highlighted {
+    color: #ffffff;
+}
+
+.page-taxonomy-term- #top-main .top-main__wrapper .region-highlighted>div:first-child {
+    width: 66%;
+    padding: 0 10px;
+    float: left;
+    margin-bottom: 0;
+}
+
+@media screen and (max-width:768px) {
+    .page-taxonomy-term- #top-main .top-main__wrapper .region-highlighted>div:first-child {
+        width: 100%;
+        float: none;
+        padding: 0;
+    }
+}
+
+.page-taxonomy-term- #top-main .top-main__wrapper .region-highlighted>div:nth-child(2) {
+    width: 34%;
+    padding: 0 10px;
+    float: left;
+    margin-bottom: 0;
+}
+
+@media screen and (max-width:768px) {
+    .page-taxonomy-term- #top-main .top-main__wrapper .region-highlighted>div:nth-child(2) {
+        width: 100%;
+        float: none;
+        margin-top: 10px;
+    }
+}
+
+.page-taxonomy-term- #top-main .top-main__wrapper .region-highlighted .view-content {
+    height: 230px;
+}
+
+@media screen and (max-width:768px) {
+    .page-taxonomy-term- #top-main .top-main__wrapper .region-highlighted .view-content {
+        height: auto;
+    }
+}
+
+.page-taxonomy-term- #top-main .top-main__wrapper .region-highlighted .views-row {
+    height: 100%;
+    margin-bottom: 0;
+}
+
+.page-taxonomy-term- #top-main .top-main__wrapper .region-highlighted .views-row>div {
+    float: right;
+}
+
+@media screen and (max-width:768px) {
+    .page-taxonomy-term- #top-main .top-main__wrapper .region-highlighted .views-row>div {
+        float: none;
+    }
+}
+
+.page-taxonomy-term- #top-main .top-main__wrapper .region-highlighted .views-row .views-field-field-image {
+    width: 60%;
+    max-height: 230px;
+    overflow: hidden;
+}
+
+.page-taxonomy-term- #top-main .top-main__wrapper .region-highlighted .views-row .views-field-nothing {
+    width: 40%;
+    background-color: #006747;
+    height: 100%;
+    padding: 10px 18px;
+    overflow: hidden;
+}
+
+.page-taxonomy-term- #top-main .top-main__wrapper .region-highlighted .views-row .views-field-nothing .views-field-name {
+    font-size: 24px;
+    line-height: 24px;
+    margin-top: 8px;
+}
+
+.page-taxonomy-term- #top-main .top-main__wrapper .region-highlighted .views-row .views-field-nothing .views-field-description {
+    font-size: 11px;
+    line-height: 16px;
+}
+
+@media screen and (max-width:768px) {
+    .page-taxonomy-term- #top-main .top-main__wrapper .region-highlighted .views-row .views-field-field-image {
+        width: 100%;
+        background-color: #436300;
+        max-width: initial;
+        max-height: inherit;
+        overflow: initial;
+    }
+    .page-taxonomy-term- #top-main .top-main__wrapper .region-highlighted .views-row .views-field-field-image img {
+        width: 100%;
+        height: auto;
+    }
+    .page-taxonomy-term- #top-main .top-main__wrapper .region-highlighted .views-row .views-field-nothing {
+        width: 98%;
+        margin: 0 auto;
+        margin-top: -30px;
+        position: relative;
+    }
+}
+
+.page-taxonomy-term- #top-main .top-main__wrapper .region-highlighted .apps-landing-header {
+    position: relative;
+}
+
+.landing_apps .region-highlighted>.block-views .view-taxonomy-blocks .view-content .views-row {
+    __background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/app_bg.jpg) no-repeat;
+    __background-size: cover;
+}
+
+@media screen and (max-width:768px) {
+    .landing_apps .region-highlighted>.block-views .view-taxonomy-blocks .view-content .views-row {
+        background: #006747;
+    }
+}
+
+.landing_apps .region-highlighted>div:first-child {
+    width: 100% !important;
+}
+
+.landing_apps .region-highlighted>div:first-child .views-row .views-field-field-image {
+    width: 100% !important;
+    float: none !important;
+    text-align: right;
+    background-color: #017136;
+}
+
+@media screen and (max-width:768px) {
+    .landing_apps .region-highlighted>div:first-child .views-row .views-field-field-image {
+        display: none;
+    }
+}
+
+.landing_apps .region-highlighted>div:first-child .views-row .views-field-nothing {
+    width: 45% !important;
+    background: none !important;
+    position: absolute;
+    top: 0;
+}
+
+@media screen and (max-width:768px) {
+    .landing_apps .region-highlighted>div:first-child .views-row .views-field-nothing {
+        width: 100% !important;
+        margin-top: 0 !important;
+    }
+}
+
+.landing_apps .region-highlighted>div:nth-child(2) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    max-width: 1024px;
+    width: 100% !important;
+    float: none !important;
+    margin-top: 230px;
+    z-index: 1;
+    color: #000000 !important;
+}
+
+@media screen and (max-width:768px) {
+    .landing_apps .region-highlighted>div:nth-child(2) {
+        position: static;
+    }
+}
+
+.landing_apps .region-highlighted>div:nth-child(2) .view-content {
+    height: auto !important;
+}
+
+.landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row {
+    padding-top: 15px;
+    overflow: auto;
+}
+
+@media screen and (max-width:768px) {
+    .landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row {
+        padding-top: 0;
+    }
+}
+
+.landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row .views-field-field-image2 {
+    line-height: normal;
+}
+
+@media screen and (max-width:768px) {
+    .landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row .views-field-field-image2 img {
+        width: 100%;
+    }
+}
+
+.landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row .views-field-nothing-1 {
+    width: 100%;
+    position: relative;
+}
+
+@media screen and (max-width:768px) {
+    .landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row .views-field-nothing-1 {
+        width: 100%;
+    }
+    .landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row .views-field-nothing-1 img {
+        width: 100%;
+    }
+}
+
+.landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row .views-field-nothing-1 .content_left {
+    float: left;
+    width: 25%;
+    padding-right: 10px;
+}
+
+@media screen and (max-width:768px) {
+    .landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row .views-field-nothing-1 .content_left {
+        width: 40%;
+    }
+    .landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row .views-field-nothing-1 .content_left .images {
+        text-align: center;
+    }
+}
+
+.landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row .views-field-nothing-1 .content_right {
+    float: left;
+    width: 75%;
+}
+
+@media screen and (max-width:768px) {
+    .landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row .views-field-nothing-1 .content_right {
+        width: 60%;
+    }
+}
+
+.landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row .views-field-nothing-1 .content_right .sub_title {
+    font-size: 26px;
+    line-height: 30px;
+    font-family: 'british_council-bold';
+    color: #037739;
+}
+
+@media screen and (max-width:768px) {
+    .landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row .views-field-nothing-1 .content_right .sub_title {
+        font-size: 20px;
+        line-height: 24px;
+    }
+}
+
+.landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row .views-field-nothing-1 .content_right .caption {
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 15px;
+    font-family: 'british_council';
+    color: #000000;
+}
+
+.landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row .views-field-nothing-1 .content_right .caption p {
+    margin: 0;
+}
+
+.landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row .views-field-nothing-1 .featured-banner-text {
+    position: absolute;
+    top: 16%;
+    left: 5%;
+    color: #ffffff;
+    max-width: 46%;
+}
+
+@media screen and (max-width:768px) {
+    .landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row .views-field-nothing-1 .featured-banner-text {
+        top: 10%;
+        max-width: 68%;
+    }
+}
+
+.landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row .views-field-nothing-1 .featured-banner-text .featured-banner-icon {
+    float: left;
+    width: 110px;
+    margin-right: 15px;
+}
+
+@media screen and (max-width:768px) {
+    .landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row .views-field-nothing-1 .featured-banner-text .featured-banner-icon {
+        display: none;
+    }
+}
+
+.landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row .views-field-nothing-1 .featured-banner-text .featured-banner-right {
+    float: left;
+    width: calc(100% - 125px);
+}
+
+@media screen and (max-width:768px) {
+    .landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row .views-field-nothing-1 .featured-banner-text .featured-banner-right {
+        width: 100%;
+    }
+}
+
+.landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row .views-field-nothing-1 .featured-banner-text .featured-banner-title {
+    font-size: 22px;
+}
+
+@media screen and (max-width:768px) {
+    .landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row .views-field-nothing-1 .featured-banner-text .featured-banner-title {
+        font-size: 16px;
+        line-height: 1.2em;
+    }
+}
+
+.landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row .views-field-nothing-1 .featured-banner-text .featured-banner-teaser {
+    font-size: 12px;
+    line-height: normal;
+}
+
+.landing_apps .region-highlighted>div:nth-child(2) .view-content>.views-row .views-field-nothing-1 .featured-banner-text .featured-banner-teaser p {
+    margin: 10px 0 0 0;
+}
+
+.landing_apps #main {
+    padding-top: 260px;
+}
+
+@media screen and (max-width:1024px) {
+    .landing_apps #main {
+        padding-top: 280px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .landing_apps #main {
+        padding-top: 0;
+    }
+}
+
+.landing_apps #content h2.block-title {
+    padding: 8px 14px;
+    color: #005355;
+    border-top: 4px solid #005355;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: normal;
+    background-color: #f4f4f4;
+    font-family: 'british_council-bold';
+}
+
+.landing_apps #content h2.block-title span {
+    line-height: normal;
+}
+
+.landing_apps #content .view-learnenglish-apps {
+    background-color: #f4f4f4;
+}
+
+.landing_apps #content .view-learnenglish-apps>.view-content {
+    padding: 5px 10px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: flex-start;
+    -moz-justify-content: flex-start;
+    -ms-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-flex-flow: row wrap;
+    -moz-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+
+.landing_apps #content .view-learnenglish-apps>.view-content>.views-row {
+    background-color: #fff;
+    width: 48%;
+    margin: 0 1% 15px 1%;
+    padding: 15px 16px;
+    border-bottom: 1px solid #d0d0d0;
+    border-right: 1px solid #d0d0d0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    justify-content: space-between;
+}
+
+@media screen and (max-width:768px) {
+    .landing_apps #content .view-learnenglish-apps>.view-content>.views-row {
+        width: 100%;
+    }
+}
+
+.landing_apps #content .view-learnenglish-apps>.view-content>.views-row .views-field-nothing-1 {
+    width: 32%;
+}
+
+.landing_apps #content .view-learnenglish-apps>.view-content>.views-row .views-field-nothing-1 .app-icon {
+    display: none;
+}
+
+.landing_apps #content .view-learnenglish-apps>.view-content>.views-row .views-field-nothing {
+    width: 65%;
+}
+
+.landing_apps #content .view-learnenglish-apps .image img {
+    max-width: 100%;
+}
+
+@media screen and (max-width:768px) {
+    .landing_apps #content .view-learnenglish-apps .image img {
+        width: 100%;
+    }
+}
+
+.landing_apps #content .view-learnenglish-apps .app_title {
+    font-size: 18px;
+    font-family: 'british_council-bold';
+    color: #005355;
+    line-height: normal;
+}
+
+.landing_apps #content .view-learnenglish-apps .text {
+    font-size: 13px;
+    line-height: 17px;
+}
+
+.landing_apps #content .view-learnenglish-apps .text p {
+    margin: 8px 0 0 0;
+}
+
+.landing_apps #content .app_learning_tool h2.block-title {
+    color: #9d2235;
+    border-top: 4px solid #9d2235;
+}
+
+.landing_apps #content .app_learning_tool .view-learnenglish-apps .app_title {
+    color: #9d2235;
+}
+
+.landing_apps #content .app_games h2.block-title {
+    color: #702f8a;
+    border-top: 4px solid #702f8a;
+}
+
+.landing_apps #content .app_games .view-learnenglish-apps .app_title {
+    color: #702f8a;
+}
+
+.landing_apps .sidebar .learnenglish-kids-feature-apps h2.block-title {
+    padding: 8px 14px;
+    color: #c14d00;
+    border-top: 4px solid #c14d00;
+    font-weight: normal;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: normal;
+    background-color: #f4f4f4;
+}
+
+.landing_apps .sidebar .learnenglish-kids-feature-apps h2.block-title span {
+    line-height: normal;
+}
+
+.landing_apps .sidebar .learnenglish-kids-feature-apps>.view-content {
+    padding: 5px 10px;
+    background-color: #f4f4f4;
+}
+
+.landing_apps .sidebar .learnenglish-kids-feature-apps>.view-content .views-row {
+    margin-bottom: 15px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 15px 16px;
+    border-bottom: 1px solid #d0d0d0;
+    border-right: 1px solid #d0d0d0;
+}
+
+.landing_apps .sidebar .learnenglish-kids-feature-apps>.view-content .views-row .left {
+    width: 32%;
+}
+
+.landing_apps .sidebar .learnenglish-kids-feature-apps>.view-content .views-row .right {
+    width: 65%;
+}
+
+@media screen and (max-width:768px) {
+    .landing_apps .sidebar .learnenglish-kids-feature-apps>.view-content .views-row .views-field-field-image img {
+        width: 100%;
+    }
+}
+
+.landing_apps .sidebar .learnenglish-kids-feature-apps>.view-content .views-row .views-field-title {
+    font-size: 18px;
+    font-family: 'british_council-bold';
+    color: #c14d00;
+    line-height: normal;
+}
+
+.landing_apps .sidebar .learnenglish-kids-feature-apps>.view-content .views-row .views-field-field-text-teaser {
+    font-size: 13px;
+    line-height: 17px;
+}
+
+.landing_apps .sidebar .learnenglish-kids-feature-apps>.view-content .views-row .views-field-field-text-teaser p {
+    margin: 8px 0 0 0;
+}
+
+.landing_apps .sidebar #block-views-learnenglish-apps-kids h2.block-title {
+    padding: 8px 14px;
+    color: #c14d00;
+    border-top: 4px solid #c14d00;
+    font-weight: normal;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: normal;
+    background-color: #f4f4f4;
+}
+
+.landing_apps .sidebar #block-views-learnenglish-apps-kids h2.block-title span {
+    line-height: normal;
+}
+
+.landing_apps .sidebar #block-views-learnenglish-apps-kids .view-learnenglish-apps>.view-content {
+    padding: 5px 10px;
+    background-color: #f4f4f4;
+}
+
+.landing_apps .sidebar #block-views-learnenglish-apps-kids .view-learnenglish-apps>.view-content .lekids-app-list {
+    margin-bottom: 15px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 15px 16px;
+    border-bottom: 1px solid #d0d0d0;
+    border-right: 1px solid #d0d0d0;
+}
+
+.landing_apps .sidebar #block-views-learnenglish-apps-kids .view-learnenglish-apps>.view-content .lekids-app-list .left {
+    width: 32%;
+}
+
+.landing_apps .sidebar #block-views-learnenglish-apps-kids .view-learnenglish-apps>.view-content .lekids-app-list .right {
+    width: 65%;
+}
+
+@media screen and (max-width:768px) {
+    .landing_apps .sidebar #block-views-learnenglish-apps-kids .view-learnenglish-apps>.view-content .lekids-app-list .views-field-field-image img {
+        width: 100%;
+    }
+}
+
+.landing_apps .sidebar #block-views-learnenglish-apps-kids .view-learnenglish-apps>.view-content .lekids-app-list .views-field-title {
+    font-size: 18px;
+    font-family: 'british_council-bold';
+    color: #c14d00;
+    line-height: normal;
+}
+
+.landing_apps .sidebar #block-views-learnenglish-apps-kids .view-learnenglish-apps>.view-content .lekids-app-list .views-field-field-text-teaser {
+    font-size: 13px;
+    line-height: 17px;
+}
+
+.landing_apps .sidebar #block-views-learnenglish-apps-kids .view-learnenglish-apps>.view-content .lekids-app-list .views-field-field-text-teaser p {
+    margin: 8px 0 0 0;
+}
+
+.landing_apps .app-icon-white {
+    margin-top: 10px;
+    display: none;
+}
+
+@media screen and (max-width:768px) {
+    .landing_apps .app-icon-white {
+        display: none;
+    }
+}
+
+.landing_apps .app-icon-white>span a {
+    display: block;
+    text-indent: -9999px;
+    display: block;
+    float: left;
+    width: 16px;
+    height: 18px;
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon_app.png) no-repeat;
+    margin: 0 3px;
+}
+
+.landing_apps .app-icon-white .app-icon-apple a {
+    background-position: 0 0px;
+}
+
+.landing_apps .app-icon-white .app-icon-google a {
+    background-position: -16px 0px;
+}
+
+.landing_apps .app-icon-white .app-icon-blackberry a {
+    background-position: -32px 0px;
+}
+
+.landing_apps .app-icon-white .app-icon-windows a {
+    background-position: -64px 0px;
+}
+
+.landing_apps .app-icon-white .app-icon-amazon a {
+    background-position: -96px 0;
+}
+
+.app-icon {
+    line-height: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    -webkit-flex-flow: row wrap;
+    -moz-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+
+@media screen and (max-width:768px) {
+    .app-icon {
+        display: none;
+    }
+}
+
+.app-icon span a {
+    display: block;
+    width: 16px;
+    height: 18px;
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon_app.png) no-repeat;
+    margin: 0 4px;
+    display: block;
+    text-indent: -9999px;
+}
+
+.app-icon .app-icon-apple a {
+    background-position: 0 -30px;
+}
+
+.app-icon .app-icon-google a {
+    background-position: -16px -30px;
+}
+
+.app-icon .app-icon-blackberry a {
+    background-position: -32px -30px;
+}
+
+.app-icon .app-icon-windows a {
+    background-position: -64px -30px;
+}
+
+.app-icon .app-icon-amazon a {
+    background-position: -96px -30px;
+}
+
+@media screen and (max-width:768px) {
+    .node-mobile-learning {
+        position: relative;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-lines: multiple;
+        -moz-box-lines: multiple;
+        -ms-flex-wrap: wrap;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+}
+
+.node-mobile-learning .group-left {
+    width: 65%;
+}
+
+@media screen and (max-width:768px) {
+    .node-mobile-learning .group-left {
+        width: 100%;
+        -webkit-box-ordinal-group: 2;
+        -moz-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+        -webkit-order: 1;
+        order: 1;
+    }
+}
+
+.node-mobile-learning .group-left .group-banner {
+    position: relative;
+    padding: 0;
+    float: left;
+    width: 140px;
+}
+
+@media screen and (max-width:768px) {
+    .node-mobile-learning .group-left .group-banner {
+        width: 100%;
+        float: none;
+    }
+}
+
+.node-mobile-learning .group-left .group-banner>h3 {
+    display: none;
+}
+
+.node-mobile-learning .group-left .group-banner .field-name-field-image {
+    margin-bottom: 15px;
+}
+
+@media screen and (max-width:768px) {
+    .node-mobile-learning .group-left .group-banner .field-name-field-image {
+        float: left;
+        width: 133px;
+        padding-right: 10px;
+    }
+}
+
+.node-mobile-learning .group-left .group-banner .field-name-field-image img {
+    max-width: 100%;
+    width: 100%;
+}
+
+@media screen and (max-width:768px) {
+    .node-mobile-learning .group-left .group-banner #node-mobile-learning-full-group-top {
+        clear: both;
+        width: 100%;
+    }
+}
+
+.node-mobile-learning .group-left .group-banner #node-mobile-learning-full-group-top h3 {
+    color: #848282;
+    font-size: 12px;
+}
+
+@media screen and (max-width:768px) {
+    .node-mobile-learning .group-left .group-banner #node-mobile-learning-full-group-top h3 {
+        margin: 0 0 5px 0;
+        float: left;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .node-mobile-learning .group-left .group-banner #node-mobile-learning-full-group-top .group-download-now>div {
+        width: 32.3%;
+        margin-left: 1.5%;
+    }
+    .node-mobile-learning .group-left .group-banner #node-mobile-learning-full-group-top .group-download-now>div:first-child {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .node-mobile-learning .group-left .group-banner .field-name-field-text-teaser {
+        display: block;
+        float: left;
+        width: calc(100% - 143px);
+    }
+}
+
+.node-mobile-learning .group-left .group-banner .field-name-field-text-teaser p {
+    margin: 0;
+}
+
+.node-mobile-learning .group-left .group-banner .group-top .field-name-title {
+    color: #ffffff;
+}
+
+@media screen and (max-width:768px) {
+    .node-mobile-learning .group-left .group-banner .group-top .field-name-title {
+        display: none;
+    }
+}
+
+.node-mobile-learning .group-left .group-banner .group-top .field-name-title h2 {
+    line-height: normal;
+    margin: 8px 0;
+}
+
+@media screen and (max-width:768px) {
+    .node-mobile-learning .group-left .group-banner .group-top .group-download-now {
+        overflow: auto;
+        clear: both;
+    }
+}
+
+.node-mobile-learning .group-left .group-banner .group-top .group-download-now>div {
+    float: left;
+}
+
+@media screen and (max-width:768px) {
+    .node-mobile-learning .group-left .group-banner .group-top .group-download-now>div {
+        width: 100%;
+        margin-bottom: 4px;
+    }
+    .node-mobile-learning .group-left .group-banner .group-top .group-download-now>div img {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .node-mobile-learning .group-left .group-banner .group-top .group-download-now .field-name-qr-code-block {
+        display: none;
+    }
+    .node-mobile-learning .group-left .group-banner .group-top .group-download-now .app-icon-google,
+    .node-mobile-learning .group-left .group-banner .group-top .group-download-now .app-icon-apple,
+    .node-mobile-learning .group-left .group-banner .group-top .group-download-now .app-icon-windows {
+        display: block;
+    }
+}
+
+.node-mobile-learning .group-left .field-name-body {
+    float: left;
+    width: calc(100% - 140px);
+    padding-left: 22px;
+}
+
+@media screen and (max-width:768px) {
+    .node-mobile-learning .group-left .field-name-body {
+        width: 100%;
+        padding-left: 0;
+        float: none;
+    }
+}
+
+.node-mobile-learning .group-left .field-name-body strong {
+    color: #00843d;
+}
+
+.node-mobile-learning .group-left .field-name-field-viddler-video {
+    width: calc(100% - 162px);
+    margin-left: 162px;
+}
+
+@media screen and (max-width:768px) {
+    .node-mobile-learning .group-left .field-name-field-viddler-video {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+.node-mobile-learning .group-left #comments {
+    width: calc(100% - 162px);
+    margin-left: 162px;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width:768px) {
+    .node-mobile-learning .group-left #comments {
+        width: 100%;
+        margin-left: 0;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+.node-mobile-learning .group-right {
+    width: 35%;
+    padding-left: 20px;
+}
+
+@media screen and (max-width:768px) {
+    .node-mobile-learning .group-right {
+        width: 100%;
+        padding-left: 0;
+        -webkit-box-ordinal-group: 1;
+        -moz-box-ordinal-group: 1;
+        -ms-flex-order: 0;
+        -webkit-order: 0;
+        order: 0;
+    }
+}
+
+.node-mobile-learning .group-right .flex-control-paging li a {
+    background: #cdcdcd;
+}
+
+.node-mobile-learning .group-right .flex-control-paging li a.flex-active {
+    background: #00843d;
+}
+
+.node-mobile-learning .group-footer {
+    padding-top: 20px;
+}
+
+#colorbox {
+    background: transparent;
+}
+
+#colorbox #cboxContent {
+    border-radius: 9px;
+}
+
+#colorbox #cboxLoadedContent {
+    padding: 15px 0;
+    overflow: hidden !important;
+}
+
+#colorbox .views-field {
+    float: left;
+    max-width: 33.3%;
+}
+
+#colorbox .views-field .views-label {
+    display: block;
+    text-align: center;
+    font-family: 'british_council-bold';
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.filter_slider {
+    background-color: #f4f4f4;
+    font-size: 13px;
+    color: #037739;
+    line-height: 34px;
+    overflow-x: hidden;
+    overflow-y: visible;
+    margin: 0 0 15px 0;
+}
+
+.filter_slider .jcarousel-clip-horizontal {
+    margin: 0 30px;
+    overflow: hidden;
+}
+
+.filter_slider .jcarousel-clip-horizontal ul li {
+    padding: 0 20px;
+    font-family: 'british_council-bold';
+}
+
+.filter_slider .jcarousel-clip-horizontal li.is-active {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.filter_slider .jcarousel-prev,
+.filter_slider .jcarousel-next {
+    width: 30px;
+    height: 34px;
+    margin-top: -34px;
+    float: left;
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-filter-arrow-left.png) center center no-repeat;
+}
+
+.filter_slider .jcarousel-next {
+    float: right;
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-filter-arrow-right.png) center center no-repeat;
+}
+
+.item-list ul.quicktabs-tabs {
+    margin: 0;
+    padding: 0;
+    background: none;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.item-list ul.quicktabs-tabs li:first-child:nth-last-child(1) {
+    width: 100%;
+}
+
+.item-list ul.quicktabs-tabs li:first-child:nth-last-child(2),
+.item-list ul.quicktabs-tabs li:first-child:nth-last-child(2)~li {
+    width: 50%;
+}
+
+.item-list ul.quicktabs-tabs li:first-child:nth-last-child(3),
+.item-list ul.quicktabs-tabs li:first-child:nth-last-child(3)~li {
+    width: 33.3333%;
+}
+
+.item-list ul.quicktabs-tabs li:first-child:nth-last-child(4),
+.item-list ul.quicktabs-tabs li:first-child:nth-last-child(4)~li {
+    width: 25%;
+}
+
+.item-list ul.quicktabs-tabs li:first-child:nth-last-child(5),
+.item-list ul.quicktabs-tabs li:first-child:nth-last-child(5)~li {
+    width: 20%;
+}
+
+.item-list ul.quicktabs-tabs li:first-child:nth-last-child(6),
+.item-list ul.quicktabs-tabs li:first-child:nth-last-child(6)~li {
+    width: 16.66%;
+}
+
+.item-list ul.quicktabs-tabs li {
+    display: block;
+    text-align: center;
+    box-sizing: border-box;
+    color: #999999;
+    border-bottom: 3px solid #ecebeb;
+    margin: 0 0 6px 0;
+    padding: 4px 0;
+    background: none !important;
+    height: 36px;
+}
+
+.item-list ul.quicktabs-tabs li a {
+    font-weight: normal;
+    font-size: 14px;
+    display: block;
+    margin: 0;
+    padding: 0;
+    background: none !important;
+}
+
+.item-list ul.quicktabs-tabs li.active {
+    color: #00843d;
+    border-bottom: 3px solid #00843d;
+    background: none !important;
+}
+
+.quicktabs_main {
+    clear: both;
+}
+
+.quicktabs_main h2 {
+    color: #00843d;
+    font-weight: normal;
+    font-size: 18px;
+}
+
+.quicktabs_main div.views-row {
+    height: 130px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.quicktabs_main div.views-row>div {
+    float: left;
+}
+
+.quicktabs_main div.views-row .views-field-field-image {
+    width: 230px;
+    margin-right: 10px;
+}
+
+.quicktabs_main div.views-row .views-field-field-image img {
+    height: auto;
+}
+
+.quicktabs_main div.views-row .views-field-title {
+    color: #00843d;
+    font-weight: normal;
+    font-size: 18px;
+    float: none;
+}
+
+.quicktabs_main div.views-row .views-field-field-text-teaser {
+    float: none;
+    font-size: 13px;
+    line-height: 16px;
+    clear: both;
+}
+
+.quicktabs_main div.views-row .views-field-field-text-teaser p {
+    margin: 0;
+}
+
+.quicktabs_main div.views-row .views-field-nothing {
+    width: 400px;
+    position: relative;
+}
+
+.quicktabs_main div.views-row .views-field-nothing .views-field-field-section {
+    padding: 2px 8px;
+    float: left;
+    background-color: #00843d;
+    color: #ffffff;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.quicktabs_main div.views-row .views-field-nothing .views-field-field-category {
+    padding: 2px 8px;
+    float: left;
+    background-color: #00843d;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.quicktabs_main div.views-row .views-field-nothing .views-field-created,
+.quicktabs_main div.views-row .views-field-nothing .blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item .views-field-comment-count,
+.blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item .quicktabs_main div.views-row .views-field-nothing .views-field-comment-count {
+    float: right;
+    color: #d2d2d2;
+    font-size: 11px;
+    line-height: 15px;
+}
+
+.quicktabs_main div.views-row .views-field-nothing .views-field-comment-count {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: auto;
+    width: 40px;
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-bubble.jpg) left center no-repeat;
+    padding-left: 15px;
+    color: #adadad;
+    font-size: 11px;
+    height: 26px;
+}
+
+.quicktabs_main div.views-row .views-field-nothing .views-field-title {
+    clear: both;
+    color: #00843d;
+    font-size: 18px;
+    padding: 2px 0;
+}
+
+.quicktabs_main div.views-row .views-field-nothing .views-field-body {
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.quicktabs_main div.views-row .views-field-nothing .views-field-body p {
+    margin: 0;
+}
+
+@media screen and (max-width:1024px) {
+    .quicktabs_main div.views-row {
+        overflow: initial;
+        position: relative;
+    }
+    .quicktabs_main div.views-row .views-field-field-image {
+        position: absolute;
+    }
+    .quicktabs_main div.views-row .views-field-nothing {
+        margin-left: 0;
+        padding-left: 245px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .quicktabs_main div.views-row {
+        height: auto;
+    }
+    .quicktabs_main div.views-row>div {
+        float: none;
+    }
+    .quicktabs_main div.views-row .views-field-field-image {
+        position: initial;
+        width: 100%;
+    }
+    .quicktabs_main div.views-row .views-field-field-image img {
+        width: 100%;
+    }
+    .quicktabs_main div.views-row .views-field-nothing {
+        padding-left: 0;
+    }
+}
+
+.quicktabs_main .one-column div.views-row {
+    height: 170px;
+}
+
+@media screen and (max-width:768px) {
+    .quicktabs_main .one-column div.views-row {
+        height: auto;
+    }
+}
+
+.pager {
+    background-color: #f4f4f4;
+    line-height: 35px;
+    font-size: 14px;
+    position: relative;
+    margin-top: 10px;
+}
+
+.pager .pager-item {
+    color: #0072cd;
+}
+
+.pager .pager-current {
+    color: #00843d;
+    border-bottom: 2px solid #00843d;
+    background-color: #ffffff;
+    padding-top: 9px;
+    padding-bottom: 6px;
+}
+
+.pager .pager-first a,
+.pager .pager-last a {
+    text-indent: -9999px;
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-page-arrow.png) no-repeat;
+    width: 28px;
+    height: 18px;
+    display: block;
+}
+
+.pager .pager-first {
+    float: left;
+}
+
+.pager .pager-first a {
+    float: left;
+    background-position: -4px -82px;
+    margin: 8px 0;
+}
+
+.pager .pager-first a:hover {
+    background-position: -4px -56px;
+}
+
+.pager .pager-last {
+    float: right;
+}
+
+.pager .pager-last a {
+    float: right;
+    background-position: -41px -82px;
+    margin: 8px 0;
+}
+
+.pager .pager-last a:hover {
+    background-position: -41px -56px;
+}
+
+.pager .pager-previous a,
+.pager .pager-next a {
+    text-indent: -9999px;
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-page-arrow.png) no-repeat;
+    width: 14px;
+    height: 18px;
+    display: block;
+}
+
+.pager .pager-previous a {
+    float: left;
+    background-position: -4px -28px;
+    margin: 8px 0;
+}
+
+.pager .pager-previous a:hover {
+    background-position: -4px -1px;
+}
+
+.pager .pager-next {
+    position: absolute;
+    right: 0;
+    margin-right: 38px;
+}
+
+.pager .pager-next a {
+    background-position: -28px -29px;
+    margin: 8px 0 8px 8px;
+}
+
+.pager .pager-next a:hover {
+    background-position: -28px -2px;
+}
+
+@media screen and (max-width:768px) {
+    .pager li {
+        padding: 0 4px;
+    }
+}
+
+.node-type-article {}
+
+.node-type-article .header {
+    padding-bottom: 10px;
+}
+
+.node-type-article .page__title {
+    color: #ffffff;
+    font-weight: normal;
+}
+
+.node-type-article table {
+    max-width: 100%;
+}
+
+@media screen and (max-width:768px) {
+    .node-type-article #content {
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+.node-type-article #content a {
+    color: #00843d;
+}
+
+.node-type-article #content a:hover {
+    text-decoration: underline;
+}
+
+.node-type-article #content ul {
+    padding-left: 15px;
+}
+
+.node-type-article #content ul li {
+    margin-bottom: 7px;
+}
+
+.node-type-article #content .field-name-submitted-by {
+    color: #cdcdcd;
+    font-size: 11px;
+    float: left;
+}
+
+.node-type-article #content .field-name-print {
+    float: right;
+    margin-top: -15px;
+    margin-right: 10px;
+}
+
+.node-type-article #content .field-name-field-text-teaser {
+    clear: both;
+}
+
+.node-type-article #content .field-name-body {
+    clear: both;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.node-type-article #content .field-name-body p {
+    margin: 1em 0;
+}
+
+.node-type-article #content .file {
+    clear: both;
+    display: block;
+}
+
+.node-type-article #content .group-downloads {
+    background-color: #f4f4f4;
+    padding: 12px 20px;
+    font-size: 16px;
+    margin-top: 20px;
+    clear: both;
+    color: #000000;
+    border: none;
+}
+
+.node-type-article #content .group-downloads legend {
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-download.png) 97% center no-repeat;
+    background-color: #f4f4f4;
+    color: #a9a9a9;
+    width: 100%;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+}
+
+.node-type-article #content .group-downloads .field-name-upload .field-item {
+    padding: 5px 15px;
+    background-color: #ffffff;
+    border-top: 2px solid #f4f4f4;
+    font-size: 13px;
+}
+
+.node-type-article #content .group-downloads .field-name-upload .field-item:first-child {
+    border-top: none;
+}
+
+.node-type-article #content .field-name-comments-list {
+    width: 100%;
+    border-top: 5px solid #0072cf;
+    padding: 6px 18px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width:767px) {
+    .node-type-article #content .field-name-comments-list {
+        padding: 6px;
+        padding-bottom: 40px;
+    }
+}
+
+.node-type-article #content .field-name-comments-list>.field-items:nth-child(1) .field-item>div:nth-child(1) {
+    color: #00843d;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+@media screen and (max-width:768px) {
+    .node-type-article #content .field-name-comments-list>.field-items:nth-child(1) .field-item>div:nth-child(1) {
+        text-align: center;
+    }
+}
+
+.node-type-article #content .field-name-comments-list .ds-1col {
+    background-color: #f4f4f4;
+    font-size: 12px;
+    padding: 10px;
+    margin-left: 55px;
+}
+
+.node-type-article #content .field-name-comments-list .ds-1col .field-name-ds-user-picture {
+    float: left;
+    margin-left: -60px;
+}
+
+.node-type-article #content .field-name-comments-list .ds-1col .field-name-post-date {
+    color: #b6b6b6;
+    font-size: 11px;
+    float: right;
+}
+
+.node-type-article #content .field-name-comments-list .ds-1col .field-name-comment-body {
+    clear: both;
+}
+
+.node-type-article #content .field-name-comments-list .ds-1col .field-name-comment-body p {
+    margin: 0;
+    line-height: 18px;
+}
+
+.node-type-article #content .field-name-comments-list .ds-1col .links {
+    display: block;
+    border-top: 1px solid #dad9d9;
+    text-align: right;
+    color: #dad9d9;
+    padding: 0;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.node-type-article #content .field-name-comments-list .ds-1col .links a {
+    color: #00843d;
+}
+
+@media screen and (max-width:768px) {
+    .node-type-article #content .field-name-comments-list .ds-1col {
+        margin-left: 0;
+        margin-top: 30px;
+    }
+    .node-type-article #content .field-name-comments-list .ds-1col .field-name-ds-user-picture {
+        margin: -30px 10px 0 0;
+    }
+    .node-type-article #content .field-name-comments-list .ds-1col .field-name-post-date {
+        float: none;
+    }
+}
+
+.node-type-article .group-accordion {
+    clear: both;
+}
+
+.node-type-article .group-accordion .accordion-item {
+    border: none;
+    background-image: none;
+    background-color: #f4f4f4;
+    border-radius: 0;
+    font-size: 14px;
+    font-family: 'british_council-bold';
+    padding: 12px 20px;
+}
+
+.node-type-article .group-accordion .accordion-item a {
+    color: #00843d;
+    padding: 0;
+    display: inline;
+}
+
+.node-type-article .group-accordion .accordion-item span.ui-icon-triangle-1-e {
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-accordion-btn.png) -2px 0 no-repeat;
+    width: 21px;
+    height: 21px;
+    left: inherit;
+    right: 0.5em;
+    margin-top: -11px;
+}
+
+.node-type-article .group-accordion .ui-state-active {
+    background-color: #000000;
+}
+
+.node-type-article .group-accordion .ui-state-active a {
+    color: #ffffff;
+}
+
+.node-type-article .group-accordion .ui-state-active span.ui-icon-triangle-1-s {
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-accordion-btn.png) -2px 0 no-repeat;
+    width: 21px;
+    height: 21px;
+    left: inherit;
+    right: 0.5em;
+    margin-top: -11px;
+    background-position: -2px -24px;
+}
+
+.node-type-article .group-accordion .field-group-accordion-item {
+    border: none;
+    padding: 20px;
+    font-size: 13px;
+}
+
+.node-type-article .group-accordion .field-group-accordion-item p {
+    margin: 0;
+}
+
+@media screen and (max-width:768px) {
+    .node-type-article .print_html {
+        display: none;
+    }
+}
+
+article {}
+
+article h2 {
+    color: #00843d;
+}
+
+article .ui-widget {
+    font-family: "british_council";
+}
+
+article .collapsible {
+    margin-bottom: 20px;
+}
+
+article .collapsible>h3 {
+    margin: 0;
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-arrow-downward-grey.png) #f4f4f4 8px center no-repeat;
+    font-size: 12px;
+    padding-left: 15px;
+    font-weight: normal;
+}
+
+article .collapsible>h3 a {
+    color: #818181 !important;
+    text-decoration: none !important;
+    display: block;
+    padding: 4px 8px;
+}
+
+article .collapsible .field-group-format-wrapper {
+    background-color: #f4f4f4;
+    padding: 10px;
+    padding-top: 0;
+    font-size: 12px;
+    line-height: 16px;
+    width: 100% !important;
+}
+
+article .collapsible .field-group-format-wrapper .field-item {
+    background-color: #ffffff;
+    padding: 4px 10px;
+}
+
+article .collapsible .field-group-format-wrapper p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+article .collapsed h3 {
+    background-image: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-arrow-right-grey.png);
+}
+
+article .group-preparation {
+    margin: 0;
+}
+
+article .group-preparation>h3 {
+    margin: 0;
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-arrow-downward-white.png) #006747 8px center no-repeat;
+    padding: .5em .5em .5em 2em;
+}
+
+article .group-preparation>h3 a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    display: block;
+    padding: 0;
+}
+
+article .group-preparation .field-group-format-wrapper {
+    border: 1px solid #006747;
+    padding: 0;
+}
+
+article .group-preparation.collapsed>h3 {
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-arrow-right-white.png) #00843d 8px center no-repeat;
+}
+
+article .group-preparation.collapsed .field-group-format-wrapper {
+    background-color: #00843d;
+}
+
+article ul.links.inline {
+    clear: both;
+    display: block;
+    padding-left: 0 !important;
+    font-size: 12px;
+}
+
+article ul.links.inline .sharethis {
+    display: block;
+    margin-top: 10px;
+}
+
+article>.form-type-item,
+article>.field-name-field-hide-image {
+    clear: both;
+    margin: 10px 0;
+    float: left;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+article .webform-client-form {
+    clear: both;
+}
+
+article .group_vocabularies {
+    float: left;
+}
+
+article .field-type-taxonomy-term-reference {
+    float: left;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+article .field-name-field-audio-upload a {
+    font-size: 14px;
+}
+
+.node-english-grammar .field-type-text-with-summary {
+    line-height: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.article-sharethis-container .sharethis-buttons .sharethis-wrapper {
+    float: right;
+    margin-top: -5px;
+    padding-bottom: 10px;
+}
+
+@media screen and (max-width:768px) {
+    .article-sharethis-container .sharethis-buttons .sharethis-wrapper {
+        float: none;
+        margin-top: 10px;
+    }
+    .article-sharethis-container .sharethis-buttons .sharethis-wrapper>span:nth-child(1),
+    .article-sharethis-container .sharethis-buttons .sharethis-wrapper>span:nth-child(2),
+    .article-sharethis-container .sharethis-buttons .sharethis-wrapper>span:nth-child(3) {
+        display: none;
+    }
+}
+
+.article-sharethis-container .jiathis-wrapper {
+    float: right;
+    margin-top: -30px !important;
+    margin-bottom: 0 !important;
+    height: auto !important;
+}
+
+@media screen and (max-width:768px) {
+    .article-sharethis-container .jiathis-wrapper {
+        float: none;
+        margin: 10px 0 0 10px !important;
+    }
+    .article-sharethis-container .jiathis-wrapper>span:nth-child(1),
+    .article-sharethis-container .jiathis-wrapper>span:nth-child(2),
+    .article-sharethis-container .jiathis-wrapper>span:nth-child(3) {
+        display: none;
+    }
+}
+
+.article-field-vote-container {
+    color: #ffffff;
+}
+
+.article-field-vote-container .fivestar-widget {
+    float: left;
+}
+
+.article-field-vote-container .description {
+    float: left;
+    margin-left: 10px;
+    line-height: 25px;
+}
+
+.node-blog a {
+    color: #00843d;
+}
+
+.node-blog .field-name-submitted-by {
+    color: #cdcdcd;
+    font-size: 11px;
+}
+
+.node-blog .field-name-print {
+    float: right;
+    margin-top: -15px;
+    margin-right: 10px;
+}
+
+.node-blog .field-name-field-text-teaser {
+    clear: both;
+}
+
+.node-blog .field-name-body {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.node-blog .group-downloads {
+    background-color: #f4f4f4;
+    padding: 12px 20px;
+    font-size: 16px;
+    margin-top: 20px;
+    clear: both;
+    color: #000000;
+    border: none;
+}
+
+.node-blog .group-downloads legend {
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-download.png) 97% center no-repeat;
+    background-color: #f4f4f4;
+    color: #a9a9a9;
+    width: 100%;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+}
+
+.node-blog .group-downloads .field-name-upload .field-item {
+    padding: 5px 15px;
+    background-color: #ffffff;
+    border-top: 2px solid #f4f4f4;
+    font-size: 13px;
+}
+
+.node-blog .group-downloads .field-name-upload .field-item:first-child {
+    border-top: none;
+}
+
+.node-blog .field-name-comments-list {
+    width: 100%;
+    border-top: 5px solid #0072cf;
+    padding: 6px 18px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width:767px) {
+    .node-blog .field-name-comments-list {
+        padding: 6px;
+        padding-bottom: 40px;
+    }
+}
+
+.node-blog .field-name-comments-list>.field-items:nth-child(1) .field-item>div:nth-child(1) {
+    color: #00843d;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+@media screen and (max-width:768px) {
+    .node-blog .field-name-comments-list>.field-items:nth-child(1) .field-item>div:nth-child(1) {
+        text-align: center;
+    }
+}
+
+.node-blog .field-name-comments-list .ds-1col {
+    background-color: #f4f4f4;
+    font-size: 12px;
+    padding: 10px;
+    margin-left: 55px;
+}
+
+.node-blog .field-name-comments-list .ds-1col ul {
+    padding-left: 15px;
+}
+
+.node-blog .field-name-comments-list .ds-1col ul li {
+    margin-bottom: 7px;
+}
+
+.node-blog .field-name-comments-list .ds-1col .field-name-ds-user-picture {
+    float: left;
+    margin-left: -60px;
+}
+
+.node-blog .field-name-comments-list .ds-1col .field-name-post-date {
+    color: #b6b6b6;
+    font-size: 11px;
+    float: right;
+}
+
+.node-blog .field-name-comments-list .ds-1col .field-name-comment-body {
+    clear: both;
+}
+
+.node-blog .field-name-comments-list .ds-1col .field-name-comment-body p {
+    margin: 0;
+    line-height: 18px;
+}
+
+.node-blog .field-name-comments-list .ds-1col .links {
+    display: block;
+    border-top: 1px solid #dad9d9;
+    text-align: right;
+    color: #dad9d9;
+    padding: 0;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.node-blog .field-name-comments-list .ds-1col .links li {
+    background-color: #eaeaea;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+@media screen and (max-width:768px) {
+    .node-blog .field-name-comments-list .ds-1col {
+        margin-left: 0;
+        margin-top: 30px;
+    }
+    .node-blog .field-name-comments-list .ds-1col .field-name-ds-user-picture {
+        margin: -30px 10px 0 0;
+    }
+    .node-blog .field-name-comments-list .ds-1col .field-name-post-date {
+        float: none;
+    }
+}
+
+#comments {
+    border-top: 3px solid #00843d;
+    clear: both;
+    margin-top: 10px;
+    background-color: #f4f4f4;
+    padding: 10px 20px;
+}
+
+@media screen and (max-width:768px) {
+    #comments {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+#comments h2 {
+    color: #00843d;
+    margin-top: 5px;
+    font-size: 18px;
+    clear: both;
+}
+
+#comments>span {
+    font-size: 11px;
+}
+
+#comments article {
+    border: 1px solid #ebeaea;
+    background-color: #fafafa;
+    padding: 10px;
+    margin: 5px 0 15px 60px;
+}
+
+@media screen and (max-width:768px) {
+    #comments article {
+        margin: 20px 0 35px 0;
+    }
+}
+
+#comments article p {
+    margin: 0;
+}
+
+#comments article p.submitted {
+    text-align: right;
+    margin-right: 5px;
+    font-size: 11px;
+}
+
+@media screen and (max-width:768px) {
+    #comments article p.submitted {
+        text-align: left;
+    }
+}
+
+#comments article p.submitted .username {
+    color: #000000;
+    text-decoration: none;
+}
+
+@media screen and (max-width:768px) {
+    #comments article p.submitted .username {
+        text-align: left;
+        margin-top: -32px;
+    }
+}
+
+#comments article .user-picture {
+    float: left;
+    margin-left: -70px;
+    margin-top: -10px;
+}
+
+#comments article .user-picture a {
+    display: block;
+}
+
+@media screen and (max-width:768px) {
+    #comments article .user-picture {
+        margin: -30px 10px 0 0;
+    }
+}
+
+#comments article .username {
+    color: #00843d;
+    font-size: 15px;
+    display: block;
+    float: left;
+    font-family: 'Arial';
+}
+
+#comments article h3.comment__title a {
+    font-size: 16px;
+    font-family: 'british_council-bold';
+    text-decoration: none;
+    color: #00843d;
+}
+
+#comments article .field-name-comment-body {
+    clear: both;
+    font-size: 13px;
+}
+
+#comments article .links {
+    font-size: 12px;
+    margin-top: 15px;
+    display: block;
+    border-top: 1px solid #cccccc;
+}
+
+#comments form.comment-form {
+    padding: 8px 10px;
+    background-color: #fafafa;
+    font-size: 14px;
+}
+
+#comments form.comment-form .form-item {
+    margin: 0;
+}
+
+#comments form.comment-form input[type=text] {
+    width: 100%;
+}
+
+#comments form.comment-form .filter-wrapper {
+    padding: 5px 0;
+}
+
+#comments form.comment-form .filter-wrapper .fieldset-wrapper>div {
+    padding: 0;
+}
+
+#comments form.comment-form .filter-wrapper .filter-list {
+    width: 150px;
+}
+
+#comments form.comment-form .filter-wrapper li {
+    margin-bottom: 0;
+}
+
+#comments form.comment-form .form-actions input[type=submit] {
+    width: 48%;
+    margin: 0 1%;
+}
+
+.group-tag,
+.field-type-taxonomy-term-reference {
+    border: none;
+    margin-top: 15px;
+    padding: 0;
+    overflow: auto;
+}
+
+.group-tag legend,
+.field-type-taxonomy-term-reference legend {
+    color: #00843d;
+    font-family: 'british_council-bold';
+}
+
+.group-tag .field-label,
+.field-type-taxonomy-term-reference .field-label {
+    display: none;
+}
+
+.group-tag .field-items>div,
+.field-type-taxonomy-term-reference .field-items>div {
+    float: left;
+    background-color: #00843d;
+    padding: 2px 8px;
+    color: #ffffff;
+    margin-right: 6px;
+    margin-top: 5px;
+    font-size: 13px;
+}
+
+.group-tag .field-items div:first-child,
+.field-type-taxonomy-term-reference .field-items div:first-child {
+    margin-left: 6px;
+}
+
+.group-tag a,
+.field-type-taxonomy-term-reference a {
+    color: #ffffff !important;
+}
+
+.group-tag a.fieldset-title,
+.field-type-taxonomy-term-reference a.fieldset-title {
+    color: #00843d !important;
+}
+
+.section-search form.search-form {
+    border-bottom: 1px solid #cccccc;
+    padding: 15px 10px;
+}
+
+.section-search .spelling-suggestions {
+    font-size: 13px;
+}
+
+.section-search h2 {
+    color: #00843d;
+}
+
+.section-search ol.search-results {
+    padding-left: 0;
+}
+
+.section-search ol.search-results li {
+    border-top: 1px solid #e5e5e5;
+    padding: 6px 0;
+    margin-bottom: 8px;
+}
+
+.section-search ol.search-results li:first-child {
+    border-top: none;
+}
+
+.section-search ol.search-results h3 {
+    font-size: 15px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.section-search ol.search-results p {
+    margin: 8px 0;
+}
+
+.section-search ol.search-results .search-snippet-info {
+    font-size: 11px;
+    line-height: 16px;
+}
+
+.node-teacher-training p {
+    margin-bottom: 12px;
+}
+
+.node-teacher-training a {
+    color: #00843d;
+}
+
+.node-teacher-training .field-name-upload table {
+    margin: 0;
+    width: 100%;
+}
+
+.node-teacher-training .field-name-upload table thead {
+    color: #979797;
+    text-align: left;
+    font-size: 14px;
+}
+
+.node-teacher-training .field-name-upload table thead th {
+    padding-bottom: 8px;
+    font-weight: normal;
+}
+
+.node-teacher-training .field-name-upload table tbody td {
+    background-color: #ffffff;
+    padding: 7px 12px;
+    margin-bottom: 2px;
+}
+
+.node-teacher-training .field-name-upload table tbody img {
+    vertical-align: middle;
+}
+
+.node-teacher-training .sharethis-buttons {
+    margin-top: 15px;
+}
+
+.view-display-id-block_3_wrapper {
+    float: none !important;
+}
+
+.view-display-id-block_3_wrapper .view-display-id-block_3 .views-row {
+    overflow: auto;
+}
+
+.view-display-id-block_3_wrapper .view-display-id-block_3 .views-row .views-field-nothing {
+    float: right;
+    width: 35%;
+    height: 250px;
+    background-color: #00843d;
+    color: #ffffff;
+    padding: 12px;
+}
+
+@media screen and (max-width:768px) {
+    .view-display-id-block_3_wrapper .view-display-id-block_3 .views-row .views-field-nothing {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.view-display-id-block_3_wrapper .view-display-id-block_3 .views-row .views-field-nothing .views-field-description {
+    font-size: 11px;
+    line-height: 16px;
+}
+
+.view-display-id-block_3_wrapper .view-display-id-block_3 .views-row .views-field-field-image {
+    float: right;
+    width: 65%;
+    height: 250px;
+    overflow: hidden;
+}
+
+@media screen and (max-width:1024px) {
+    .view-display-id-block_3_wrapper .view-display-id-block_3 .views-row .views-field-field-image img {
+        height: 100%;
+        max-width: none;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .view-display-id-block_3_wrapper .view-display-id-block_3 .views-row .views-field-field-image {
+        width: 100%;
+        height: auto;
+    }
+    .view-display-id-block_3_wrapper .view-display-id-block_3 .views-row .views-field-field-image img {
+        height: auto;
+        width: 100%;
+    }
+}
+
+.block-quicktabs {
+    clear: both;
+}
+
+#quicktabs-elt_research .quicktabs-tabs {
+    clear: both;
+}
+
+#quicktabs-elt_research .quicktabs-tabs li {
+    border-bottom: none;
+    background-color: #cccccc;
+    color: #666666;
+    margin-right: 4px;
+    margin-bottom: -1px;
+    font-family: 'british_council-bold';
+    white-space: normal;
+    font-size: 13px;
+    line-height: 20px;
+    height: 45px;
+    border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    -khtml-border-radius: 4px 4px 0 0;
+}
+
+#quicktabs-elt_research .quicktabs-tabs li a {
+    display: block;
+}
+
+#quicktabs-elt_research .quicktabs-tabs li.active {
+    background-color: #ffffff;
+    border-top: 3px solid #00843d;
+    border-left: 1px solid #999999;
+    border-right: 1px solid #999999;
+    color: #000000;
+}
+
+#quicktabs-elt_research #quicktabs-container-elt_research {
+    border: 1px solid #999999;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 15px;
+}
+
+#quicktabs-container-_seminars .quicktabs-tabpage .field-name-submitted-by {
+    float: right;
+    color: #d2d2d2;
+    font-size: 11px;
+    line-height: 15px;
+}
+
+#quicktabs-container-_seminars .quicktabs-tabpage .field-name-body {
+    clear: both;
+    padding-top: 1px;
+    font-size: 13px;
+}
+
+#quicktabs-container-_seminars .quicktabs-tabpage .field-name-body h4 {
+    font-size: 15px;
+    color: #00843d;
+}
+
+#quicktabs-container-_seminars .quicktabs-tabpage .field-name-body>.field-items>.field-item>div {
+    max-width: 100%;
+}
+
+#quicktabs-container-_seminars .quicktabs-tabpage .field-name-body>.field-items>.field-item>div>div {
+    overflow: visible;
+}
+
+@media screen and (max-width:1024px) {
+    #quicktabs-container-_seminars .quicktabs-tabpage .field-name-body>.field-items>.field-item>div>div .vidget-list {
+        width: 100%;
+    }
+}
+
+#quicktabs-container-_seminars .quicktabs-tabpage .field-name-body .vidget-list>li {
+    list-style-image: none;
+    list-style-type: none;
+}
+
+#quicktabs-container-_seminars .quicktabs-tabpage .field-name-body .vidget-list>li>a:last-child {
+    margin-left: 50px;
+    text-indent: -12px;
+    display: block;
+    line-height: 14px;
+    font-size: 12px;
+    list-style-image: none;
+    list-style-type: none;
+}
+
+#block-quicktabs-upcoming-events h3.ui-accordion-header {
+    border-radius: 0;
+    border: 0;
+    cursor: default !important;
+}
+
+#block-quicktabs-upcoming-events h3.ui-accordion-header a {
+    cursor: default;
+    font-size: 14px;
+    background-color: #00843d;
+    color: #ffffff;
+}
+
+#block-quicktabs-upcoming-events .ui-accordion-content {
+    border-radius: 0;
+    border: 0;
+    padding: 12px 10px;
+    font-size: 12px;
+    overflow: visible;
+    border-bottom: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+}
+
+.one-column .view-content>div {
+    clear: both;
+    margin-bottom: 15px;
+    overflow: auto;
+    position: relative;
+}
+
+@media screen and (max-width:768px) {
+    .one-column .view-content>div {
+        margin-bottom: 10px;
+    }
+}
+
+.one-column .views-field-field-image,
+.one-column .views-field-nothing {
+    float: left;
+    height: 100%;
+}
+
+@media screen and (max-width:768px) {
+    .one-column .views-field-field-image,
+    .one-column .views-field-nothing {
+        float: none;
+    }
+}
+
+.one-column .views-field-field-image {
+    width: 28% !important;
+    margin-right: 2% !important;
+}
+
+@media screen and (max-width:768px) {
+    .one-column .views-field-field-image {
+        width: 100%;
+        margin-right: 0;
+    }
+    .one-column .views-field-field-image img {
+        width: 100%;
+    }
+}
+
+.one-column .views-field-nothing {
+    width: 70%;
+}
+
+@media screen and (max-width:768px) {
+    .one-column .views-field-nothing {
+        width: 100%;
+    }
+}
+
+.one-column .views-field-nothing .views-field-title {
+    color: #00843d;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+@media screen and (max-width:768px) {
+    .one-column .views-field-nothing .views-field-title {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+.one-column .views-field-nothing .views-field-field-text-teaser {
+    font-size: 13px;
+    line-height: 16px;
+}
+
+@media screen and (max-width:768px) {
+    .one-column .views-field-nothing .views-field-field-text-teaser {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+.one-column .views-field-nothing .views-field-field-text-teaser p {
+    margin: 6px 0;
+}
+
+.one-column .views-field-nothing .views-field-comment-count {
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-bubble.jpg) left center no-repeat;
+    padding-left: 15px;
+    color: #adadad;
+    font-size: 11px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+@media screen and (max-width:768px) {
+    .one-column .views-field-nothing .views-field-comment-count {
+        margin-right: 10px;
+        position: static;
+        float: right;
+    }
+}
+
+.grid-b>.view-content {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-flex-flow: row wrap;
+    -moz-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+
+.grid-b>.view-content>.views-row {
+    width: 32%;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+@media screen and (max-width:768px) {
+    .grid-b>.view-content>.views-row {
+        width: 100%;
+    }
+}
+
+.grid-b>.view-content>.views-row .views-field-field-image {
+    line-height: 0;
+}
+
+@media screen and (max-width:768px) {
+    .grid-b>.view-content>.views-row .views-field-field-image img {
+        width: 100%;
+    }
+}
+
+.grid-b>.view-content>.views-row .views-field-nothing {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 200px;
+    overflow: hidden;
+    color: #ffffff;
+    padding: 2px 14px;
+    font-size: 11px;
+    line-height: 16px;
+}
+
+.grid-b>.view-content>.views-row .views-field-nothing a {
+    display: block;
+}
+
+@media screen and (max-width:768px) {
+    .grid-b>.view-content>.views-row .views-field-nothing {
+        position: relative;
+        max-height: none;
+        background: #00843d;
+        padding: 12px 35px 12px 14px;
+    }
+}
+
+.grid-b>.view-content>.views-row .views-field-nothing .views-field-name {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-family: 'british_council-bold';
+}
+
+.grid-b>.view-content>.views-row .views-field-nothing .views-field-description {
+    display: none;
+}
+
+@media screen and (max-width:768px) {
+    .grid-b>.view-content>.views-row .views-field-nothing .views-field-description {
+        display: block;
+    }
+}
+
+.grid-b>.view-content>.views-row .views-field-nothing p {
+    margin: 0;
+}
+
+.grid-b>.view-content>.views-row .views-field-nothing:after {
+    content: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/arrow_line_white_right.png);
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    margin-top: -16px;
+    display: none;
+}
+
+@media screen and (max-width:768px) {
+    .grid-b>.view-content>.views-row .views-field-nothing:after {
+        display: block;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .grid-b>.view-content>.views-row:hover .views-field-nothing {
+        background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/trans_black_bg.png);
+        top: 0;
+        bottom: none;
+        padding: 12px 14px;
+    }
+    .grid-b>.view-content>.views-row:hover .views-field-nothing .views-field-name {
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-family: 'british_council-bold';
+    }
+    .grid-b>.view-content>.views-row:hover .views-field-nothing .views-field-description {
+        display: block;
+    }
+    .grid-b>.view-content>.views-row:hover .views-field-nothing:after {
+        display: block;
+    }
+}
+
+.grid-a .view-header {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.grid-a .view-header p {
+    margin: 15px 0;
+}
+
+.grid-a .view-content {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-content: flex-start;
+    -moz-align-content: flex-start;
+    -ms-align-content: flex-start;
+    align-content: flex-start;
+    -webkit-flex-flow: row wrap;
+    -moz-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+
+.grid-a .view-content>.views-row {
+    width: 32%;
+    background-color: #ebeff0;
+    padding: 10px 24px;
+    margin-bottom: 15px;
+    margin-right: 1.95%;
+    text-align: center;
+}
+
+@media screen and (max-width:768px) {
+    .grid-a .view-content>.views-row {
+        width: 100%;
+        margin-right: 0;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .grid-a .view-content>.views-row .views-field-field-image {
+        float: left;
+        width: 35%;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .grid-a .view-content>.views-row .views-field-nothing {
+        float: left;
+        width: 65%;
+        text-align: left;
+    }
+}
+
+.grid-a .view-content>.views-row .views-field-name {
+    color: #037739;
+    font-family: 'british_council-bold';
+    font-size: 14px;
+    line-height: 18px;
+}
+
+@media screen and (max-width:768px) {
+    .grid-a .view-content>.views-row .views-field-name {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .grid-a .view-content>.views-row .views-field-name img {
+        width: 100%;
+    }
+}
+
+.grid-a .view-content>.views-row .views-field-description {
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 5px;
+}
+
+@media screen and (max-width:768px) {
+    .grid-a .view-content>.views-row .views-field-description {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+.grid-a .view-content>.views-row .views-field-description p {
+    margin: 0;
+}
+
+.grid-a .view-content>.views-row:nth-child(3n+3) {
+    margin-right: 0;
+}
+
+.grid-c .view-header {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.grid-c .view-header p {
+    margin: 15px 0;
+}
+
+.grid-c .view-content-blocks>.view-content {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-content: flex-start;
+    -moz-align-content: flex-start;
+    -ms-align-content: flex-start;
+    align-content: flex-start;
+    -webkit-flex-flow: row wrap;
+    -moz-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+
+.grid-c .view-content-blocks>.view-content>.views-row {
+    width: 49%;
+    margin-bottom: 15px;
+    margin-right: 2%;
+    text-align: center;
+    position: relative;
+}
+
+@media screen and (max-width:768px) {
+    .grid-c .view-content-blocks>.view-content>.views-row {
+        width: 100%;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.grid-c .view-content-blocks>.view-content>.views-row .views-field-title {
+    color: #ffffff;
+    font-family: 'british_council-bold';
+    font-size: 14px;
+    line-height: 18px;
+    position: absolute;
+    z-index: 2;
+    padding-left: 14px;
+    padding-right: 14px;
+    bottom: 10px;
+    left: 0;
+}
+
+@media screen and (max-width:768px) {
+    .grid-c .view-content-blocks>.view-content>.views-row .views-field-title {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .grid-c .view-content-blocks>.view-content>.views-row .views-field-title img {
+        width: 100%;
+    }
+}
+
+.grid-c .view-content-blocks>.view-content>.views-row .views-field-field-image {
+    line-height: 0;
+}
+
+.grid-c .view-content-blocks>.view-content>.views-row .views-field-field-text-teaser {
+    font-size: 12px;
+    line-height: 16px;
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/trans_black_bg.png);
+    color: #ffffff;
+    padding: 50px 15px 0 15px;
+    text-align: left;
+    display: none;
+}
+
+.grid-c .view-content-blocks>.view-content>.views-row .views-field-field-text-teaser p {
+    margin: 0;
+}
+
+.grid-c .view-content-blocks>.view-content>.views-row .views-field-field-text-teaser:before {
+    content: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/arrow_line_white_right.png);
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    margin-top: -16px;
+}
+
+.grid-c .view-content-blocks>.view-content>.views-row:hover .views-field-title {
+    bottom: initial;
+    top: 10px;
+}
+
+.grid-c .view-content-blocks>.view-content>.views-row:hover .views-field-field-text-teaser {
+    display: block;
+}
+
+.grid-c .view-content-blocks>.view-content>.views-row:nth-child(2n+2) {
+    margin-right: 0;
+}
+
+.grid-c_no_sidebar .view-content-blocks>.view-content>.views-row {
+    width: 32%;
+    margin-bottom: 15px;
+    margin-right: 2% !important;
+    text-align: center;
+    position: relative;
+}
+
+@media screen and (max-width:768px) {
+    .grid-c_no_sidebar .view-content-blocks>.view-content>.views-row {
+        width: 100%;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.grid-c_no_sidebar .view-content-blocks>.view-content>.views-row:nth-child(3n+3) {
+    margin-right: 0 !important;
+}
+
+.grid-d .group-right {
+    float: right;
+    width: 46%;
+    background-color: #006847;
+    padding: 10px;
+    color: #ffffff;
+    height: 200px;
+    overflow: hidden;
+}
+
+@media screen and (max-width:768px) {
+    .grid-d .group-right {
+        float: none;
+        width: 100%;
+        height: auto;
+        overflow: visible;
+    }
+}
+
+.grid-d .group-right a {
+    color: #afdca1 !important;
+}
+
+.grid-d .group-right p {
+    margin: 0 !important;
+}
+
+.grid-d .group-right .field-name-body {
+    font-size: 12px !important;
+    line-height: 18px !important;
+}
+
+.grid-d .group-left {
+    float: right;
+    width: 54%;
+    line-height: 0;
+    overflow: hidden;
+}
+
+@media screen and (max-width:768px) {
+    .grid-d .group-left {
+        float: none;
+        width: 100%;
+    }
+}
+
+.grid-d .group-left img {
+    max-width: none;
+    height: 100%;
+}
+
+@media screen and (max-width:768px) {
+    .grid-d .group-left img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.grid-d .group-footer {
+    padding-top: 30px;
+}
+
+.grid-d .group-footer .view-content>div {
+    clear: both;
+    margin-bottom: 15px;
+    overflow: auto;
+    position: relative;
+}
+
+@media screen and (max-width:768px) {
+    .grid-d .group-footer .view-content>div {
+        margin-bottom: 10px;
+    }
+}
+
+.grid-d .group-footer .views-field-field-image,
+.grid-d .group-footer .views-field-nothing {
+    float: left;
+    height: 100%;
+}
+
+@media screen and (max-width:768px) {
+    .grid-d .group-footer .views-field-field-image,
+    .grid-d .group-footer .views-field-nothing {
+        float: none;
+    }
+}
+
+.grid-d .group-footer .views-field-field-image {
+    width: 28%;
+    margin-right: 2%;
+}
+
+@media screen and (max-width:768px) {
+    .grid-d .group-footer .views-field-field-image {
+        width: 100%;
+        margin-right: 0;
+    }
+    .grid-d .group-footer .views-field-field-image img {
+        width: 100%;
+    }
+}
+
+.grid-d .group-footer .views-field-nothing {
+    width: 70%;
+}
+
+@media screen and (max-width:768px) {
+    .grid-d .group-footer .views-field-nothing {
+        width: 100%;
+    }
+}
+
+.grid-d .group-footer .views-field-nothing .views-field-title {
+    color: #00843d;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+@media screen and (max-width:768px) {
+    .grid-d .group-footer .views-field-nothing .views-field-title {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+.grid-d .group-footer .views-field-nothing .views-field-field-text-teaser {
+    font-size: 13px;
+    line-height: 16px;
+}
+
+@media screen and (max-width:768px) {
+    .grid-d .group-footer .views-field-nothing .views-field-field-text-teaser {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+.grid-d .group-footer .views-field-nothing .views-field-field-text-teaser p {
+    margin: 6px 0;
+}
+
+.grid-d .group-footer .views-field-nothing .views-field-comment-count {
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-bubble.jpg) left center no-repeat;
+    padding-left: 15px;
+    color: #adadad;
+    font-size: 11px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+@media screen and (max-width:768px) {
+    .grid-d .group-footer .views-field-nothing .views-field-comment-count {
+        margin-right: 10px;
+        position: static;
+        float: right;
+    }
+}
+
+.views-exposed-form {
+    font-size: 12px;
+}
+
+.views-exposed-form .views-exposed-widget .form-submit {
+    margin-top: 25px;
+}
+
+.english-level-content .views-table {
+    font-size: 12px;
+    width: 100%;
+}
+
+.english-level-content .views-table .views-field-taxonomy-vocabulary-1 {
+    width: 100px;
+}
+
+.english-level-content .views-table a {
+    color: #00843d;
+}
+
+.english-level-content .views-table thead {
+    text-align: left;
+}
+
+.english-level-content .views-table tbody td {
+    padding: 10px 6px;
+}
+
+.english-level-content .views-table tbody h2 {
+    color: #00843d;
+    margin: 0;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.english-level-content .views-table tbody ul {
+    padding-left: 0;
+}
+
+.field-name-field-faq>.field-label {
+    margin-top: 30px;
+    margin-bottom: 6px;
+    color: #00843d;
+}
+
+.field-name-field-faq .field-item .field-label {
+    display: none;
+}
+
+.field-name-field-faq .field-collection-view {
+    margin: 0;
+    padding: 0;
+    border-bottom: 0;
+}
+
+.field-name-field-faq .field-name-field-label {
+    background-color: #00843d;
+    color: #ffffff;
+    padding: 4px 12px;
+    overflow: auto;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: 'british_council-bold';
+}
+
+.field-name-field-faq .field-name-field-label .field-item {
+    padding-left: 15px;
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-arrow-right-white.png) left center no-repeat;
+}
+
+.field-name-field-faq .active_arrow {
+    background-color: #006747;
+}
+
+.field-name-field-faq .active_arrow .field-item {
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-arrow-downward-white.png) left center no-repeat;
+}
+
+.field-name-field-faq .field-name-field-text-teaser {
+    padding: 4px 12px;
+}
+
+.section-search404 #content a {
+    color: #00843d;
+}
+
+.section-search404 h1 {
+    color: #00843d;
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+.section-search404 #search404-page-text {
+    font-size: 14px;
+}
+
+.section-search404 .search-form {
+    margin-top: 15px;
+    font-size: 12px;
+}
+
+.block>.view-id-magazine_glossary .view-display-id-attachment {
+    font-size: 14px;
+    color: #999999;
+}
+
+.block>.view-id-magazine_glossary .view-display-id-attachment .views-summary {
+    float: left;
+}
+
+.block>.view-id-magazine_glossary .view-display-id-attachment .views-summary a {
+    border-bottom: 3px solid #f4f4f4;
+    padding: 4px 8px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.block>.view-id-magazine_glossary .view-display-id-attachment .views-summary .active {
+    color: #006747;
+    border-color: #006747;
+}
+
+.magazine_image>.view-id-magazine_glossary>.view-content {
+    clear: both;
+}
+
+.magazine_image>.view-id-magazine_glossary>.view-content>.views-row {
+    margin-bottom: 10px;
+    width: 160px !important;
+}
+
+.magazine_image>.view-id-magazine_glossary>.view-content>.views-row .views-field-field-image {
+    line-height: 0;
+}
+
+.magazine_image>.view-id-magazine_glossary>.view-content>.views-row .views-field-title {
+    background-color: #ebeff0;
+    color: #00843d;
+    padding: 8px 6px;
+    text-align: center;
+    font-size: 13px;
+    line-height: 16px;
+    font-family: 'british_council-bold';
+}
+
+.magazine_title>.view-id-magazine_glossary>.view-content {
+    clear: both;
+}
+
+.magazine_title>.view-id-magazine_glossary>.view-content h3 {
+    color: #006747;
+    width: 10%;
+    float: left;
+    margin: 0;
+    font-size: 16px;
+}
+
+.magazine_title>.view-id-magazine_glossary>.view-content>table {
+    width: 90%;
+    float: left;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0 0 20px 0;
+    color: #00843d;
+}
+
+.magazine_title>.view-id-magazine_glossary>.view-content>table tr:nth-child(even) {
+    background-color: transparent;
+}
+
+.magazine_title>.view-id-magazine_glossary>.view-content>table td {
+    border-left: 0;
+    border-right: 0;
+    width: 50%;
+    padding: 0 10px 10px 0;
+    vertical-align: top;
+}
+
+.magazine_title>.view-id-magazine_glossary>.view-content>table tr:last-child td {
+    padding-bottom: 20px;
+}
+
+.view-magazine-glossary form .views-exposed-form {
+    display: none;
+}
+
+.field-collection-container .field-name-field-label {
+    background: #00843d url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-arrow-right-white.png) 10px center no-repeat;
+    border-radius: 0;
+    color: #ffffff;
+    padding: .5em .5em .5em .7em;
+    padding-left: 25px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    line-height: normal;
+    cursor: pointer;
+}
+
+.field-collection-container .field-name-field-label .field-item {
+    padding-left: 0;
+    background: none;
+}
+
+.field-collection-container .active_arrow {
+    background: #00843d url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-arrow-downward-white.png) 10px center no-repeat;
+}
+
+.field-collection-container .group_fold .field-name-field-text-teaser {
+    background: #e8f0d8;
+    padding: 14px;
+    border: none;
+}
+
+.field-collection-container .group_fold .field-name-field-text-teaser p {
+    margin: 10px 0;
+}
+
+.two_box_promote {
+    border-top: 1px solid #00833d;
+    padding-top: 10px;
+    clear: both;
+    overflow: auto;
+}
+
+.two_box_promote .views-row {
+    float: left;
+    width: 49%;
+    overflow: hidden;
+    margin-left: 2%;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+@media screen and (max-width:768px) {
+    .two_box_promote .views-row {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+.two_box_promote .views-row .views-field-nothing {
+    position: relative;
+}
+
+.two_box_promote .views-row .views-field-nothing .views-field-field-image {
+    line-height: 0;
+}
+
+.two_box_promote .views-row .views-field-nothing .views-field-field-image img {
+    width: 100%;
+}
+
+.two_box_promote .views-row .views-field-nothing .field-info {
+    background-color: #006747;
+    padding: 10px 14px;
+    color: #ffffff;
+    width: 100%;
+    height: 76px;
+    overflow: hidden;
+}
+
+@media screen and (max-width:768px) {
+    .two_box_promote .views-row .views-field-nothing .field-info {
+        height: auto;
+    }
+}
+
+.two_box_promote .views-row .views-field-nothing .field-info .field-title {
+    font-family: 'british_council-bold';
+    font-size: 15px;
+}
+
+.two_box_promote .views-row .views-field-nothing .field-info .field-body {
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.two_box_promote .views-row .views-field-nothing .field-info p {
+    margin: 0;
+}
+
+.two_box_promote .views-row:first-child {
+    margin-left: 0;
+}
+
+#content .country-select-block {
+    height: 315px;
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/country_select_bg.jpg) no-repeat;
+    background-size: cover;
+}
+
+@media screen and (max-width:1024px) {
+    #content .country-select-block {
+        background-image: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/country_select_bg_mobile.jpg);
+    }
+}
+
+#content .country-select-block h2,
+#content .country-select-block>.view-content-blocks {
+    float: right;
+    width: 55%;
+}
+
+@media screen and (max-width:1024px) {
+    #content .country-select-block h2,
+    #content .country-select-block>.view-content-blocks {
+        width: 80%;
+        float: none;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+
+#content .country-select-block h2 {
+    margin-top: 75px;
+    font-weight: normal;
+    font-family: 'british_council-bold';
+    font-size: 32px;
+    line-height: normal;
+}
+
+@media screen and (max-width:1024px) {
+    #content .country-select-block h2 {
+        margin-top: 0;
+        padding-top: 15%;
+    }
+}
+
+#content .country-select-block>.view-content-blocks {
+    margin-top: 20px;
+}
+
+#content .country-select-block .form-type-select {
+    font-size: 14px;
+}
+
+@media screen and (max-width:768px) {
+    #content .country-select-block .form-type-select select {
+        width: 100%;
+    }
+}
+
+#content .welcome_intro {
+    border-top: 4px solid #00843d;
+    background-color: #ebeff0;
+    padding: 10px 14px;
+}
+
+#content .welcome_intro>h2.block__title {
+    font-weight: normal;
+    font-family: 'british_council';
+    font-size: 24px;
+    line-height: normal;
+    color: #5D5D5D;
+}
+
+#content .welcome_intro>p {
+    margin: 1em 0;
+    font-size: 14px;
+    line-height: normal;
+}
+
+.contents-overview .view-header h4 {
+    font-size: 15px;
+    color: #000000;
+    font-weight: bold;
+}
+
+.contents-overview .view-header p {
+    font-size: 13px;
+    margin-top: 0;
+}
+
+.contents-overview .view-filters {
+    background-color: #f4f4f4;
+    padding: 30px 30px 20px 30px;
+}
+
+@media screen and (max-width:768px) {
+    .contents-overview .view-filters {
+        padding: 20px 10px;
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+}
+
+.contents-overview .view-filters .views-exposed-widgets {
+    margin-bottom: 0;
+}
+
+.contents-overview .view-filters .views-exposed-widget {
+    padding-top: 0;
+}
+
+.contents-overview .view-filters label {
+    font-weight: normal;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+@media screen and (max-width:768px) {
+    .contents-overview .view-filters .views-widget-filter-field_language_level_tid {
+        width: 28%;
+        padding: 0;
+        margin-right: 2%;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .contents-overview .view-filters .views-widget-filter-field_section_tid,
+    .contents-overview .view-filters .views-widget-filter-taxonomy_vocabulary_4_tid_1 {
+        width: 70%;
+        padding: 0;
+    }
+}
+
+.contents-overview .view-filters .views-widget-filter-field_topics_tid {
+    width: 320px;
+}
+
+@media screen and (max-width:768px) {
+    .contents-overview .view-filters .views-widget-filter-field_topics_tid {
+        width: 100%;
+        padding-right: 0;
+        margin-top: 5px;
+    }
+}
+
+.contents-overview .view-filters .views-widget-filter-field_topics_tid input {
+    background-image: none;
+}
+
+@media screen and (max-width:768px) {
+    .contents-overview .view-filters .views-widget-filter-language {
+        width: 100%;
+        padding-right: 0;
+        margin-top: 5px;
+    }
+}
+
+.contents-overview .view-filters .views-submit-button {
+    padding-right: 0;
+}
+
+@media screen and (max-width:768px) {
+    .contents-overview .view-filters .views-submit-button {
+        width: 100%;
+    }
+}
+
+.contents-overview .view-filters select,
+.contents-overview .view-filters input[type="text"] {
+    border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    -khtml-border-radius: 4px 4px 4px 4px;
+    padding: 4px 12px;
+    border: 1px solid #dfdfdf;
+    height: 26px;
+}
+
+@media screen and (max-width:768px) {
+    .contents-overview .view-filters select,
+    .contents-overview .view-filters input[type="text"] {
+        width: 100%;
+    }
+}
+
+.contents-overview .view-filters input[type="submit"] {
+    border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    -khtml-border-radius: 4px 4px 4px 4px;
+    border: 0;
+    background-color: #903779;
+    color: #ffffff;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-top: 28px;
+    width: 90px;
+}
+
+@media screen and (max-width:768px) {
+    .contents-overview .view-filters input[type="submit"] {
+        width: 100%;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+}
+
+.contents-overview .view-content {
+    background-color: #f4f4f4;
+    padding: 20px 30px 20px 30px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    -webkit-justify-content: flex-start;
+    -moz-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width:768px) {
+    .contents-overview .view-content {
+        margin-left: -10px;
+        margin-right: -10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 0;
+    }
+}
+
+.contents-overview .view-content>.views-row {
+    width: 32%;
+    margin-right: 1.95%;
+    padding: 0 20px 20px 20px;
+    margin-bottom: 25px;
+    background-color: #ffffff;
+    -webkit-box-shadow: 2px 1px 4px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 2px 1px 4px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 1px 4px 0px rgba(0, 0, 0, 0.2);
+    line-height: normal;
+    font-size: 13px;
+    border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    -khtml-border-radius: 4px 4px 4px 4px;
+    overflow: hidden;
+}
+
+@media screen and (max-width:768px) {
+    .contents-overview .view-content>.views-row {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+.contents-overview .view-content>.views-row:nth-child(3n+3) {
+    margin-right: 0;
+}
+
+.contents-overview .view-content .views-field-field-image {
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+.contents-overview .view-content .views-field-field-image img {
+    width: 100%;
+}
+
+.contents-overview .view-content h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #00843d;
+    line-height: normal;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.contents-overview .view-content .views-field-field-section {
+    font-style: italic;
+    color: #a5a5a5;
+}
+
+.contents-overview .view-content .views-field-taxonomy-vocabulary-4 {
+    font-size: 13px;
+    color: #00843d;
+    margin-bottom: 30px;
+}
+
+.contents-overview .view-content .views-field-taxonomy-vocabulary-1 {
+    float: left;
+}
+
+.contents-overview .view-content .views-field-taxonomy-vocabulary-1 .views-label-taxonomy-vocabulary-1 {
+    font-style: italic;
+    color: #a5a5a5;
+}
+
+.contents-overview .view-content .views-field-taxonomy-vocabulary-1 .field-content {
+    color: #00843d;
+    font-weight: bold;
+}
+
+.contents-overview .view-content .views-field-created,
+.contents-overview .view-content .blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item .views-field-comment-count,
+.blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item .contents-overview .view-content .views-field-comment-count {
+    float: right;
+}
+
+.contents-overview .view-content .views-field-created .views-label-created,
+.contents-overview .view-content .blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item .views-field-comment-count .views-label-created,
+.blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item .contents-overview .view-content .views-field-comment-count .views-label-created {
+    font-style: italic;
+    color: #a5a5a5;
+}
+
+.contents-overview .view-content .views-field-created .field-content,
+.contents-overview .view-content .blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item .views-field-comment-count .field-content,
+.blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item .contents-overview .view-content .views-field-comment-count .field-content {
+    color: #00843d;
+    font-weight: bold;
+}
+
+.contents-overview .view-content .views-field-created span,
+.contents-overview .view-content .blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item .views-field-comment-count span,
+.blog-view .views_slideshow_cycle_main .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row .views-slideshow-cycle-main-frame-row-item .contents-overview .view-content .views-field-comment-count span {
+    display: block;
+}
+
+.contents-overview .view-content .views-field-value {
+    clear: both;
+    margin-top: 20px;
+    padding-top: 1px;
+}
+
+.contents-overview .view-content .views-field-value .rate-widget {
+    width: 100%;
+}
+
+.contents-overview .view-content .views-field-value .rate-info {
+    font-style: italic;
+    color: #a5a5a5;
+    font-size: 11px;
+}
+
+#footer {
+    width: 100%;
+    background-color: #00843d;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width:767px) {
+    #footer {
+        padding: 0;
+    }
+}
+
+#footer .footer__wrapper {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+#footer .footer__wrapper>div {
+    float: left;
+    padding: 0 10px;
+}
+
+@media screen and (max-width:767px) {
+    #footer .footer__wrapper>div {
+        padding: 0;
+    }
+}
+
+#footer .footer__wrapper .backToTop {
+    display: none;
+}
+
+@media screen and (max-width:768px) {
+    #footer .footer__wrapper .backToTop {
+        display: block;
+        color: #ffffff;
+        font-size: 14px;
+        text-align: center;
+        background-color: #006747;
+        margin: 12px 6px;
+        padding: 10px 0;
+    }
+}
+
+#footer .footer__wrapper .backToTop:after {
+    content: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-backTop.png);
+    position: absolute;
+    margin-top: 4px;
+    margin-left: 8px;
+}
+
+#footer #block-menu-menu-follow-us {
+    width: 27%;
+    padding-left: 140px;
+    padding-top: 25px;
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/bc_logo.png) left 30px no-repeat #00843d;
+}
+
+@media screen and (max-width:1024px) {
+    #footer #block-menu-menu-follow-us {
+        padding-left: 0;
+        padding-top: 100px;
+        width: 18%;
+    }
+}
+
+@media screen and (max-width:767px) {
+    #footer #block-menu-menu-follow-us {
+        width: 100%;
+        height: auto;
+        background: none;
+        padding-left: 0;
+        padding-top: 40px;
+        margin-bottom: 0;
+    }
+    #footer #block-menu-menu-follow-us h2.block__title {
+        display: none;
+    }
+}
+
+#footer #block-menu-menu-follow-us h2.block__title {
+    font-size: 14px;
+}
+
+#footer #block-menu-menu-follow-us ul.menu {
+    padding: 0;
+    margin: 0;
+}
+
+#footer #block-menu-menu-follow-us ul.menu li {
+    list-style-image: none;
+    list-style-type: none;
+    color: #ffffff;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width:767px) {
+    #footer #block-menu-menu-follow-us ul.menu li {
+        float: left;
+        width: 50%;
+        margin: 0;
+        border-right: 1px solid #dbdbdb;
+        border-top: 1px solid #dbdbdb;
+    }
+}
+
+#footer #block-menu-menu-follow-us ul.menu li a {
+    padding-left: 40px;
+    display: block;
+}
+
+@media screen and (max-width:767px) {
+    #footer #block-menu-menu-follow-us ul.menu li a {
+        padding: 10px 0;
+        padding-left: 42%;
+    }
+}
+
+#footer #block-menu-menu-follow-us ul.menu .twi {
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-footer-twit.png) no-repeat;
+}
+
+#footer #block-menu-menu-follow-us ul.menu .facebook {
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-footer-fb.png) no-repeat;
+}
+
+#footer #block-menu-menu-follow-us ul.menu .rss {
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-footer-rss.png) no-repeat;
+}
+
+#footer #block-menu-menu-follow-us ul.menu .email {
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-footer-email.png) no-repeat;
+}
+
+#footer #block-menu-menu-follow-us ul.menu .weibo {
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-footer-weibo.png) no-repeat;
+}
+
+#footer #block-menu-menu-follow-us ul.menu .qq {
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/icon-footer-qq.png) no-repeat;
+}
+
+#footer #block-menu-menu-follow-us ul.menu .qrcode {
+    background: url(/wp-content/themes/britishcouncil/sites/podcasts/themes/le7/images/footer_qr_code.png) no-repeat;
+    text-indent: -9999px;
+    height: 106px;
+}
+
+@media screen and (max-width:767px) {
+    #footer #block-menu-menu-follow-us ul.menu li:nth-child(even) {
+        border-right: none;
+    }
+    #footer #block-menu-menu-follow-us ul.menu .twi,
+    #footer #block-menu-menu-follow-us ul.menu .facebook,
+    #footer #block-menu-menu-follow-us ul.menu .rss,
+    #footer #block-menu-menu-follow-us ul.menu .email,
+    #footer #block-menu-menu-follow-us ul.menu .weibo,
+    #footer #block-menu-menu-follow-us ul.menu .qq {
+        background-position: 25% center;
+    }
+    #footer #block-menu-menu-follow-us ul.menu .qrcode {
+        background-position: center;
+    }
+}
+
+@media screen and (max-width:768px) {
+    #footer #block-menu-menu-follow-us:before {
+        content: "Follow us";
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        margin-top: -30px;
+    }
+}
+
+#footer #block-menu-block-1 {
+    width: 73%;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    margin-bottom: 0;
+    border-left: 1px solid #dbdbdb;
+}
+
+@media screen and (max-width:1024px) {
+    #footer #block-menu-block-1 {
+        width: 82%;
+    }
+}
+
+@media screen and (max-width:767px) {
+    #footer #block-menu-block-1 {
+        display: none;
+    }
+}
+
+#footer #block-menu-block-1 .menu-block-wrapper>ul.menu>li.first {
+    display: none;
+}
+
+#footer #block-menu-block-1 .menu-block-wrapper>ul.menu>li {
+    float: left;
+    padding-top: 10px;
+    padding-left: 1%;
+    width: 32.3%;
+    min-height: 130px;
+}
+
+#footer #block-menu-block-1 ul.menu {
+    margin: 0;
+    padding: 0;
+}
+
+#footer #block-menu-block-1 ul.menu li {
+    list-style-image: none;
+    list-style-type: none;
+}
+
+#footer #block-menu-block-1 ul.menu li ul.menu li {
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 16px;
+    margin-top: 7px;
+    color: #ffffff;
+}
+
+.region-bottom-bg {
+    width: 100%;
+    background-color: #00843d;
+    border-top: 1px solid #dbdbdb;
+    padding: 10px;
+    padding-top: 15px;
+}
+
+@media screen and (max-width 767px) {
+    .region-bottom-bg {
+        border-top: none;
+        padding: 0;
+    }
+}
+
+.region-bottom {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+@media screen and (max-width:768px) {
+    .region-bottom {
+        padding-bottom: 80px;
+        background-position: center bottom;
+    }
+}
+
+.region-bottom .block {
+    margin: 0;
+}
+
+.region-bottom ul.menu {
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+@media screen and (max-width:767px) {
+    .region-bottom ul.menu {
+        padding: 10px 0;
+    }
+}
+
+.region-bottom ul.menu li {
+    list-style-image: none;
+    list-style-type: none;
+    float: left;
+    margin-right: 10px;
+}
+
+@media screen and (max-width:767px) {
+    .region-bottom ul.menu li {
+        float: none;
+        margin-right: 0;
+        text-align: center;
+        line-height: 30px;
+    }
+}
+
+.region-bottom #block-block-14,
+.region-bottom #block-block-15 {
+    clear: both;
+    color: #dbdbdb;
+    font-size: 11px;
+    line-height: 15px;
+}
+
+@media screen and (max-width:767px) {
+    .region-bottom #block-block-14,
+    .region-bottom #block-block-15 {
+        text-align: center;
+        padding-top: 15px;
+        border-top: 1px solid #dbdbdb;
+    }
+}
+
+.region-bottom #block-block-14 p,
+.region-bottom #block-block-15 p {
+    margin: 0;
+}

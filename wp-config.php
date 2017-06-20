@@ -20,8 +20,9 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-if($_SERVER["SERVER_NAME"]==="localhost") {
-	define('WP_SITEURL', 'http://localhost/wordpress');
+if($_SERVER["SERVER_NAME"]==="localhost" || $_SERVER['SERVER_ADDR']=='127.0.0.1') {
+	//define('WP_SITEURL', 'http://localhost/wordpress');
+	define('WP_SITEURL', 'http://wordpress.dev');
 	define('WP_HOME', WP_SITEURL);
 	define('DB_NAME', 'wordpress_origin');
 

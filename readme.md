@@ -1,32 +1,42 @@
 # Website Quiz english use wordpress
 
-## FGC Quiz plugin
+[1. fgc-quiz: - plugin use table to store data](#fgc-quiz)
+
+[2. fgc-quiz-custom-post: - Plugin use custom post type to store data](#fgc-quiz-custom-post)
+
+## fgc-quiz
+
+    Plugin use table to store data
 
 * Feature
 
-1. Manager class
-    1. List class
+1. Manager class: add, edit, delete Class
+    1. List class: List class in database, count number member in class. Link to view, edit, delete class
 
         ![Manager class](/wp-content/plugins/fgc-quiz/doc/images/Capture1.PNG)
 
-    1. View members in a class
+    1. View members in a class: allow remove user from class
 
         ![Manager class](/wp-content/plugins/fgc-quiz/doc/images/Capture2.PNG)
 
-    1. Edit a class
+    1. Edit a class: allow rename, public or private class.
 
         ![Manager class](/wp-content/plugins/fgc-quiz/doc/images/Capture3.PNG)
 
     1. Add a user to a class
 
+        ![Manager class](/wp-content/plugins/fgc-quiz/doc/images/add-member.PNG)
+
+        or
+
         ![Manager class](/wp-content/plugins/fgc-quiz/doc/images/user1.png)
 
-1. Manger timetable
-    1. List timetable
+1. Manger timetable: allow view, edit timetable of class
+    1. List timetable: see time update timetable. Link to view detail, edit.
 
         ![Manager class](/wp-content/plugins/fgc-quiz/doc/images/timetable1.PNG)
 
-    1. Edit timetable of a class
+    1. Edit timetable of a class: When edit timetable, if have different will save history of timetable.
 
         ![Manager class](/wp-content/plugins/fgc-quiz/doc/images/timetable2.PNG)
 
@@ -34,15 +44,19 @@
 
         ![Manager class](/wp-content/plugins/fgc-quiz/doc/images/timetable3.PNG)
 
-    1. List timetable in page or post
+    1. List timetable in page or post: use shortcode to insert timetable to post, page.
+
+        `[timetable]` : Auto show timetable by user class logged belong to. If is admin, show all timetable of classes.
+
+        `[timetable classname="A1"]` : Show timetable of class name: A1
 
         ![Manager class](/wp-content/plugins/fgc-quiz/doc/images/timetable4.PNG)
 
-    1. History changed timetable
+1. Manager game: use for insert game in post, page via shortcode.
 
-        ![Manager class](/wp-content/plugins/fgc-quiz/doc/images/timetable5.PNG)
+        `[game url="http://.../game.swf"]` : Insert game by url.
 
-1. Manager game (to use shortcode)
+        `[game id="1"]` : Insert game by id in database.
 
     1. List game
 
@@ -64,3 +78,22 @@
     1. If post or page set only for a class, other user in other class will cannot access that post / page
 
         ![Manager class](/wp-content/plugins/fgc-quiz/doc/images/post3.PNG)
+
+## fgc-quiz-custom-post
+
+    Plugin use custom post type to store data
+
+* Feature
+
+1. List class: add, edit, delete Class
+    1. List class
+
+        ![Manager class](/wp-content/plugins/fgc-quiz/doc/images/class-post1.PNG)
+
+    1. Add new class
+
+        ![Manager class](/wp-content/plugins/fgc-quiz/doc/images/class-post2.PNG)
+
+    1. Add, remove member from class (use ajax)
+
+        ![Manager class](/wp-content/plugins/fgc-quiz/doc/images/class-post3.PNG)
