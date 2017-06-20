@@ -1,8 +1,8 @@
 # Website Quiz english use wordpress
 
-[1. fgc-quiz: - plugin use table to store data](#fgc-quiz)
+[1. fgc-quiz: plugin use table to store data](#fgc-quiz)
 
-[2. fgc-quiz-custom-post: - Plugin use custom post type to store data](#fgc-quiz-custom-post)
+[2. fgc-quiz-custom-post: Plugin use custom post type to store data](#fgc-quiz-custom-post)
 
 ## fgc-quiz
 
