@@ -459,7 +459,8 @@
     <![endif]-->
 </head>
 
-<body class="html front not-logged-in one-sidebar sidebar-second i18n-en page-views">
+<!-- <body class="html front not-logged-in one-sidebar sidebar-second i18n-en page-views"> -->
+<body <?php body_class(); ?>>
     <p id="skip-link">
         <a href="#top-main" class="element-invisible element-focusable">Skip to main content</a>
     </p>

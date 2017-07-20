@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+  <title>Pusher Test</title>
+  <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+  <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        if (!Notification) {
+            alert('Trình duyệt của bạn không hỗ trợ chức năng này.'); 
+            return;
+        }
+        if (Notification.permission !== "granted")
+            Notification.requestPermission();
+    });
+  </script>
+  <script>
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('7e863eb7e72ea08042e2', {
+      cluster: 'ap1',
+      encrypted: true
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+      alert(data.message);
+    });
+  </script>
+</head>

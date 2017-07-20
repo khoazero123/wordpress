@@ -1,2 +1,3 @@
-<?php
-var_dump($_SERVER['SERVER_ADDR']);
+<?php 
+//echo rtrim(dirname($_SERVER['PHP_SELF']), '/\\') ;
+var_dump($_SERVER);

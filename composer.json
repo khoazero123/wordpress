@@ -1,0 +1,8 @@
+{
+    "require-dev": {
+        "lucatume/wp-browser": "^1.21"
+    },
+    "require": {
+        "pusher/pusher-php-server": "^3.0"
+    }
+}

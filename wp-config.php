@@ -20,49 +20,36 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
+
+
+if($_SERVER['SERVER_NAME']=='localhost') {
+	define('WP_SITEURL', 'http://localhost/wordpress');
+} else {
+	$path_root = str_replace('\\','/',$_SERVER['DOCUMENT_ROOT']);
+	$path_thisfile = str_replace('\\','/',__FILE__);
+	$parent_folder = str_replace($path_root,'',$path_thisfile);
+	$path = rtrim(dirname($parent_folder), '/\\');
+	define('WP_SITEURL', 'http://'.$_SERVER['SERVER_NAME'].$path);
+}
+define('WP_HOME', WP_SITEURL);
+
 if($_SERVER["SERVER_NAME"]==="localhost" || $_SERVER['SERVER_ADDR']=='127.0.0.1') {
-	//define('WP_SITEURL', 'http://localhost/wordpress');
-	define('WP_SITEURL', 'http://wordpress.dev');
-	define('WP_HOME', WP_SITEURL);
 	define('DB_NAME', 'wordpress_origin');
-
-	/** MySQL database username */
 	define('DB_USER', 'root');
-
-	/** MySQL database password */
 	define('DB_PASSWORD', '');
-
-	/** MySQL hostname */
 	define('DB_HOST', 'localhost');
 } elseif(strpos($_SERVER["SERVER_NAME"], 'megavn.net') !== false) {
-	define('WP_SITEURL', 'http://wordpress.megavn.net');
-	define('WP_HOME', WP_SITEURL);
 	define('DB_NAME', 'wordpress');
-
-	/** MySQL database username */
 	define('DB_USER', 'quiz');
-
-	/** MySQL database password */
 	define('DB_PASSWORD', '123456');
-
-	/** MySQL hostname */
 	define('DB_HOST', 'localhost');
 } else {
-	define('WP_SITEURL', 'https://fgcquiz.herokuapp.com');
-	define('WP_HOME', WP_SITEURL);
-	/** The name of the database for WordPress */
 	//define('DB_NAME', 'd8v202ntiov39f'); // psql
 	define('DB_NAME', 'heroku_d345e83fb3204bb'); // cleardb
-
-	/** MySQL database username */
 	//define('DB_USER', 'nxuqrnffdmrlhf'); // psql
 	define('DB_USER', 'b0f9023be667b4'); // cleardb
-
-	/** MySQL database password */
 	//define('DB_PASSWORD', 'bac61678c83f6737b5bcc36b6edb5a3b8c11b29d1efe09664a8a5b8c27111b04'); // psql
 	define('DB_PASSWORD', '87a70f51'); // cleardb
-
-	/** MySQL hostname */
 	//define('DB_HOST', 'ec2-50-19-218-160.compute-1.amazonaws.com:5432'); // psql
 	define('DB_HOST', 'us-cdbr-iron-east-03.cleardb.net');
 }
@@ -71,6 +58,8 @@ define('DB_CHARSET', 'utf8mb4');
 
 /** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '');
+
+define('FS_METHOD','direct'); // no use ftp to upload plugin
 
 /**#@+
  * Authentication Unique Keys and Salts.
